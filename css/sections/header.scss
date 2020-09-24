@@ -1,0 +1,170 @@
+.header {
+  &__top{
+    background-color: #f4f4f4;
+
+    .container{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__nav{
+    flex-grow: 1;
+    margin-right: 20px;
+  }
+
+  &__links{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+
+  &__link{
+    margin: 0 10px;
+  }
+
+  &__bottom{
+    padding-top: 40px;
+    padding-bottom: 60px;
+    .container{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  }
+
+  &__contacts{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__tel{
+    color: #242323;
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    @include tr;
+
+    &:hover{
+       color: #ff4a00;
+    }
+
+    svg{
+      margin-right: 10px;
+    }
+  }
+
+  &__time{
+    color: #7e7e7e;
+    font-size: 16px;
+  }
+
+}
+
+.hlink{
+  display: flex;
+  align-items: center;
+  color: #000000;
+  font-size: 18px;
+  font-weight: 600;
+  stroke: #000000;
+  padding: 18px 0;
+  @include tr;
+
+  &:hover{
+    color: #ff4a00;
+    stroke:#ff4a00;
+  }
+
+  &__icon{
+    position: relative;
+    margin-right: 16px;
+
+    svg{
+      display: block;
+    }
+  }
+
+  &__count{
+    position: absolute;
+    top: -8px;
+    right: -12px;
+
+    width: 22px;
+    height: 22px;
+    background-color: #27ae60;
+    border-radius: 50%;
+
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 500;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+}
+
+.hcity{
+
+  &__top{
+    display: flex;
+  }
+
+  &__icon{
+    margin-right: 15px;
+  }
+
+  &__wrap{
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__btn{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  &__city{
+    color: #242323;
+    font-size: 20px;
+    font-weight: 600;
+    margin-right: 10px;
+  }
+
+  &__txt{
+    max-width: 175px;
+    color: #7e7e7e;
+    font-size: 16px;
+  }
+
+
+}
+
+.hlogo{
+
+}
+
+.hnav{
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -10px;
+  margin-right: -10px;
+
+  &__item {
+    padding: 20px 0;
+    margin: 0 10px;
+    color: #7e7e7e;
+    font-size: 16px;
+    font-weight: 500;
+    @include tr;
+  }
+}

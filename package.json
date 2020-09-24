@@ -1,0 +1,13 @@
+{
+  "name": "prepros-project",
+  "version": "1.0.0",
+  "description": "This is a dummy package.json file created by Prepros to manage packages with NPM. You can edit this file to add your own information.",
+  "dependencies": {
+    "jquery": "^3.5.1",
+    "jquery.maskedinput": "^1.4.1",
+    "normalize.css": "^8.0.1",
+    "smart-grid": "^2.1.2",
+    "swiper": "^6.2.0"
+  },
+  "devDependencies": {}
+}

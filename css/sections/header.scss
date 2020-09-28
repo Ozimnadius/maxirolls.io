@@ -1,24 +1,28 @@
 .header {
+  padding-top: 62px;
   &__top{
     background-color: #f4f4f4;
-
-    .container{
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    right: 0;
+    top: 0;
   }
 
+
   &__nav{
-    flex-grow: 1;
-    margin-right: 20px;
+    @include col;
+    @include size(18);
   }
 
   &__links{
+    @include col;
+    @include size(6);
     display: flex;
     flex-wrap: wrap;
-    margin-left: -10px;
-    margin-right: -10px;
+    //margin-left: -10px;
+    //margin-right: -10px;
+    justify-content: flex-end;
   }
 
   &__link{
@@ -115,6 +119,22 @@
 
   &__top{
     display: flex;
+    color: #242323;
+    @include tr;
+
+
+
+    &:hover{
+      color: $or;
+      svg{
+        fill: $or;
+      }
+    }
+
+    svg{
+      fill: #242323;
+      @include tr;
+    }
   }
 
   &__icon{
@@ -134,7 +154,6 @@
   }
 
   &__city{
-    color: #242323;
     font-size: 20px;
     font-weight: 600;
     margin-right: 10px;
@@ -154,17 +173,19 @@
 }
 
 .hnav{
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: -10px;
-  margin-right: -10px;
+
 
   &__item {
     padding: 20px 0;
-    margin: 0 10px;
     color: #7e7e7e;
     font-size: 16px;
     font-weight: 500;
+    box-sizing: border-box;
+    width: auto;
     @include tr;
+
+    &:hover{
+      color: $or;
+    }
   }
 }

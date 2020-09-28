@@ -12,6 +12,7 @@ html {
   font-size: $font-size;
   line-height: 1.42;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 ;
 }
 
@@ -45,7 +46,6 @@ body {
 .page {
   grid-area: content;
 }
-
 
 
 .footer {
@@ -98,3 +98,5 @@ input,textarea{
   outline: none;
   font: inherit;
 }
+
+@include headers;

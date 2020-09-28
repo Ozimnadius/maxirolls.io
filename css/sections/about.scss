@@ -1,0 +1,13 @@
+.about{
+  padding-bottom: 120px;
+
+  &__title{
+    margin-bottom: 40px;
+  }
+
+  &__content{
+    @include col;
+    @include size(16);
+    @include shift(4);
+  }
+}

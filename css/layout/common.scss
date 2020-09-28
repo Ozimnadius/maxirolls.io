@@ -1,3 +1,30 @@
-.button {
+.btn {
+  width: 111px;
+  height: 39px;
+  border-radius: 10px;
+  border: 1px solid $or;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
+  color: $or;
+  font-family: Gilroy;
+  font-size: 14px;
+  font-weight: 400;
+  @include tr;
+
+  &:hover{
+    background-color: $hover;
+    border-color: $hover;
+    color: $bg;
+  }
+}
+
+.title{
+  color: #000000;
+  font-family: Gilroy;
+  font-size: 45px;
+  font-weight: 700;
+  margin-bottom: 55px;
+  text-align: center;
 }

@@ -12,6 +12,8 @@ $grey-new: #e5e5e5;
 $new-yellow: #ffdd2d;
 $gray-line: #dbdbdb;
 $black: #1f1f1f;
+$or: #ff4a00;
+$hover: #D96334;
 
 //another
 $font-size: 14px;
@@ -25,6 +27,12 @@ $font-size: 14px;
 
 //sections
 @import "sections/header";
+@import "sections/index";
+@import "sections/food";
+@import "sections/actions";
+@import "sections/about";
+@import "sections/contacts";
+@import "sections/basket";
 @import "sections/footer";
 
 

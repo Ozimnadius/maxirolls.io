@@ -20,6 +20,57 @@
   }
 }
 
+.btn2{
+  width: 238px;
+  height: 50px;
+  border-radius: 10px;
+  border: 1px solid $gray-line;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  color: #6b6b6b;
+  font-family: Gilroy;
+  font-size: 16px;
+  font-weight: 600;
+  fill: #6b6b6b;
+  @include tr;
+
+  svg{
+    margin-right: 15px;
+  }
+
+  &:hover{
+    color: $or;
+    border-color: $or;
+    fill: $or;
+  }
+}
+
+.btn3{
+  width: 211px;
+  height: 50px;
+  border-radius: 10px;
+  border: 1px solid $or;
+  background-color: $or;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  color: $bg;
+  font-family: Gilroy;
+  font-size: 16px;
+  font-weight: 600;
+  fill: $bg;
+  @include tr;
+
+  &:hover{
+    background-color: $hover;
+  }
+}
+
 .title{
   color: #000000;
   font-family: Gilroy;
@@ -27,4 +78,83 @@
   font-weight: 700;
   margin-bottom: 55px;
   text-align: center;
+}
+
+.count {
+  height: 50px;
+  border-radius: 10px;
+  border: 1px solid $border;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+
+  &__btn {
+    min-width: 25px;
+    width: 25px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    color: #000000;
+    font-size: 20px;
+    @include tr;
+
+    &:hover {
+      color: $or;
+    }
+  }
+
+  &__minus {
+    left: 0;
+  }
+
+  &__plus {
+    right: 0;
+  }
+
+  &__input {
+    width: 100%;
+    appearance: none;
+    text-align: center;
+    padding: 0 25px;
+    -moz-appearance: textfield;
+
+    color: #000000;
+    font-size: 16px;
+    font-weight: 600;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+  }
+}
+
+.input{
+  height: 50px;
+  border-radius: 10px;
+  border: 1px solid $gray-line;
+  padding: 8px 20px;
+
+}
+
+.socials{
+  display: flex;
+  align-items: center;
+  margin-left: -12px;
+  margin-right: -12px;
+}
+
+.social{
+  fill: $icon;
+  margin: 0 12px;
+  @include tr;
+
+  &:hover{
+    fill: $or;
+  }
+
+  svg{
+    display: block;
+  }
 }

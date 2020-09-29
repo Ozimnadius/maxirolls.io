@@ -1,6 +1,12 @@
 .header {
   padding-top: 62px;
-  &__top{
+
+  &_basket {
+    padding-top: 0;
+    border-bottom: 1px solid $gray-line;
+  }
+
+  &__top {
     background-color: #f4f4f4;
     position: fixed;
     z-index: 100;
@@ -9,13 +15,12 @@
     top: 0;
   }
 
-
-  &__nav{
+  &__nav {
     @include col;
     @include size(18);
   }
 
-  &__links{
+  &__links {
     @include col;
     @include size(6);
     display: flex;
@@ -25,27 +30,28 @@
     justify-content: flex-end;
   }
 
-  &__link{
+  &__link {
     margin: 0 10px;
   }
 
-  &__bottom{
+  &__bottom {
     padding-top: 40px;
     padding-bottom: 60px;
-    .container{
+
+    .container {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
     }
   }
 
-  &__contacts{
+  &__contacts {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
-  &__tel{
+  &__tel {
     color: #242323;
     font-size: 20px;
     font-weight: 600;
@@ -54,23 +60,30 @@
     margin-bottom: 10px;
     @include tr;
 
-    &:hover{
-       color: #ff4a00;
+    &:hover {
+      color: #ff4a00;
     }
 
-    svg{
+    svg {
       margin-right: 10px;
     }
   }
 
-  &__time{
+  &__time {
     color: #7e7e7e;
     font-size: 16px;
   }
 
+  &__basket {
+    padding: 30px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
 }
 
-.hlink{
+.hlink {
   display: flex;
   align-items: center;
   color: #000000;
@@ -80,21 +93,21 @@
   padding: 18px 0;
   @include tr;
 
-  &:hover{
+  &:hover {
     color: #ff4a00;
-    stroke:#ff4a00;
+    stroke: #ff4a00;
   }
 
-  &__icon{
+  &__icon {
     position: relative;
     margin-right: 16px;
 
-    svg{
+    svg {
       display: block;
     }
   }
 
-  &__count{
+  &__count {
     position: absolute;
     top: -8px;
     right: -12px;
@@ -115,51 +128,51 @@
 
 }
 
-.hcity{
+.hcity {
 
-  &__top{
+  &__top {
     display: flex;
     color: #242323;
     @include tr;
 
 
-
-    &:hover{
+    &:hover {
       color: $or;
-      svg{
+
+      svg {
         fill: $or;
       }
     }
 
-    svg{
+    svg {
       fill: #242323;
       @include tr;
     }
   }
 
-  &__icon{
+  &__icon {
     margin-right: 15px;
   }
 
-  &__wrap{
+  &__wrap {
     display: flex;
     flex-direction: column;
   }
 
-  &__btn{
+  &__btn {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     margin-bottom: 10px;
   }
 
-  &__city{
+  &__city {
     font-size: 20px;
     font-weight: 600;
     margin-right: 10px;
   }
 
-  &__txt{
+  &__txt {
     max-width: 175px;
     color: #7e7e7e;
     font-size: 16px;
@@ -168,11 +181,11 @@
 
 }
 
-.hlogo{
+.hlogo {
 
 }
 
-.hnav{
+.hnav {
 
 
   &__item {
@@ -184,7 +197,7 @@
     width: auto;
     @include tr;
 
-    &:hover{
+    &:hover {
       color: $or;
     }
   }

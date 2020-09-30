@@ -1,0 +1,311 @@
+.order {
+  padding-top: 70px;
+  padding-bottom: 140px;
+
+  &__title {
+    color: $black;
+    margin-bottom: 45px;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 9fr 4fr;
+    grid-gap: 0 110px;
+  }
+
+  &__contacts {
+    margin-bottom: 55px;
+  }
+
+  &__sub {
+    color: $black;
+    font-size: 30px;
+    font-weight: 500;
+  }
+
+  &__promo {
+    margin-bottom: 75px;
+
+    .bpromo {
+      grid-gap: 0 25px;
+      padding: 35px 0;
+
+      &__right {
+        grid-gap: 0 25px;
+      }
+    }
+  }
+
+  &__subtop {
+    padding-top: 0;
+  }
+
+  &__pay{
+    margin-bottom: 45px;
+  }
+
+  &__accept{
+    padding: 0 50px;
+    margin-bottom: 50px;
+  }
+
+  &__btns{
+    padding: 0 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__back{
+    width: 213px;
+  }
+
+  &__submit{
+    width: 240px;
+  }
+
+
+}
+
+.ocontacts {
+
+  &__title {
+    margin-bottom: 50px;
+  }
+
+}
+
+.ocontact {
+  display: grid;
+  grid-template-columns: 2fr 6fr;
+  grid-gap: 0 20px;
+  align-items: flex-start;
+  margin-bottom: 20px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &__title {
+    color: #242323;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 50px;
+
+    display: flex;
+    align-items: center;
+  }
+
+  &__info {
+    width: 24px;
+    height: 24px;
+    border: 1px solid #c2c2c2;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 50px;
+    margin-left: 5px;
+  }
+
+  &__row {
+    @include row-flex;
+  }
+
+  &__col {
+    @include col;
+    @include size(7);
+    position: relative;
+
+    &_2 {
+      @include size(17);
+    }
+
+    &_3 {
+      @include size(24);
+    }
+
+    &_time {
+      @include size(10);
+    }
+  }
+
+  &__send {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 157px;
+    border-radius: 0px 10px 10px 0px;
+  }
+
+  &__sms {
+    width: 100%;
+    height: 50px;
+  }
+
+
+}
+
+.opay {
+  border-radius: 10px;
+  background-color: #f4f4f4;
+  padding: 60px 80px 60px 50px;
+
+  &__title {
+    margin-bottom: 30px;
+  }
+
+  &__item {
+    margin-bottom: 25px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &-bottom {
+      margin-top: 20px;
+    }
+  }
+}
+
+.ocard {
+  display: grid;
+  grid-template-columns: 327fr 245fr;
+  grid-gap: 0 30px;
+
+  .card-wrapper{
+    display: none;
+  }
+
+  .row {
+    margin-left: -7.5px;
+    margin-right: -7.5px;
+    margin-bottom: -20px;
+  }
+
+  &__col {
+    @include col;
+    margin-left: 7.5px;
+    margin-right: 7.5px;
+    width: calc(100% - 15px);
+    margin-bottom: 20px;
+  }
+
+  &__period {
+    width: calc(60% - 15px);
+  }
+
+  &__cvc {
+    width: calc(40% - 15px);
+    position: relative;
+
+    svg {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      margin-top: -8px;
+    }
+
+    input {
+      padding-right: 45px;
+    }
+  }
+
+  &__accept {
+    margin-top: 30px;
+  }
+
+  &__txt {
+    color: #000000;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 1.39;
+    margin-top: 12px;
+  }
+
+
+}
+
+.oaccept {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.ocash {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-left: 35px;
+
+  &__title {
+    max-width: 135px;
+    margin-right: 45px;
+    color: $black;
+
+  }
+
+  &__price {
+    width: 115px;
+    margin-right: 30px;
+    position: relative;
+
+    &-cur {
+      color: $black;
+      font-size: 16px;
+      font-weight: 600;
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  &__input {
+    padding-right: 33px;
+    color: $black;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: right;
+  }
+
+  &__label{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    color: $black;
+    font-family: Gilroy;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  &__checkbox{
+    display: none;
+    &:checked+.ocash__fake{
+      border: 2px solid #27ae60;
+      svg{
+        opacity: 1;
+      }
+    }
+  }
+
+  &__fake{
+    width: 26px;
+    height: 26px;
+    border-radius: 6px;
+    border: 1px solid $gray-line;
+    background-color: $bg;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    svg{
+      width: 20px;
+      height: 16px;
+      opacity: 0;
+      //@include tr;
+    }
+  }
+
+}

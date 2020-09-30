@@ -35,7 +35,6 @@ $(function () {
         checkBadd(item);
     });
 
-
     function checkBadd(item) {
         let minus = item.find('.badd__minus'),
             count = item.find('.badd__count-val'),
@@ -50,5 +49,32 @@ $(function () {
             countParent.removeClass('active');
         }
     }
+
+    $('.select').styler();
+
+    //ввод цифр в поля
+    $('.ocash__input').on('keypress', function (e) {
+        if (e.key.match(/[^0-9]/g) || (this.value == 0 && e.key == 0)) {
+            e.preventDefault();
+        }
+    });
+
+    $('.ocard').card({
+        // a selector or DOM element for the container
+        // where you want the card to appear
+        container: '.card-wrapper', // *required*
+
+        // all of the other options from above
+        formSelectors: {
+            numberInput: 'input[name="cardNumber"]', // optional — default input[name="number"]
+            nameInput: 'input[name="cardName"]', // optional — default input[name="number"]
+            expiryInput: 'input[name="cardPeriod"]', // optional — default input[name="expiry"]
+            cvcInput: 'input[name="cardCvc"]', // optional — default input[name="cvc"]
+        },
+        formatting: true, // optional - default true
+        // if true, will log helpful messages for setting up Card
+        debug: true // optional - default false
+    });
+
 
 });

@@ -88,14 +88,7 @@ block content
                     .basket__subtop
                         h3.basket__sub Промокод
                     .basket__promo
-                        .bpromo
-                            .bpromo__left
-                                input(type='text' name='promo' placeholder='Введите промокод').input.bpromo__input
-                                button(type='submit').btn.bpromo__submit Применить
-                            .bpromo__right
-                                .bpromo__socials
-                                    +socials()
-                                .bpromo__txt Следите за нами в социальных сетях, чтобы получить промокод
+                        +bpromo()
                     .basket__total
                         .btotal
                             .btotal__item.btotal__item_b

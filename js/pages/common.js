@@ -32,3 +32,6 @@ function imageResize(src) {
 // imageResize('https://loremflickr.com/320/440');
 
 const wWidth = $(window).width();
+
+
+

@@ -204,6 +204,31 @@ block content
                         button(type='submit').order__submit.btn3 Оформить заказ
 
                 .order__left
+                    .olist
+                        h3.olist__title Ваш заказ
+                        .olist__items
+                            each i in orderList
+                                .olist__item.olitem
+                                    .olitem__top
+                                        .olitem__title= i.title
+                                        .olitem__price 360 ₽
+                                    .olitem__bottom.content
+                                        if i.list
+                                            ul.olitem__ul
+                                                each li in i.list
+                                                    li.olitem__li= li
+                                        else
+                                            .olitem__count 1 шт
+                        .olist__totals
+                            .olist__total
+                                .olist__total-title Доставка
+                                .olist__total-price 500 ₽
+                            .olist__total
+                                .olist__total-title Сумма к оплате
+                                .olist__total-price 1200 ₽
+
+
+
 
 
 

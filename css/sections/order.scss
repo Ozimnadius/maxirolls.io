@@ -9,8 +9,12 @@
 
   &__grid {
     display: grid;
-    grid-template-columns: 9fr 4fr;
-    grid-gap: 0 110px;
+    grid-template-columns: 9fr 4.3fr;
+    grid-gap: 0 80px;
+  }
+
+  &__left{
+    padding-top: 85px;
   }
 
   &__contacts {
@@ -308,4 +312,76 @@
     }
   }
 
+}
+
+.olist{
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  background-color: $bg;
+  padding: 40px;
+  padding-left: 30px;
+  color: $black;
+
+  &__title{
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 30px;
+  }
+
+  &__items{
+    margin-bottom: 45px;
+  }
+
+  &__item{
+    margin-bottom: 16px;
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+
+  &__total{
+    color: $black;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    &:last-child{
+      margin-bottom: 0;
+    }
+
+    &-title{
+      margin-right: 20px;
+    }
+
+    &-price{
+      font-size: 16px;
+      font-weight: 600;
+    }
+  }
+}
+
+.olitem{
+
+  &__top{
+    margin-bottom: 5px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  &__title{
+    margin-right: 50px;
+  }
+
+  &__price{
+    font-size: 16px;
+    white-space: nowrap;
+  }
+
+  .content ul{
+    margin: 0;
+    font-size: 12px;
+    color: $black;
+    font-weight: 300;
+  }
 }

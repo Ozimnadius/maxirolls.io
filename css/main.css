@@ -641,6 +641,7 @@ h6 {
 }
 .accept__fake svg {
   opacity: 0;
+  display: block;
 }
 
 .header {
@@ -1750,8 +1751,11 @@ h6 {
 }
 .order__grid {
   display: grid;
-  grid-template-columns: 9fr 4fr;
-  grid-gap: 0 110px;
+  grid-template-columns: 9fr 4.3fr;
+  grid-gap: 0 80px;
+}
+.order__left {
+  padding-top: 85px;
 }
 .order__contacts {
   margin-bottom: 55px;
@@ -2001,6 +2005,66 @@ h6 {
   width: 20px;
   height: 16px;
   opacity: 0;
+}
+
+.olist {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  background-color: #ffffff;
+  padding: 40px;
+  padding-left: 30px;
+  color: #1f1f1f;
+}
+.olist__title {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+.olist__items {
+  margin-bottom: 45px;
+}
+.olist__item {
+  margin-bottom: 16px;
+}
+.olist__item:last-child {
+  margin-bottom: 0;
+}
+.olist__total {
+  color: #1f1f1f;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.olist__total:last-child {
+  margin-bottom: 0;
+}
+.olist__total-title {
+  margin-right: 20px;
+}
+.olist__total-price {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.olitem__top {
+  margin-bottom: 5px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.olitem__title {
+  margin-right: 50px;
+}
+.olitem__price {
+  font-size: 16px;
+  white-space: nowrap;
+}
+.olitem .content ul {
+  margin: 0;
+  font-size: 12px;
+  color: #1f1f1f;
+  font-weight: 300;
 }
 
 .footer__grid {

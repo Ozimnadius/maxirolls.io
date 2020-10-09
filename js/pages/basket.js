@@ -76,5 +76,15 @@ $(function () {
         debug: true // optional - default false
     });
 
+    $('.input__edit').on('click', function (e) {
+        e.preventDefault();
+        $(this).prev().attr('readonly', false);
+    });
+
+    $('.jsAccountEditContacts').on('click', function (e) {
+        e.preventDefault();
+        $('.account__contacts').attr('disabled',false);
+        $('.acblock__save').addClass('active');
+    });
 
 });

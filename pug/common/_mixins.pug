@@ -68,3 +68,64 @@ mixin bpromo()
             .bpromo__socials
                 +socials()
             .bpromo__txt Следите за нами в социальных сетях, чтобы получить промокод
+
+mixin cinfo()
+    .cinfo
+        .cinfo__left
+            h3.cinfo__title Текущий заказ № 474
+            .cinfo__addr г. Нефеткамск, ул. Ленина 20/14
+            .cinfo__date 26 июля 2020, 19:00
+        .cinfo__right
+            .cinfo__time
+                <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M28.5624 25.0632L22.8458 20.7758V12.0424C22.8458 11.1642 22.136 10.4544 21.2579 10.4544C20.3797 10.4544 19.6699 11.1642 19.6699 12.0424V21.5699C19.6699 22.0701 19.905 22.5417 20.3051 22.8403L26.6567 27.604C26.9425 27.8184 27.2761 27.9216 27.6079 27.9216C28.0922 27.9216 28.5686 27.704 28.8799 27.2848C29.4072 26.5845 29.2642 25.5889 28.5624 25.0632Z" fill="#FFC000"/>
+                <path d="M21.2578 0.942871C9.95342 0.942871 0.757812 10.1385 0.757812 21.4429C0.757812 32.7473 9.95342 41.9429 21.2578 41.9429C32.5622 41.9429 41.7578 32.7473 41.7578 21.4429C41.7578 10.1385 32.5622 0.942871 21.2578 0.942871ZM21.2578 38.7671C11.7065 38.7671 3.93363 30.9942 3.93363 21.4429C3.93363 11.8916 11.7065 4.11869 21.2578 4.11869C30.8107 4.11869 38.582 11.8916 38.582 21.4429C38.582 30.9942 30.8091 38.7671 21.2578 38.7671Z" fill="#FFC000"/>
+                </svg>
+                | Заказ будет
+                br
+                | готов в 19:30*
+
+mixin clist()
+    .clist
+        each i in infoList
+            .clist__item
+                .clitem
+                    .clitem__img
+                        +image(i.src)
+                    .clitem__desc
+                        .clitem__title= i.title
+                        if i.chars
+                            .clitem__chars= i.chars
+                        else
+                            .clitem__chars 1050 гр |  28 шт
+                    .clitem__prices
+                        if i.priceold
+                            .clitem__priceold= i.priceold
+                            .clitem__price.clitem__price_n= i.price
+                        else
+                            .clitem__price= i.price
+
+mixin btotal()
+    .btotal
+        .btotal__item.btotal__item_b
+            .btotal__item-name Общая сумма
+            .btotal__item-val.btotal__item-val_or 1 360 ₽
+        .btotal__item.btotal__item_m
+            .btotal__item-name Вы сэкономили
+            .btotal__item-val 200 ₽
+        .btotal__item
+            .btotal__item-name Заказ
+            .btotal__item-val 1 000 ₽
+        .btotal__item
+            .btotal__item-name Доставка
+            .btotal__item-val 360 ₽
+
+
+mixin current()
+    .current
+        .current__info
+            +cinfo()
+        .current__list
+            +clist()
+        .current__total
+            +btotal()

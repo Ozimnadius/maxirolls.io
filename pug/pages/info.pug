@@ -1,0 +1,41 @@
+extends ../main
+
+block variables
+    - var title = 'Maxirolls'
+    - var basketHeader = true
+
+block content
+    main.basket.info
+        .container
+            .row
+                .basket__wrap
+                    h1.basket__title.info__title Спасибо, Александр!
+                    .info__subtitle Ваш заказ скоро будет готов!
+                    .info__about
+                        .inf-about
+                            each i in infoAbout
+                                .inf-about__item
+                                    .inf-about__name= i.name
+                                    .inf-about__val= i.val
+                    .info__order
+                        +current()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

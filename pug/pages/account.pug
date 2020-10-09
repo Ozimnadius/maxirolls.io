@@ -1,0 +1,146 @@
+extends ../main
+
+block variables
+    - var title = 'Maxirolls'
+    - var basketHeader = false
+
+block content
+    main.account
+        .container
+            h1.account__title Личный кабинет
+            .row
+                .account__left
+                    .account__block
+                        form.acblock.acblock_grey
+                            .acblock__top
+                                .acblock__title Контактные данные
+                                button(type='button').acblock__edit.jsAccountEditContacts
+                                    <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M17.1158 10.0002C16.7213 10.0002 16.4016 10.32 16.4016 10.7145V17.8572C16.4016 18.2517 16.0818 18.5715 15.6873 18.5715H2.83033C2.43583 18.5715 2.11604 18.2517 2.11604 17.8572V3.57172C2.11604 3.17722 2.43583 2.85743 2.83033 2.85743H11.4016C11.7961 2.85743 12.1159 2.53764 12.1159 2.14314C12.1159 1.74864 11.7961 1.42889 11.4016 1.42889H2.83033C1.64688 1.42889 0.6875 2.38827 0.6875 3.57172V17.8572C0.6875 19.0407 1.64688 20.0001 2.83033 20.0001H15.6873C16.8708 20.0001 17.8301 19.0407 17.8301 17.8572V10.7145C17.8301 10.32 17.5103 10.0002 17.1158 10.0002Z" fill="#FF4A00"/>
+                                    <path d="M19.886 0.801282C19.3731 0.288343 18.6775 0.000232772 17.9522 0.000316476C17.2264 -0.00177613 16.5301 0.286836 16.0186 0.801743L6.61014 10.2094C6.53208 10.2881 6.4732 10.3837 6.438 10.4887L5.00946 14.7744C4.88478 15.1487 5.08714 15.5531 5.46142 15.6777C5.53403 15.7019 5.61008 15.7143 5.68659 15.7144C5.76326 15.7142 5.83947 15.7019 5.91229 15.678L10.198 14.2494C10.3032 14.2143 10.3988 14.1551 10.4772 14.0766L19.8857 4.66813C20.9535 3.60039 20.9537 1.86914 19.886 0.801282ZM18.8757 3.65882L9.5901 12.9444L6.81584 13.8708L7.73939 11.1001L17.0286 1.81456C17.5392 1.30489 18.3665 1.30573 18.8761 1.81641C19.1196 2.06036 19.2568 2.39062 19.2578 2.73527C19.2587 3.08176 19.1211 3.41424 18.8757 3.65882Z" fill="#FF4A00"/>
+                                    </svg>
+                            .acblock__bottom
+                                fieldset(disabled=true).account__contacts
+                                    label.account__contact
+                                        |Имя:
+                                        input(type='text' name='accountName' value='Александр')
+                                    label.account__contact
+                                        |Дата рождения:
+                                        input(type='text' name='accountDate' value='02.02.1982')
+                                    label.account__contact
+                                        |Телефон:
+                                        input(type='tel' name='accountTel' value='+7 999 999 99 99' )
+                                    label.account__contact
+                                        |Эл. почта:
+                                        input(type='email' name='accountEmail' value='alex@gmail.com')
+                                .acblock__btns
+                                    button(type='submit').acblock__exit.acblock__save.btn3 Сохранить
+                                    a(href='/').acblock__exit.btn2 Выйти
+
+
+                    .account__block
+                        form.acblock
+                            .acblock__top
+                                .acblock__title Мои адреса
+                                button(type='button').acblock__edit.jsAccountEditAddrs
+                                    <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M17.1158 10.0002C16.7213 10.0002 16.4016 10.32 16.4016 10.7145V17.8572C16.4016 18.2517 16.0818 18.5715 15.6873 18.5715H2.83033C2.43583 18.5715 2.11604 18.2517 2.11604 17.8572V3.57172C2.11604 3.17722 2.43583 2.85743 2.83033 2.85743H11.4016C11.7961 2.85743 12.1159 2.53764 12.1159 2.14314C12.1159 1.74864 11.7961 1.42889 11.4016 1.42889H2.83033C1.64688 1.42889 0.6875 2.38827 0.6875 3.57172V17.8572C0.6875 19.0407 1.64688 20.0001 2.83033 20.0001H15.6873C16.8708 20.0001 17.8301 19.0407 17.8301 17.8572V10.7145C17.8301 10.32 17.5103 10.0002 17.1158 10.0002Z" fill="#FF4A00"/>
+                                    <path d="M19.886 0.801282C19.3731 0.288343 18.6775 0.000232772 17.9522 0.000316476C17.2264 -0.00177613 16.5301 0.286836 16.0186 0.801743L6.61014 10.2094C6.53208 10.2881 6.4732 10.3837 6.438 10.4887L5.00946 14.7744C4.88478 15.1487 5.08714 15.5531 5.46142 15.6777C5.53403 15.7019 5.61008 15.7143 5.68659 15.7144C5.76326 15.7142 5.83947 15.7019 5.91229 15.678L10.198 14.2494C10.3032 14.2143 10.3988 14.1551 10.4772 14.0766L19.8857 4.66813C20.9535 3.60039 20.9537 1.86914 19.886 0.801282ZM18.8757 3.65882L9.5901 12.9444L6.81584 13.8708L7.73939 11.1001L17.0286 1.81456C17.5392 1.30489 18.3665 1.30573 18.8761 1.81641C19.1196 2.06036 19.2568 2.39062 19.2578 2.73527C19.2587 3.08176 19.1211 3.41424 18.8757 3.65882Z" fill="#FF4A00"/>
+                                    </svg>
+                            .acblock__bottom
+                                .account__addrs
+                                    label.account__addr
+                                        input(type='radio' name='accountAddr' value='г. Нефтекамск, ул Ленина, 20, квартира 14' checked=true)
+                                        span.account__addr-fake
+                                        | г. Нефтекамск, ул Ленина, 20, квартира 14, подъезд 1...
+                                    label.account__addr
+                                        input(type='radio' name='accountAddr' value='г. Москва, ул Петровско Разумовская, 20')
+                                        span.account__addr-fake
+                                        | г. Москва, ул Петровско Разумовская, 20, квартира...
+                    .account__block
+                        form.acblock
+                            .acblock__top
+                                .acblock__title
+                                    |Бонусы и промокоды
+                            .acblock__bottom
+                                .acpromos
+                                    .acpromos__item.acpromo
+                                        .acpromo__top
+                                            .acpromo__name Ваш код
+                                            a(href='#').acpromo__info i
+                                        .acpromo__val 5050
+                                    .acpromos__item.acpromo
+                                        .acpromo__top
+                                            .acpromo__name Накопительные бонусы
+                                        .acpromo__val 1 360 Б
+                                    .acpromos__item.acpromo
+                                        .acpromo__top
+                                            .acpromo__name Доступный промокод
+                                        .acpromo__val MAXISTAYHOME
+
+
+
+
+                .account__right
+                    .account__current
+                        +current()
+                    .account__history
+                        h3.account__subtitle История заказов
+                        .account__orders
+                            .acorders
+                                each order in [1,2,3]
+                                    .acorder
+                                        .acorder__info
+                                            .acorder__left
+                                                .acorder__title Заказ №1024066
+                                                .acorder__desc
+                                                    .acorder__addr г. Нефеткамск, ул. Ленина 20/14
+                                                    .acorder__date 26 июля 2020, 19:00
+                                            .acorder__right
+                                                .acorder__status
+                                                    <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M1 4.11111L4.57143 8L11 1" stroke="#FF4A00" stroke-width="1.8"/>
+                                                    </svg>
+                                                    | Доставлено
+
+                                        .acorder__list
+                                            each i in accountOrders
+                                                .acoritem
+                                                    .acoritem__left
+                                                        .acoritem__title= i.title
+                                                        .acoritem__sub= i.sub
+                                                    .acoritem__right
+                                                        .acoritem__count 1 шт
+                                                        .acoritem__price= i.price
+
+                                        .acorder__totals
+                                            .acorder__total
+                                                .acorder__total-title Общая сумма заказа
+                                                .acorder__total-price 1 360 ₽
+                                            .acorder__subtotal
+                                                .acorder__subtotal-title Доставка
+                                                .acorder__subtotal-price 1 360 ₽
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

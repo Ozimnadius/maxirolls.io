@@ -92,11 +92,13 @@ ul,ol {
   list-style: none;
 }
 
-input,textarea{
+fieldset,input,textarea{
   border: none;
   background: none;
   outline: none;
   font: inherit;
+  padding: 0;
+  margin: 0;
 }
 
 @include headers;

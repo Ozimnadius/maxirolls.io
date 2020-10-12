@@ -120,7 +120,6 @@ mixin btotal()
             .btotal__item-name Доставка
             .btotal__item-val 360 ₽
 
-
 mixin current()
     .current
         .current__info
@@ -129,3 +128,9 @@ mixin current()
             +clist()
         .current__total
             +btotal()
+
+mixin count()
+    .count
+        button(type='button').count__minus.count__btn -
+        input(type='number' min='1' value='1' step='1' max='999').count__input
+        button(type='button').count__plus.count__btn +

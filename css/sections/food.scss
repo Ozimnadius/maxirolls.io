@@ -2,12 +2,21 @@
   padding: 100px 0;
   border-bottom: 1px solid $gray-line;
 
+  &__wrap{
+    margin-bottom: 70px;
+    @include lg-block{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 15px;
+    }
+  }
+
   &__title{
     text-align: center;
     color: #000000;
     font-size: 45px;
     font-weight: 700;
-    margin-bottom: 70px;
   }
 
   &__top{
@@ -18,33 +27,73 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 75px;
+
+    @include sm-block{
+      display: block;
+      max-width: 100%;
+    }
   }
 
   &__sws{
     margin-right: 40px;
+    flex-grow: 1;
+
+    @include lg-block{
+      margin-right: 0;
+    }
+    @include sm-block{
+      display: block;
+      max-width: 100%;
+    }
+  }
+
+  &__cart{
+    @include lg-block{
+      display: none;
+    }
+
+    &_t{
+      display: none;
+      @include lg-block{
+        display: block;
+      }
+    }
   }
 
 }
 
 .sws{
-  margin: 0 -25px;
-  display: flex;
+  width: 100%;
+  @include sm-block{
+    display: block;
+    max-width: 100%;
+  }
 }
 
 .sw{
+  width: auto;
   display: flex;
   align-items: center;
   padding: 20px 0;
   padding-bottom: 14px;
-  margin: 0 25px;
   color: #242323;
   font-size: 18px;
   font-weight: 500;
   border-bottom: 6px solid transparent;
+  box-sizing: border-box;
   @include tr;
+
+  @include lg-block{
+    font-size: 16px;
+  }
 
   svg{
     margin-right: 7px;
+    @include lg-block{
+      width: 18px;
+      height: 22px;
+      height: 22px;
+    }
   }
   
   &_actions{
@@ -114,6 +163,9 @@
   display: grid;
   grid-template-columns: repeat(4,1fr);
   grid-gap: 60px;
+  @include lg-block{
+      grid-gap: 40px 20px;
+  }
 }
 
 .item{

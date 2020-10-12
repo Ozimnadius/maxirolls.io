@@ -33,5 +33,15 @@ function imageResize(src) {
 
 const wWidth = $(window).width();
 
+// Функция убирает прокрутку страницы
+function setOverflow() {
+    $('body').addClass('overflow');
+}
+
+// Функция возвращает прокрутку страницы
+function removeOverflow() {
+    $('body').removeClass('overflow');
+}
+
 
 

@@ -1,5 +1,11 @@
 .index {
   padding-bottom: 50px;
+
+  &__food{
+    @include lg-block{
+      max-width: 100%;
+    }
+  }
 }
 
 .iactions {
@@ -7,15 +13,19 @@
   .container {
     padding: 0 80px;
     position: relative;
+    @include lg-block {
+      padding: 0 20px;
+    }
+
   }
 
-  &__list{
+  &__list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 40px;
   }
 
-  &__link{
+  &__link {
     position: absolute;
     z-index: 10;
     bottom: 0;
@@ -23,11 +33,51 @@
     transform: rotate(-90deg);
     transform-origin: left;
 
-    &_r{
+    @include lg-block {
+      position: static;
+      transform: rotate(0);
+    }
+
+    &_r {
       left: initial;
       right: 10px;
       transform-origin: right;
       transform: rotate(90deg);
+      @include lg-block {
+        transform: rotate(0);
+      }
+    }
+
+    &:first-child {
+      @include lg-block{
+        margin-bottom: 20px;
+
+        .ialink {
+          &__link {
+            order: 2;
+            margin-right: 0;
+          }
+
+          &__arr {
+            order: 1;
+            transform: rotate(180deg);
+            margin: 0;
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+            margin-right: 20px;
+          }
+        }
+      }
+
+    }
+
+    &:last-child{
+      @include lg-block{
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 30px;
+      }
     }
   }
 }
@@ -38,9 +88,10 @@
   color: #000000;
   overflow: hidden;
 
-  &:hover{
+  &:hover {
     color: $or;
-    svg{
+
+    svg {
       fill: $or;
     }
   }
@@ -118,42 +169,53 @@
     margin-right: 25px;
   }
 
-  a{
+  a {
     @include tr;
-    &:hover{
+
+    &:hover {
       color: $or;
     }
   }
 
-  &__arr{
+  &__arr {
     margin-right: 25px;
   }
 
-  &__txt{
+  &__txt {
     color: $or;
   }
 
-  &__socials{
+  &__socials {
     display: flex;
     flex-direction: column;
     align-items: center;
-    transform: rotate(-90deg) translate(-3px,10px);
+    transform: rotate(-90deg) translate(-3px, 10px);
     transform-origin: center center;
+    @include lg-block{
+      transform: none;
+      flex-direction: row;
+    }
   }
 
-  &__social{
+  &__social {
     margin-bottom: 20px;
-    &:last-child{
+    @include lg-block{
+      margin-bottom: 0;
+      margin-right: 20px;
+    }
+
+    &:last-child {
       margin: 0;
     }
-    svg{
+
+    svg {
       display: block;
       fill: #d9d9d9;
       @include tr;
     }
 
-    &:hover{
-      svg{
+    &:hover {
+      svg {
         fill: $or;
       }
     }

@@ -265,3 +265,18 @@ $vh: 1080;
 @mixin tr() {
   transition: .3s;
 }
+
+@mixin priceLine(){
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: -3px;
+    right: -3px;
+    top: 50%;
+    margin-top: -1px;
+    height: 2px;
+    background: #ff4a00;
+    transform: rotate(-10deg);
+  }
+}

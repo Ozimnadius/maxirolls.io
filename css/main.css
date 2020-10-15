@@ -3174,4 +3174,59 @@ h6 {
 .fsoc:hover {
   fill: #ff4a00;
 }
+.debug {
+  height: 100vh;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  top: 0;
+}
+.debug > div {
+  height: inherit;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+@media screen and (max-width: 1199.98px) {
+  .debug > div {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+@media screen and (max-width: 991.98px) {
+  .debug > div {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+@media screen and (max-width: 767.98px) {
+  .debug > div {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+@media screen and (max-width: 575.98px) {
+  .debug > div {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+.debug > div > div {
+  height: inherit;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.debug > div > div > div {
+  box-sizing: border-box;
+  word-wrap: break-word;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: calc(4.1666666667% - 20px);
+  height: inherit;
+  outline: 1px solid red;
+  background: rgba(0, 0, 0, 0.3);
+}
 /*# sourceMappingURL=main.css.map */

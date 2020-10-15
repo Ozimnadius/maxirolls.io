@@ -1,76 +1,101 @@
-.food{
+.food {
   padding: 100px 0;
   border-bottom: 1px solid $gray-line;
+  @include lg-block {
+    padding-top: 45px;
+    padding-bottom: 65px;
+  }
+  @include sm-block {
+    padding: 25px 0;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
 
-  &__wrap{
+  &__wrap {
     margin-bottom: 70px;
-    @include lg-block{
+    @include lg-block {
       display: flex;
       align-items: center;
       justify-content: space-between;
       margin-bottom: 15px;
     }
+    @include sm-block {
+      justify-content: center;
+    }
   }
 
-  &__title{
+  &__title {
     text-align: center;
     color: #000000;
     font-size: 45px;
     font-weight: 700;
+    @include lg-block {
+      font-size: 36px;
+    }
+    @include sm-block {
+      font-size: 25px;
+    }
   }
 
-  &__top{
+  &__top {
     border-top: 1px solid $gray-line;
     border-bottom: 1px solid $gray-line;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 75px;
 
-    @include sm-block{
+    @include lg-block {
+      margin-bottom: 45px;
+    }
+    @include sm-block {
       display: block;
-      max-width: 100%;
+      max-width: calc(100% + 20px);
+      margin: 0 -10px;
+      padding: 0 10px;
     }
   }
 
-  &__sws{
+  &__sws {
     margin-right: 40px;
     flex-grow: 1;
 
-    @include lg-block{
+    @include lg-block {
       margin-right: 0;
     }
-    @include sm-block{
+    @include sm-block {
       display: block;
       max-width: 100%;
     }
   }
 
-  &__cart{
-    @include lg-block{
+  &__cart {
+    @include lg-block {
       display: none;
     }
 
-    &_t{
+    &_t {
       display: none;
-      @include lg-block{
+      @include lg-block {
         display: block;
+      }
+      @include sm-block {
+        display: none;
       }
     }
   }
 
 }
 
-.sws{
+.sws {
   width: 100%;
-  @include sm-block{
+  @include sm-block {
     display: block;
     max-width: 100%;
   }
 }
 
-.sw{
+.sw {
   width: auto;
   display: flex;
   align-items: center;
@@ -83,49 +108,49 @@
   box-sizing: border-box;
   @include tr;
 
-  @include lg-block{
+  @include lg-block {
     font-size: 16px;
   }
 
-  svg{
+  svg {
     margin-right: 7px;
-    @include lg-block{
+    @include lg-block {
       width: 18px;
       height: 22px;
       height: 22px;
     }
   }
-  
-  &_actions{
+
+  &_actions {
     color: $or;
   }
 
-  &.active{
+  &.active {
     color: $or;
     border-color: $or;
   }
 
-  &:hover{
+  &:hover {
     color: $or;
   }
 
 }
 
-.fcart{
+.fcart {
   display: flex;
   align-items: center;
   color: #000000;
   font-weight: 600;
   @include tr;
 
-  svg{
+  svg {
     stroke: #000;
     margin-right: 12px;
     display: flex;
     @include tr;
   }
 
-  &__count{
+  &__count {
     width: 24px;
     height: 24px;
     background-color: #219653;
@@ -137,58 +162,88 @@
     color: #ffffff;
   }
 
-  &__price{
+  &__price {
     font-size: 24px;
-
+    @include lg-block {
+      font-size: 20px;
+    }
   }
 }
 
-.tab{
+.tab {
   display: none;
 
-  &.active{
+  &.active {
     display: block;
   }
 
-  &__title{
+  &__title {
     color: #242323;
     font-size: 36px;
     font-weight: 600;
     margin-bottom: 40px;
+    @include lg-block {
+      font-size: 26px;
+      margin-bottom: 20px;
+    }
+    @include sm-block {
+      display: none;
+    }
   }
 
 }
 
-.items{
+.items {
   display: grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-gap: 60px;
-  @include lg-block{
-      grid-gap: 40px 20px;
+  @include lg-block {
+    grid-gap: 40px 20px;
+  }
+  @include sm-block {
+    grid-template-columns: 1fr;
+    grid-gap: 0;
+    margin: 0 -10px;
   }
 }
 
-.item{
+.item {
   display: flex;
   flex-direction: column;
 
-  &__img{
+  @include sm-block {
+    padding: 15px 10px;
+    border-bottom: 1px solid $gray-line;
+    display: grid;
+    grid-template-columns: 115px 1fr;
+    grid-template-areas: 'img desc' 'img bottom';
+    grid-gap: 0 15px;
+    align-items: center;
+  }
+
+  &__img {
     position: relative;
     margin-bottom: 10px;
     cursor: pointer;
     @include tr;
+    @include lg-block {
+      margin-bottom: 0;
+    }
+    @include sm-block {
+      grid-area: img;
+    }
 
-    &:hover{
+    &:hover {
       transform: translateY(5px);
     }
 
-    &:before{
+    &:before {
       content: '';
       display: block;
-      padding-top: calc(235/243*100%);
+      padding-top: calc(235 / 243 * 100%);
     }
 
-    img{
+    img {
       display: block;
       position: absolute;
       top: 0;
@@ -200,52 +255,102 @@
 
   }
 
-  &__desc{
+  &__desc {
     flex-grow: 1;
     color: #727272;
     margin-bottom: 20px;
+    @include sm-block {
+      grid-area: desc;
+      margin-bottom: 0;
+    }
   }
 
-  &__title{
+  &__title {
     color: #242323;
     font-size: 20px;
     font-weight: 700;
     margin-bottom: 10px;
+    @include lg-block {
+      font-size: 16px;
+    }
+    @include sm-block{
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
   }
 
-  &__chars{
+  &__chars {
     font-weight: 500;
     margin-bottom: 20px;
+    @include lg-block {
+      font-size: 12px;
+      margin-bottom: 0;
+    }
   }
 
-  &__bottom{
+  &__txt {
+    @include lg-block {
+      display: none;
+    }
+  }
+
+  &__bottom {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @include sm-block {
+      grid-area: bottom;
+      align-self: flex-start;
+    }
   }
 
-  &__prices{
+  &__prices {
     color: #242323;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    @include sm-block {
+      display: grid;
+      grid-template-columns: auto auto;
+      grid-gap: 20px;
+      align-items: center;
+    }
   }
 
-  &__price{
+  &__price {
     font-size: 24px;
     font-weight: 600;
+    @include lg-block {
+      font-size: 16px;
+    }
+    @include sm-block{
+      width: 91px;
+      height: 30px;
+      border-radius: 10px;
+      border: 1px solid $or;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $or;
+    }
 
-    &_new{
+    &_new {
       color: $or;
     }
   }
 
-  &__priceold{
+  &__priceold {
     font-size: 16px;
     font-weight: 500;
     position: relative;
+    @include lg-block {
+      font-size: 12px;
+    }
+    @include sm-block{
+      font-size: 16px;
+    }
 
-    &:before{
+    &:before {
       content: '';
       display: block;
       position: absolute;
@@ -259,8 +364,22 @@
     }
   }
 
+  &__btn {
+    @include lg-block {
+      width: 84px;
+      height: 25px;
+    }
+    @include sm-block {
+      display: none;
+    }
+
+  }
+
 }
 
-.pizza{
+.pizza {
   border-bottom: none;
+  @include sm-block{
+    padding-top: 0;
+  }
 }

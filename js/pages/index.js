@@ -6,6 +6,17 @@ $(function () {
         spaceBetween: 20,
     });
 
+    if (wWidth<768) {
+        let iactionsSwiper = new Swiper('.iactions__container', {
+            slidesPerView: '1',
+            spaceBetween: 10,
+            // If we need pagination
+            pagination: {
+                el: '.iactions__pag',
+            },
+        });
+    }
+
     let foodSwiper = new Swiper('.sws', {
         slidesPerView: 'auto',
         spaceBetween: 25,
@@ -37,5 +48,12 @@ $(function () {
         tab.addClass('active');
 
     });
+
+    if (wWidth<768){
+        $('.jsCartOpen').on('click', function (e) {
+            e.preventDefault();
+            $(this).closest('.hlink').toggleClass('active');
+        });
+    }
 
 });

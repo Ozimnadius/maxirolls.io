@@ -17,20 +17,25 @@
     right: 0;
     top: 0;
     @include sm-block {
-      display: none;
+      background-color: transparent;
+      top: auto;
+      bottom: 0;
     }
 
     .container {
       display: flex;
+      @include sm-block{
+        padding: 0;
+      }
     }
   }
 
-
   &__nav {
-    //@include col;
-    //@include size(18);
     flex-grow: 1;
     margin-right: 20px;
+    @include sm-block{
+      display: none;
+    }
   }
 
   &__links {
@@ -39,6 +44,9 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-end;
+    @include sm-block{
+      width: 100%;
+    }
   }
 
   &__link {
@@ -51,6 +59,9 @@
     @include lg-block {
       padding-top: 40px;
       padding-bottom: 50px;
+    }
+    @include sm-block{
+      padding: 30px 0;
     }
 
     .container {
@@ -96,6 +107,7 @@
 
     @include lg-block {
       font-size: 16px;
+      margin-bottom: 0;
     }
     @include sm-block {
       font-size: 0;
@@ -144,15 +156,40 @@
   position: relative;
   @include tr;
 
+  @include sm-block{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 -4px 4px rgba(0, 0, 0, 0.1);
+    background-color: $bg;
+    width: 100%;
+    margin: 0;
+    padding: 11px 20px;
+    padding-bottom: 0;
+  }
+
+  &:last-child{
+    @include sm-block{
+      display: none;
+    }
+  }
+
   &:hover {
 
     .hlink {
       &__icon {
         stroke: #ff4a00;
+        @include sm-block{
+            stroke: #242323;
+        }
       }
 
       &__txt {
         color: #ff4a00;
+        @include sm-block{
+          color: #000000;
+        }
       }
 
       &__dropdown {
@@ -164,11 +201,89 @@
 
   }
 
+  &:before{
+    @include sm-block{
+      content: '';
+      display: block;
+      width: 72px;
+      height: 36px;
+      background-color: #e0e0e0;
+      border-radius: 0 0 50% 50% / 0 0 100% 100%;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      margin-left: -36px;
+    }
+
+  }
+
+  &:after{
+    content: '';
+    position: absolute;
+    z-index: -1;
+    bottom: 100%;
+    height: 100vh;
+    left: 0;
+    right: 0;
+    background-color: #000000;
+    opacity: 0.5;
+    display: none;
+  }
+
+  &.active{
+
+    &:after{
+      display: block;
+    }
+
+    .hlink{
+      &__arr{
+        background-color: $or;
+        transform: rotate(-180deg);
+        svg{
+          stroke: $bg;
+        }
+      }
+
+      &__dropdown{
+        height: calc(95vh - 95px);
+      }
+    }
+  }
+
+  &__arr{
+    display: none;
+    width: 50px;
+    height: 50px;
+    background-color: $bg;
+    border-radius: 50%;
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    margin-left: -25px;
+    align-items: center;
+    justify-content: center;
+    @include tr;
+
+    svg{
+      stroke: $or;
+      display: block;
+    }
+    @include sm-block{
+      display: flex;
+    }
+  }
+
   &__icon {
     position: relative;
     margin-right: 16px;
     cursor: pointer;
 
+    @include sm-block{
+      display: flex;
+      align-items: center;
+      margin-right: 0;
+    }
 
     svg {
       display: block;
@@ -192,12 +307,21 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+
+    @include sm-block{
+      position: static;
+      order: 1;
+      margin-left: 10px;
+    }
   }
 
   &__txt {
     cursor: pointer;
     @include lg-block {
       display: none;
+    }
+    @include sm-block{
+      display: block;
     }
   }
 
@@ -209,7 +333,13 @@
     opacity: 0;
     pointer-events: none;
     @include tr;
-
+    @include sm-block{
+      position: static;
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+      height: 0;
+    }
   }
 
 }
@@ -280,6 +410,10 @@
     width: 235px;
     height: 42px;
   }
+  @include sm-block{
+    width: 197px;
+    height: 32px;
+  }
 
   svg {
     max-width: 100%;
@@ -313,6 +447,14 @@
   display: grid;
   grid-template-rows: 1fr auto;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  @include sm-block{
+    width: calc(100% + 40px);
+    margin: 0 -20px;
+    border-radius: 0;
+    box-shadow: none;
+    border-top: 1px solid $gray-line;
+    margin-top: 12px;
+  }
 
   &:before {
     content: '';
@@ -325,8 +467,10 @@
     position: absolute;
     bottom: 100%;
     right: 65px;
+    @include sm-block{
+      display: none;
+    }
   }
-
 
   &__list {
     overflow-Y: auto;
@@ -354,10 +498,18 @@
   &__bottom {
     padding: 30px;
     padding-top: 20px;
+    @include sm-block{
+      border-top: 1px solid $gray-line;
+      background-color: #f9f9f9;
+      padding: 25px 30px 15px;
+    }
   }
 
   &__totals {
     margin-bottom: 35px;
+    @include sm-block{
+      margin-bottom: 25px;
+    }
   }
 
   &__total {
@@ -365,6 +517,9 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 10px;
+    @include sm-block{
+      margin-bottom: 5px;
+    }
 
     &:last-child {
       margin-bottom: 0;
@@ -373,6 +528,9 @@
     &-name {
       color: #000000;
       font-size: 18px;
+      @include sm-block{
+        font-size: 16px;
+      }
     }
 
     &-val {
@@ -398,6 +556,9 @@
   align-items: center;
   padding: 20px 0;
   border-bottom: 1px solid $gray-line;
+  @include sm-block{
+    padding: 10px 0;
+  }
 
   &__delete {
     position: absolute;
@@ -407,6 +568,9 @@
     fill: $gray-line;
     padding: 10px;
     @include tr;
+    @include sm-block{
+      top: 0px;
+    }
 
     svg {
       display: block;
@@ -424,6 +588,9 @@
     font-size: 16px;
     font-weight: 600;
     margin-bottom: 5px;
+    @include sm-block{
+      font-size: 14px;
+    }
   }
 
   &__sub {

@@ -1,70 +1,114 @@
 .footer {
-  &__grid {
-    padding-top: 60px;
-    padding-bottom: 100px;
+  padding-top: 60px;
+  padding-bottom: 100px;
+  @include lg-block {
+    padding-bottom: 60px;
+  }
+  @include sm-block {
     border-top: 1px solid $gray-line;
-    //display: grid;
-    //grid-template-columns: 1fr 11fr;
-    //grid-gap: 0 20px;
+    padding-top: 35px;
+    padding-bottom: 30px;
+  }
+
+  &__wrap {
+    border-top: 1px solid $gray-line;
+    @include sm-block {
+      border-top: none;
+    }
+  }
+
+  &__grid {
     @include row-flex;
   }
 
-  &__socials{
+  &__socials {
     @include col;
     @include size(2);
+    @include size-lg(3);
+    @include size-sm(24);
+    @include sm-block {
+      margin-bottom: 30px;
+    }
   }
 
-  &__main{
+  &__main {
     @include col;
     @include size(22);
     color: #888888;
     font-size: 16px;
+    @include size-lg(21);
+    @include size-sm(24);
 
-    &-wrap{
+    &-wrap {
       display: flex;
       justify-content: space-between;
+      @include lg-block {
+        flex-direction: column;
+        justify-content: initial;
+      }
     }
   }
 
-  &__logo{
+  &__logo {
     margin-bottom: 30px;
   }
 
-  &__phones{
-    margin: 0 -15px;
-    margin-bottom: 14px;
+  &__left {
+    @include lg-block {
+      margin-bottom: 50px;
+    }
+    @include sm-block{
+      margin-bottom: 30px;
+    }
   }
 
-  &__phone{
+  &__phones {
+    margin: 0 -15px;
+    margin-bottom: 14px;
+    @include sm-block{
+      display: grid;
+      grid-gap: 5px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__phone {
     border-right: 1px solid #d4d4d4;
     padding: 0 14px;
     @include tr;
 
-    &:last-child{
+    &:last-child {
       border: none;
     }
 
-    &:hover{
+    &:hover {
       color: $or;
     }
   }
 
-  &__addr{
+  &__addr {
     margin-bottom: 14px;
+    @include sm-block{
+      margin-bottom: 7px;
+    }
   }
 
-  &__right{
+  &__right {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     text-align: right;
+    @include lg-block {
+      align-items: flex-start;
+    }
   }
 
-  &__policy{
+  &__policy {
     margin-bottom: 8px;
 
     @include tr;
-    &:hover{
+
+    &:hover {
       color: $or;
     }
   }
@@ -72,12 +116,19 @@
   &__copy {
     text-transform: uppercase;
     margin-bottom: auto;
+    @include lg-block {
+      margin-bottom: 35px;
+    }
+    @include sm-block{
+      margin-bottom: 30px;
+    }
   }
 
-  &__vendor{
+  &__vendor {
     display: flex;
     align-items: center;
-    svg{
+
+    svg {
       margin-left: 8px;
     }
   }
@@ -88,16 +139,34 @@
   display: inline-grid;
   justify-items: center;
   grid-gap: 30px;
+  @include sm-block {
+    grid-template-columns: auto auto;
+    grid-gap: 20px;
+  }
 }
 
 .fsoc {
   fill: #c9c9c9;
   @include tr;
 
-  &:hover{
+  &:hover {
     fill: $or;
   }
-  svg{
 
+  svg {
+
+  }
+}
+
+.flogo{
+  display: block;
+  svg{
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  @include sm-block{
+    width: 188px;
+    height: 32px;
   }
 }

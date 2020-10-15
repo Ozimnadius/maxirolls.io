@@ -12,6 +12,9 @@
   font-size: 14px;
   font-weight: 400;
   @include tr;
+  @include lg-block{
+    font-size: 12px;
+  }
 
   &:hover {
     background-color: $hover;

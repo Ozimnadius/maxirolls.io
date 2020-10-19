@@ -12,7 +12,7 @@
   font-size: 14px;
   font-weight: 400;
   @include tr;
-  @include lg-block{
+  @include lg-block {
     font-size: 12px;
   }
 
@@ -39,6 +39,10 @@
   font-weight: 600;
   fill: #6b6b6b;
   @include tr;
+
+  @include sm-block{
+    font-size: 12px;
+  }
 
   svg {
     margin-right: 15px;
@@ -68,6 +72,9 @@
   font-weight: 600;
   fill: $bg;
   @include tr;
+  @include sm-block{
+    font-size: 12px;
+  }
 
   &:hover {
     background-color: $hover;
@@ -81,11 +88,11 @@
   font-weight: 700;
   margin-bottom: 55px;
   text-align: center;
-  @include lg-block{
+  @include lg-block {
     font-size: 36px;
     margin-bottom: 45px;
   }
-  @include sm-block{
+  @include sm-block {
     font-size: 25px;
     margin-bottom: 25px;
   }
@@ -98,6 +105,9 @@
   display: flex;
   position: relative;
   overflow: hidden;
+  @include sm-block{
+    height: 32px;
+  }
 
   &__btn {
     min-width: 25px;
@@ -156,13 +166,13 @@
     resize: none;
     padding: 15px 20px;
 
-    &:read-only{
+    &:read-only {
       background-color: #f6f6f6;
       color: #828282;
     }
   }
 
-  &__edit{
+  &__edit {
     position: absolute;
     top: 15px;
     right: 15px;
@@ -175,12 +185,19 @@
   align-items: center;
   margin-left: -12px;
   margin-right: -12px;
+  @include lg-block {
+    margin-left: -7px;
+    margin-right: -7px;
+  }
 }
 
 .social {
   fill: $icon;
   margin: 0 12px;
   @include tr;
+  @include lg-block {
+    margin: 0 7px;
+  }
 
   &:hover {
     fill: $or;
@@ -201,14 +218,14 @@
       }
     }
 
-    li{
+    li {
       color: $black;
       font-size: 16px;
       font-weight: 400;
       line-height: 1.42;
       padding: 10px 20px;
 
-      &.selected,&:hover {
+      &.selected, &:hover {
         background-color: $or;
         color: $bg;
       }
@@ -253,7 +270,7 @@
     border: none;
   }
 
-  .jq-selectbox__dropdown{
+  .jq-selectbox__dropdown {
     border-radius: 10px;
     border: 1px solid $gray-line;
     box-shadow: none;
@@ -261,7 +278,7 @@
   }
 }
 
-.radio{
+.radio {
   display: inline-flex;
   align-items: center;
   color: $black;
@@ -269,17 +286,19 @@
   font-weight: 500;
   cursor: pointer;
 
-  &__input{
+  &__input {
     display: none;
-    &:checked+.radio__fake{
+
+    &:checked + .radio__fake {
       border-color: $or;
-      &:before{
+
+      &:before {
         opacity: 1;
       }
     }
   }
 
-  &__fake{
+  &__fake {
     width: 21px;
     height: 21px;
     border: 1px solid $gray-line;
@@ -291,7 +310,7 @@
     margin-right: 15px;
     //@include tr;
 
-    &:before{
+    &:before {
       content: '';
       width: 11px;
       height: 11px;
@@ -303,7 +322,7 @@
   }
 }
 
-.accept{
+.accept {
   display: flex;
   align-items: baseline;
   color: $black;
@@ -312,17 +331,19 @@
   font-weight: 500;
   cursor: pointer;
 
-  &__input{
+  &__input {
     display: none;
-    &:checked+.accept__fake{
+
+    &:checked + .accept__fake {
       border: 2px solid #27ae60;
-      svg{
+
+      svg {
         opacity: 1;
       }
     }
   }
 
-  &__fake{
+  &__fake {
     min-width: 19px;
     width: 19px;
     height: 19px;
@@ -334,7 +355,7 @@
     margin-right: 18px;
     //@include tr;
 
-    svg{
+    svg {
       opacity: 0;
       display: block;
       //@include tr;

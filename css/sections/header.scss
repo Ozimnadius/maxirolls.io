@@ -24,7 +24,7 @@
 
     .container {
       display: flex;
-      @include sm-block{
+      @include sm-block {
         padding: 0;
       }
     }
@@ -33,7 +33,7 @@
   &__nav {
     flex-grow: 1;
     margin-right: 20px;
-    @include sm-block{
+    @include sm-block {
       display: none;
     }
   }
@@ -44,7 +44,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-end;
-    @include sm-block{
+    @include sm-block {
       width: 100%;
     }
   }
@@ -60,7 +60,7 @@
       padding-top: 40px;
       padding-bottom: 40px;
     }
-    @include sm-block{
+    @include sm-block {
       padding: 30px 0;
     }
 
@@ -141,6 +141,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @include lg-block {
+      padding: 25px 0;
+    }
+    @include sm-block {
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 50px;
+    }
   }
 
 }
@@ -156,7 +164,7 @@
   position: relative;
   @include tr;
 
-  @include sm-block{
+  @include sm-block {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -169,8 +177,8 @@
     padding-bottom: 0;
   }
 
-  &:last-child{
-    @include sm-block{
+  &:last-child {
+    @include sm-block {
       display: none;
     }
   }
@@ -180,14 +188,14 @@
     .hlink {
       &__icon {
         stroke: #ff4a00;
-        @include sm-block{
-            stroke: #242323;
+        @include sm-block {
+          stroke: #242323;
         }
       }
 
       &__txt {
         color: #ff4a00;
-        @include sm-block{
+        @include sm-block {
           color: #000000;
         }
       }
@@ -201,8 +209,8 @@
 
   }
 
-  &:before{
-    @include sm-block{
+  &:before {
+    @include sm-block {
       content: '';
       display: block;
       width: 72px;
@@ -217,7 +225,7 @@
 
   }
 
-  &:after{
+  &:after {
     content: '';
     position: absolute;
     z-index: -1;
@@ -230,28 +238,29 @@
     display: none;
   }
 
-  &.active{
+  &.active {
 
-    &:after{
+    &:after {
       display: block;
     }
 
-    .hlink{
-      &__arr{
+    .hlink {
+      &__arr {
         background-color: $or;
         transform: rotate(-180deg);
-        svg{
+
+        svg {
           stroke: $bg;
         }
       }
 
-      &__dropdown{
+      &__dropdown {
         height: calc(95vh - 95px);
       }
     }
   }
 
-  &__arr{
+  &__arr {
     display: none;
     width: 50px;
     height: 50px;
@@ -265,11 +274,12 @@
     justify-content: center;
     @include tr;
 
-    svg{
+    svg {
       stroke: $or;
       display: block;
     }
-    @include sm-block{
+
+    @include sm-block {
       display: flex;
     }
   }
@@ -279,7 +289,7 @@
     margin-right: 16px;
     cursor: pointer;
 
-    @include sm-block{
+    @include sm-block {
       display: flex;
       align-items: center;
       margin-right: 0;
@@ -308,7 +318,7 @@
     justify-content: center;
     cursor: pointer;
 
-    @include sm-block{
+    @include sm-block {
       position: static;
       order: 1;
       margin-left: 10px;
@@ -320,7 +330,7 @@
     @include lg-block {
       display: none;
     }
-    @include sm-block{
+    @include sm-block {
       display: block;
     }
   }
@@ -333,10 +343,10 @@
     opacity: 0;
     pointer-events: none;
     @include tr;
-    @include lg-block{
+    @include lg-block {
       right: -50px;
     }
-    @include sm-block{
+    @include sm-block {
       position: static;
       transform: translateY(0);
       opacity: 1;
@@ -413,7 +423,7 @@
     width: 235px;
     height: 42px;
   }
-  @include sm-block{
+  @include sm-block {
     width: 197px;
     height: 32px;
   }
@@ -450,10 +460,10 @@
   display: grid;
   grid-template-rows: 1fr auto;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-  @include lg-block{
+  @include lg-block {
     max-height: 85vh;
   }
-  @include sm-block{
+  @include sm-block {
     width: calc(100% + 40px);
     margin: 0 -20px;
     border-radius: 0;
@@ -473,7 +483,7 @@
     position: absolute;
     bottom: 100%;
     right: 65px;
-    @include sm-block{
+    @include sm-block {
       display: none;
     }
   }
@@ -504,7 +514,7 @@
   &__bottom {
     padding: 30px;
     padding-top: 20px;
-    @include sm-block{
+    @include sm-block {
       border-top: 1px solid $gray-line;
       background-color: #f9f9f9;
       padding: 25px 30px 15px;
@@ -513,7 +523,7 @@
 
   &__totals {
     margin-bottom: 35px;
-    @include sm-block{
+    @include sm-block {
       margin-bottom: 25px;
     }
   }
@@ -523,7 +533,7 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 10px;
-    @include sm-block{
+    @include sm-block {
       margin-bottom: 5px;
     }
 
@@ -534,7 +544,7 @@
     &-name {
       color: #000000;
       font-size: 18px;
-      @include sm-block{
+      @include sm-block {
         font-size: 16px;
       }
     }
@@ -562,7 +572,7 @@
   align-items: center;
   padding: 20px 0;
   border-bottom: 1px solid $gray-line;
-  @include sm-block{
+  @include sm-block {
     padding: 10px 0;
   }
 
@@ -574,7 +584,7 @@
     fill: $gray-line;
     padding: 10px;
     @include tr;
-    @include sm-block{
+    @include sm-block {
       top: 0px;
     }
 
@@ -594,7 +604,7 @@
     font-size: 16px;
     font-weight: 600;
     margin-bottom: 5px;
-    @include sm-block{
+    @include sm-block {
       font-size: 14px;
     }
   }

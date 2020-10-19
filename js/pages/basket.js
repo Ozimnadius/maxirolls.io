@@ -2,14 +2,26 @@
 $(function () {
 
     let addSwiper = new Swiper('.basket__adds', {
-        slidesPerView: 5,
-        spaceBetween: 20,
+        slidesPerView: 3,
+        spaceBetween: 10,
         watchOverflow: true,
         // Navigation arrows
         navigation: {
             nextEl: '.basket__next',
             prevEl: '.basket__prev',
         },
+        breakpoints: {
+            // when window width is >= 768px
+            768: {
+                slidesPerView: 4,
+                spaceBetween: 20,
+            },
+            // when window width is >= 1200px
+            1200: {
+                slidesPerView: 5,
+                spaceBetween: 20,
+            }
+        }
     });
 
     $('.badd__plus').on('click', function (e) {

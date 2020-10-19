@@ -39,8 +39,15 @@
       grid-gap: 20px;
     }
     @include sm-block{
-      display: flex;
-      grid-gap: 0;
+      grid-template-columns: 1fr;
+    }
+
+
+    &.swiper-wrapper{
+      @include sm-block{
+        display: flex;
+        grid-gap: 0;
+      }
     }
   }
 

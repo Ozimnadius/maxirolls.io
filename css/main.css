@@ -363,25 +363,55 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: 45px;
 }
+@media screen and (max-width: 767.98px) {
+  h1 {
+    font-size: 26px;
+  }
+}
 
 h2 {
   font-size: 40px;
+}
+@media screen and (max-width: 767.98px) {
+  h2 {
+    font-size: 24px;
+  }
 }
 
 h3 {
   font-size: 35px;
 }
+@media screen and (max-width: 767.98px) {
+  h3 {
+    font-size: 20px;
+  }
+}
 
 h4 {
   font-size: 24px;
+}
+@media screen and (max-width: 767.98px) {
+  h4 {
+    font-size: 18px;
+  }
 }
 
 h5 {
   font-size: 20px;
 }
+@media screen and (max-width: 767.98px) {
+  h5 {
+    font-size: 16px;
+  }
+}
 
 h6 {
   font-size: 16px;
+}
+@media screen and (max-width: 767.98px) {
+  h6 {
+    font-size: 14px;
+  }
 }
 
 .btn {
@@ -2148,6 +2178,11 @@ h6 {
 .contacts__title {
   margin-bottom: 60px;
 }
+@media screen and (max-width: 1199.98px) {
+  .contacts__title {
+    margin-bottom: 35px;
+  }
+}
 .contacts__list {
   border-top: 1px solid #dbdbdb;
   padding-top: 65px;
@@ -2155,8 +2190,24 @@ h6 {
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 0 20px;
 }
+@media screen and (max-width: 1199.98px) {
+  .contacts__list {
+    padding-top: 45px;
+  }
+}
+@media screen and (max-width: 767.98px) {
+  .contacts__list {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 30px 20px;
+  }
+}
 .contacts__map {
   margin-bottom: 80px;
+}
+@media screen and (max-width: 767.98px) {
+  .contacts__map {
+    margin-bottom: 35px;
+  }
 }
 .contacts__sub {
   font-weight: 700;
@@ -2169,9 +2220,20 @@ h6 {
   font-weight: 600;
   margin-bottom: 14px;
 }
+@media screen and (max-width: 1199.98px) {
+  .contact__title {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+}
 .contact__txt {
   color: #242323;
   font-size: 20px;
+}
+@media screen and (max-width: 1199.98px) {
+  .contact__txt {
+    font-size: 16px;
+  }
 }
 .contact__socs {
   display: flex;
@@ -2198,6 +2260,7 @@ h6 {
   fill: #ff4a00;
   text-decoration: underline;
   margin-top: 10px;
+  text-align: left;
   transition: 0.3s;
 }
 .contact__link:hover {
@@ -2219,6 +2282,19 @@ h6 {
   align-items: center;
   color: #242323;
   margin-bottom: 30px;
+}
+@media screen and (max-width: 1199.98px) {
+  .contact__item {
+    margin-bottom: 20px;
+    padding-right: 35px;
+  }
+}
+@media screen and (max-width: 767.98px) {
+  .contact__item {
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+    padding: 20px 25px;
+  }
 }
 .contact__item:last-child {
   margin-bottom: 0;
@@ -2251,6 +2327,19 @@ h6 {
   grid-template-areas: "name name tel time";
   grid-gap: 0 20px;
 }
+@media screen and (max-width: 1199.98px) {
+  .contact__desc {
+    grid-template-areas: "name name name name" "tel tel time time";
+    grid-gap: 15px 20px;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 767.98px) {
+  .contact__desc {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "name name" "tel time";
+  }
+}
 .contact__name {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
@@ -2263,6 +2352,11 @@ h6 {
   grid-area: tel;
   font-size: 20px;
 }
+@media screen and (max-width: 1199.98px) {
+  .contact__tel {
+    font-size: 16px;
+  }
+}
 .contact__time {
   -ms-grid-row: 1;
   -ms-grid-column: 7;
@@ -2270,11 +2364,61 @@ h6 {
   font-size: 20px;
   justify-self: flex-end;
 }
+@media screen and (max-width: 1199.98px) {
+  .contact__name {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 7;
+  }
+  .contact__tel {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+  }
+  .contact__time {
+    -ms-grid-row: 3;
+    -ms-grid-column: 5;
+    -ms-grid-column-span: 3;
+  }
+}
+@media screen and (max-width: 767.98px) {
+  .contact__name {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+  }
+  .contact__tel {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+  }
+  .contact__time {
+    -ms-grid-row: 3;
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 1;
+  }
+}
+@media screen and (max-width: 1199.98px) {
+  .contact__time {
+    font-size: 16px;
+  }
+}
 
 #map {
   width: 100%;
-  height: 633px;
-  padding-top: 80px;
+  height: 605px;
+  padding-top: 50px;
+}
+@media screen and (max-width: 1199.98px) {
+  #map {
+    height: 466px;
+  }
+}
+@media screen and (max-width: 767.98px) {
+  #map {
+    height: 265px;
+    padding-top: 35px;
+  }
 }
 
 .basket {

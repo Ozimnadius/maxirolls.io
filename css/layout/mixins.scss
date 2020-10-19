@@ -257,21 +257,39 @@ $vh: 1080;
 
   h1 {
     font-size: 45px;
+    @include sm-block{
+      font-size: 26px;
+    }
   }
   h2 {
     font-size: 40px;
+    @include sm-block{
+      font-size: 24px;
+    }
   }
   h3 {
     font-size: 35px;
+    @include sm-block{
+      font-size: 20px;
+    }
   }
   h4 {
     font-size: 24px;
+    @include sm-block{
+      font-size: 18px;
+    }
   }
   h5 {
     font-size: 20px;
+    @include sm-block{
+      font-size: 16px;
+    }
   }
   h6 {
     font-size: 16px;
+    @include sm-block{
+      font-size: 14px;
+    }
   }
 }
 

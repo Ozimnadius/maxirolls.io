@@ -1,53 +1,74 @@
-.account{
+.account {
   padding-bottom: 140px;
-
-  &__title{
-    color: #242323;
-    margin-bottom: 55px;
+  @include lg-block {
+    padding-bottom: 70px;
   }
 
-  &__left{
+  &__title {
+    color: #242323;
+    margin-bottom: 55px;
+    @include lg-block {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    @include sm-block {
+      margin-bottom: 25px;
+    }
+  }
+
+  &__left {
     @include col;
     @include size(6);
+    @include size-lg(24);
     align-self: flex-start;
     display: grid;
     grid-gap: 20px;
-    grid-template-areas:
-            'contacts'
-            'addrs'
-            'promos';
+    grid-template-areas: 'contacts' 'addrs' 'promos';
+    @include lg-block {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas: 'contacts promos' 'contacts addrs';
+      margin-bottom: 65px;
+    }
+    @include sm-block {
+      grid-template-columns: 1fr;
+      grid-template-areas: 'contacts' 'addrs' 'promos';
+      margin-bottom: 20px;
+    }
   }
 
-  &__block{
-    &:nth-child(1){
+  &__block {
+    &:nth-child(1) {
       grid-area: contacts;
     }
-    &:nth-child(2){
+
+    &:nth-child(2) {
       grid-area: addrs;
     }
-    &:nth-child(3){
+
+    &:nth-child(3) {
       grid-area: promos;
     }
 
   }
 
-  &__right{
+  &__right {
     @include col;
     @include size(18);
+    @include size-lg(24);
   }
 
-  &__contacts{
+  &__contacts {
     margin-bottom: 25px;
 
-    &:disabled{
-      input{
+    &:disabled {
+      input {
         background: transparent;
         border-color: transparent;
         padding: 4px 0;
       }
     }
 
-    input{
+    input {
       display: block;
       width: 100%;
       background: $bg;
@@ -58,37 +79,42 @@
     }
   }
 
-  &__contact{
+  &__contact {
     display: block;
     margin-bottom: 20px;
-    &:last-child{
+    @include sm-block {
+      margin-bottom: 15px;
+    }
+
+    &:last-child {
       margin-bottom: 0;
     }
   }
 
-  &__addrs{
+  &__addrs {
     display: grid;
     grid-gap: 15px;
   }
 
-  &__addr{
+  &__addr {
     display: flex;
     align-items: baseline;
     color: #242323;
     cursor: pointer;
 
-    input{
+    input {
       display: none;
 
-      &:checked+.account__addr-fake{
+      &:checked + .account__addr-fake {
         border: 1px solid #27ae60;
-        &:before{
+
+        &:before {
           opacity: 1;
         }
       }
     }
 
-    &-fake{
+    &-fake {
       min-width: 18px;
       width: 18px;
       height: 18px;
@@ -98,7 +124,7 @@
       margin-right: 10px;
       transform: translateY(5px);
 
-      &:before{
+      &:before {
         content: '';
         display: block;
         width: 100%;
@@ -111,84 +137,145 @@
 
   }
 
-  &__current{
+  &__current {
     margin-bottom: 110px;
+    @include lg-block {
+      margin-bottom: 75px;
+    }
   }
 
-  &__subtitle{
+  &__subtitle {
     color: #242323;
     font-size: 36px;
     font-weight: 600;
     margin-bottom: 45px;
+    @include sm-block {
+      font-size: 26px;
+      text-align: center;
+      margin-bottom: 30px;
+    }
   }
 
 }
 
-.acblock{
+.acblock {
   border-radius: 10px;
   border: 1px solid $gray-line;
   padding: 30px 40px 30px 25px;
+  display: flex;
+  flex-direction: column;
 
-  &_grey{
-    background-color: #f8f8f8;
+  @include lg-block {
+    height: 100%;
+    padding: 30px 25px;
   }
 
-  &__top{
+  &_grey {
+    background-color: #f8f8f8;
+
+    .acblock__top {
+      @include lg-block {
+        margin-bottom: 40px;
+      }
+      @include sm-block {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  &__top {
     position: relative;
     margin-bottom: 20px;
+    @include lg-block {
+      margin-bottom: 10px;
+    }
   }
 
-  &__title{
+  &__bottom {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
     color: #242323;
     font-size: 20px;
     font-weight: 600;
   }
 
-  &__edit{
+  &__edit {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     left: 100%;
+    @include lg-block {
+      left: initial;
+      right: 0;
+    }
   }
 
-  &__btns{
+  &__btns {
     display: grid;
     grid-gap: 10px;
     justify-content: center;
+    margin-top: auto;
+    @include lg-block {
+      justify-content: flex-start;
+    }
+    @include sm-block {
+      justify-content: center;
+    }
   }
 
-  &__exit{
+  &__save {
+    @include sm-block {
+      font-size: 16px;
+    }
+  }
+
+  &__exit {
     width: 123px;
     height: 40px;
+    @include sm-block {
+      font-size: 16px;
+    }
   }
 
-  &__save{
+  &__save {
     display: none;
-    &.active{
+
+    &.active {
       display: block;
     }
   }
 
 }
 
-.acpromos{
+.acpromos {
   display: grid;
   grid-gap: 20px;
+  @include lg-block {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 15px 20px;
+  }
+  @include sm-block {
+    grid-template-columns: 1fr;
+  }
 }
 
-.acpromo{
+.acpromo {
 
-  &__top{
+  &__top {
     display: flex;
     align-items: center;
     margin-bottom: 5px;
   }
 
-  &__name{
+  &__name {
     color: #797979;
   }
 
-  &__info{
+  &__info {
     width: 23px;
     height: 23px;
     border: 1px solid #c2c2c2;
@@ -202,21 +289,21 @@
     margin-left: 7px;
   }
 
-  &__val{
+  &__val {
     color: #242323;
     font-size: 16px;
     text-decoration: underline;
   }
 }
 
-.acorders{
+.acorders {
   display: grid;
   grid-gap: 45px;
 }
 
-.acorder{
+.acorder {
 
-  &__info{
+  &__info {
     border-radius: 10px;
     border: 1px solid $gray-line;
     background-color: #f8f8f8;
@@ -225,30 +312,70 @@
     justify-content: space-between;
     padding: 45px 55px 45px 45px;
     margin-bottom: 45px;
+    @include lg-block {
+      padding: 35px 27px 45px 40px;
+    }
+    @include sm-block {
+      padding: 25px 20px;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
   }
 
-  &__left{
+  &__left {
     margin-right: 20px;
+    @include sm-block {
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
   }
 
-  &__title{
+  &__title {
     color: $or;
     font-size: 24px;
     font-weight: 600;
     margin-bottom: 10px;
+    @include sm-block {
+      font-size: 24px;
+    }
   }
 
-  &__desc{
+  &__desc {
     display: flex;
     color: #242323;
     font-size: 16px;
+    @include lg-block {
+      flex-direction: column;
+    }
+    @include sm-block {
+      font-size: 14px;
+    }
   }
 
-  &__addr{
+  &__addr {
     margin-right: 25px;
+    @include lg-block {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
   }
 
-  &__status{
+  &__sub {
+    display: none;
+    color: #242323;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    @include lg-block {
+      display: block;
+    }
+    @include sm-block {
+      display: none;
+    }
+  }
+
+  &__status {
     width: 147px;
     height: 40px;
     border-radius: 4px;
@@ -260,92 +387,145 @@
     color: $or;
     font-weight: 500;
 
-    svg{
+    @include sm-block {
+      width: 132px;
+      height: 30px;
+      font-size: 12px;
+    }
+
+    svg {
       display: block;
       margin-right: 8px;
     }
   }
 
-  &__list{
+  &__list {
     display: grid;
     grid-gap: 20px;
     padding: 0 45px;
     margin-bottom: 60px;
+    @include lg-block {
+      padding: 0 35px;
+    }
+    @include sm-block {
+      padding: 0 10px;
+      margin-bottom: 10px;
+    }
   }
 
-  &__totals{
+  &__totals {
     margin: 0 45px;
     padding-top: 30px;
     border-top: 1px solid $gray-line;
+    @include lg-block {
+      margin: 0 35px;
+    }
+    @include sm-block{
+      padding: 0 10px;
+      padding-top: 15px;
+      margin: 0;
+    }
   }
 
-  &__total{
+  &__total {
     display: flex;
     align-items: center;
     justify-content: space-between;
     color: #242323;
     margin-bottom: 5px;
 
-    &-title{
+    &-title {
       font-size: 18px;
       font-weight: 500;
+      @include sm-block{
+        font-size: 14px;
+      }
     }
-    &-price{
+
+    &-price {
       font-size: 24px;
       font-weight: 600;
+      @include sm-block{
+        font-size: 24px;
+      }
     }
   }
 
-   &__subtotal{
+  &__subtotal {
     display: flex;
     align-items: center;
     justify-content: space-between;
     color: #242323;
 
-    &-title{
+    &-title {
       font-weight: 500;
+      @include sm-block{
+        font-size: 12px;
+      }
     }
-    &-price{
+
+    &-price {
       font-size: 18px;
       font-weight: 600;
+      @include sm-block{
+        font-size: 18px;
+      }
     }
   }
-
 
 
 }
 
-.acoritem{
+.acoritem {
   display: grid;
   grid-template-columns: 6fr 2.6fr;
   grid-gap: 20px;
+  @include sm-block {
+    grid-template-columns: 1fr 1fr;
+  }
 
-  &__title{
+  &__title {
     color: #242323;
     font-size: 18px;
     font-weight: 500;
     margin-bottom: 12px;
+    @include lg-block {
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+    @include sm-block{
+      font-size: 12px;
+    }
   }
 
-  &__sub{
+  &__sub {
     color: #6b6b6b;
+    @include sm-block{
+      font-size: 12px;
+    }
   }
 
-  &__right{
+  &__right {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
   }
 
-  &__count{
+  &__count {
     color: #797979;
     font-size: 16px;
+    @include sm-block{
+      font-size: 12px;
+    }
   }
 
-  &__price{
+  &__price {
     color: #242323;
     font-size: 18px;
     font-weight: 600;
+    @include sm-block{
+      font-size: 16px;
+    }
   }
 
 }

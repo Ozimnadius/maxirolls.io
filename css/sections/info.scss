@@ -1,68 +1,78 @@
-.info{
+.info {
   padding-top: 60px;
   padding-bottom: 110px;
 
 
-  &__title{
+  &__title {
     margin-bottom: 10px;
   }
 
-  &__subtitle{
+  &__subtitle {
     color: $black;
     font-size: 24px;
     margin-bottom: 20px;
   }
 
-  &__about{
+  &__about {
     margin-bottom: 25px;
   }
 
 }
 
-.inf-about{
+.inf-about {
   border-radius: 10px;
   background-color: #f4f4f4;
   padding: 37px 40px;
 
-  &__item{
+  &__item {
     display: grid;
     grid-template-columns: 1.9fr 6fr;
     grid-gap: 0 20px;
     margin-bottom: 15px;
-    &:last-child{
+
+    &:last-child {
       margin-bottom: 0;
     }
   }
 
-  &__name{
+  &__name {
     color: #242323;
     font-size: 16px;
     font-weight: 500;
   }
 
-  &__val{
+  &__val {
     color: #828282;
     font-size: 16px;
   }
 }
 
-.current{
+.current {
 
-  &__info{
+  &__info {
 
   }
 
-  &__list{
+  &__list {
     margin-bottom: 50px;
+    @include sm-block{
+      margin-bottom: 25px;
+    }
   }
 
-  &__total{
+  &__total {
     padding: 0 45px;
+    @include lg-block {
+      padding: 0 35px;
+    }
+    @include sm-block{
+      padding: 0 10px;
+    }
   }
 
 }
 
-.cinfo{
+.cinfo {
   background: $or url("/images/content/order/bg.png") center center no-repeat;
   background-size: cover;
   padding: 27px 45px 27px 40px;
@@ -72,60 +82,119 @@
   align-items: center;
   justify-content: space-between;
   color: $bg;
+  @include lg-block {
+    padding: 20px;
+  }
+  @include sm-block {
+    flex-direction: column;
+    align-items: flex-start;
+    background-position: 0 center;
+  }
 
-  &__title{
+  &__left{
+    @include sm-block{
+      margin-bottom: 15px;
+    }
+  }
+
+  &__title {
     font-size: 26px;
     color: $bg;
     margin-bottom: 7px;
+    @include lg-block {
+      font-size: 22px;
+      margin-bottom: 5px;
+    }
   }
 
-  &__addr{
+  &__addr {
     font-size: 20px;
     margin-bottom: 10px;
+    @include lg-block {
+      font-size: 18px;
+    }
+    @include sm-block{
+      font-size: 16px;
+    }
   }
 
-  &__date{
+  &__date {
     font-size: 16px;
   }
 
-  &__time{
+  &__time {
     font-size: 20px;
     font-weight: 600;
-    line-height: lh(20,22.8);
+    line-height: lh(20, 22.8);
     display: flex;
     align-items: center;
-    svg{
+    @include lg-block {
+      font-size: 18px;
+    }
+    @include sm-block{
+      font-size: 16px;
+    }
+
+    svg {
       display: block;
       margin-right: 20px;
+      @include lg-block {
+        width: 35px;
+        height: 35px;
+        margin-right: 15px;
+      }
     }
   }
 
 }
 
-.clist{
+.clist {
   padding: 0 45px;
+  @include lg-block {
+    padding: 0 35px;
+  }
+  @include sm-block{
+    margin: 0 -10px;
+    padding: 0;
+  }
 
 }
 
-.clitem{
+.clitem {
   padding: 20px 0;
   border-bottom: 1px solid $gray-line;
   display: flex;
   align-items: center;
+  @include lg-block {
+    padding: 15px 0;
+  }
+  @include sm-block{
+    padding: 15px 20px;
+  }
 
-  &__img{
+  &__img {
     min-width: 121px;
     width: 121px;
     position: relative;
     margin-right: 20px;
+    @include lg-block {
+      min-width: 90px;
+      width: 90px;
+      margin-right: 40px;
+    }
+    @include sm-block{
+      min-width: 70px;
+      width: 70px;
+      margin-right: 12px;
+    }
 
-    &:before{
+    &:before {
       content: '';
       display: block;
       padding-top: 100%;
     }
 
-    img{
+    img {
       display: block;
       position: absolute;
       top: 0;
@@ -136,43 +205,61 @@
     }
   }
 
-  &__desc{
+  &__desc {
     max-width: 270px;
     margin-right: auto;
+    @include sm-block{
+      max-width: 170px;
+    }
   }
 
-  &__title{
+  &__title {
     color: #242323;
     font-size: 20px;
     font-weight: 500;
     margin-bottom: 10px;
+    @include lg-block {
+      font-size: 18px;
+    }
+    @include sm-block{
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
   }
 
-  &__chars{
+  &__chars {
     color: #6b6b6b;
+    @include lg-block {
+      font-size: 14px;
+    }
+    @include sm-block{
+      font-size: 12px;
+    }
   }
 
-  &__prices{
+  &__prices {
     display: flex;
     align-items: baseline;
   }
 
-  &__price{
+  &__price {
     color: #242323;
     font-size: 18px;
     font-weight: 600;
+    white-space: nowrap;
 
-    &_n{
+    &_n {
       color: $or;
     }
   }
 
-  &__priceold{
+  &__priceold {
     color: #242323;
     font-size: 16px;
     font-weight: 500;
     position: relative;
     margin-right: 20px;
+
     &:before {
       content: "";
       display: block;

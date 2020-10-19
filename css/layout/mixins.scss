@@ -150,12 +150,20 @@ $vh: 1080;
     border-radius: 10px;
     overflow: hidden;
     display: inline-flex;
-    max-width: calc(50% - 20px);
+    max-width: calc(50% - 10px);
     margin-bottom: 30px;
     margin-top: 25px;
+    @include sm-block{
+      width: 100%;
+      max-width: 100%;
+      display: block;
+    }
 
     &:nth-of-type(even) {
       margin-left: 20px;
+      @include sm-block{
+        margin-left: 0;
+      }
     }
   }
 
@@ -198,6 +206,11 @@ $vh: 1080;
       }
       &:nth-child(even){
         background-color: $bg;
+      }
+
+      &.first{
+        background-color: $or;
+        color: $bg;
       }
 
     }

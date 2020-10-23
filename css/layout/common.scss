@@ -15,6 +15,9 @@
   @include lg-block {
     font-size: 12px;
   }
+  @include sm-block{
+    border-radius: 6px;
+  }
 
   &:hover {
     background-color: $hover;
@@ -42,6 +45,7 @@
 
   @include sm-block{
     font-size: 12px;
+    border-radius: 6px;
   }
 
   svg {
@@ -74,6 +78,7 @@
   @include tr;
   @include sm-block{
     font-size: 12px;
+    border-radius: 6px;
   }
 
   &:hover {
@@ -160,6 +165,9 @@
   font-size: 16px;
   background-color: $bg;
   position: relative;
+  @include sm-block{
+    border-radius: 6px;
+  }
 
   &_area {
     height: 120px;
@@ -212,6 +220,7 @@
   width: 100%;
 
   &.jq-selectbox {
+
     &.focused {
       .jq-selectbox__select {
         border: 1px solid $gray-line;
@@ -241,17 +250,28 @@
     padding: 0 40px 0 20px;
     background: none;
     box-shadow: none;
+    font: 16px/22px 'Gilroy',Arial,sans-serif;
+    @include lg-block{
+      height: 41px;
+      padding: 0 40px 0 17px;
+      font: 14px 'Gilroy',Arial,sans-serif;
+    }
+    @include sm-block{
+      border-radius: 6px;
+    }
   }
 
   .jq-selectbox__select-text {
     height: 100%;
     display: flex;
     align-items: center;
-
     color: $black;
     font-size: 16px;
     font-weight: 400;
     line-height: 1.42;
+    @include lg-block{
+      font-size: 14px;
+    }
   }
 
   .jq-selectbox__trigger {
@@ -275,6 +295,10 @@
     border: 1px solid $gray-line;
     box-shadow: none;
     overflow: hidden;
+    font: 16px/22px 'Gilroy',Arial,sans-serif;
+    @include sm-block{
+      border-radius: 6px;
+    }
   }
 }
 
@@ -364,6 +388,10 @@
 }
 
 .overflow {
+  overflow: hidden;
+}
+
+.ovh{
   overflow: hidden;
 }
 

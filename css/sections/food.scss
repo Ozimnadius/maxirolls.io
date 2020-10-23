@@ -171,11 +171,7 @@
 }
 
 .tab {
-  display: none;
 
-  &.active {
-    display: block;
-  }
 
   &__title {
     color: #242323;
@@ -210,6 +206,7 @@
 .item {
   display: flex;
   flex-direction: column;
+  position: relative;
 
   @include sm-block {
     padding: 15px 10px;
@@ -219,6 +216,36 @@
     grid-template-areas: 'img desc' 'img bottom';
     grid-gap: 0 15px;
     align-items: center;
+  }
+
+  &__stick{
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    border-radius: 20px;
+    background-color: #27ae60;
+    color: $bg;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+    padding: 6px 24px;
+    @include sm-block{
+      top: 10px;
+      left: 10px;
+    }
+
+    &_r{
+      background-color: $or;
+      left: initial;
+      right: 0;
+      font-size: 16px;
+      padding: 6px 14px;
+      @include sm-block{
+        right: initial;
+        left: 10px;
+      }
+    }
   }
 
   &__img {
@@ -381,5 +408,14 @@
   border-bottom: none;
   @include sm-block{
     padding-top: 0;
+  }
+}
+
+
+.jsTab{
+  display: none;
+
+  &.active {
+    display: block;
   }
 }

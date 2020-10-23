@@ -89,6 +89,34 @@ function getTrs(tr, $th,cls) {
     return trArr;
 }
 
+const popup = $('.popup'),
+    popupWrap = popup.find('.popup__wrapper');
+
+
+function getForm(cls) {
+    let template = $(tmpl.content),
+        form = template.find(cls).clone();
+    return form;
+}
+
+function openForm(form) {
+    popupWrap.html(form);
+    popup.addClass('active');
+    $('body').addClass('ovh');
+}
+
+function closePopup() {
+    popup.removeClass('active');
+    popupWrap.html();
+    $('body').removeClass('ovh');
+}
+
+$('input[type=tel]').mask('+7 (999) 999-99-99');
+
+$('.select').styler();
+
+
+
 
 
 

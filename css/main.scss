@@ -3,19 +3,18 @@
 $font: 'Gilroy', Arial, sans-serif;
 
 //colors
-$text: #4D4D4D;
+$black: #1f1f1f;
 $bg: #ffffff;
-
 $black-main: #333333;
+$icon: #c9c9c9;
 $main-color: #dda75d;
+$or: #ff4a00;
+$text: #4D4D4D;
 $grey-new: #e5e5e5;
 $new-yellow: #ffdd2d;
-$gray-line: #dbdbdb;
-$black: #1f1f1f;
-$or: #ff4a00;
-$icon: #c9c9c9;
 $hover: #D96334;
 $border: #c4c4c4;
+$gray-line: #dbdbdb;
 
 //another
 $font-size: 14px;
@@ -39,6 +38,8 @@ $font-size: 14px;
 @import "sections/info"; 
 @import "sections/account";
 @import "sections/mmenu";
+@import "sections/popup";
+@import "sections/product";
 @import "sections/footer";
 
 

@@ -1,0 +1,766 @@
+.product {
+  width: 890px;
+  height: 616px;
+  border-radius: 20px;
+  background-color: $bg;
+  display: grid;
+  grid-template-columns: 518fr 372fr;
+  position: relative;
+
+  @include lg-block {
+    width: 700px;
+    height: 538px;
+    grid-template-columns: 376fr 324fr;
+  }
+  @include sm-block {
+    width: 100vw;
+    height: 100%;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+
+  &__close {
+    position: absolute;
+    z-index: 100;
+    top: 15px;
+    left: calc(100% + 10px);
+    @include sm-block {
+      left: 20px;
+      top: 20px;
+      width: 51px;
+      height: 51px;
+      box-shadow: 0 1px 10px rgba(0, 0, 0, 0.25);
+      background-color: $bg;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+    }
+
+    svg {
+      fill: $bg;
+
+      &:nth-child(1) {
+        @include sm-block {
+          display: none;
+        }
+      }
+
+      &:nth-child(2) {
+        display: none;
+        fill: none;
+        @include sm-block {
+          display: block;
+        }
+      }
+    }
+  }
+
+  &__left {
+    border-radius: 20px 0 0 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    @include sm-block {
+      border-radius: 0;
+      justify-content: flex-end;
+      flex-grow: 1;
+      position: static;
+    }
+  }
+
+  &__stick {
+    position: absolute;
+    z-index: 10;
+    top: 40px;
+    right: 40px;
+    border-radius: 20px;
+    background-color: #27ae60;
+    color: $bg;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+    padding: 6px 24px;
+    @include sm-block {
+      display: none;
+    }
+  }
+
+  &__img {
+    width: 320px;
+    position: relative;
+    @include lg-block {
+      width: 241px;
+    }
+    @include sm-block {
+      width: 230px;
+    }
+
+    &:before {
+      content: '';
+      display: block;
+      padding-top: 100%;
+    }
+
+    img {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__wrap {
+    margin-top: 30px;
+    width: 100%;
+    padding-left: 90px;
+    padding-right: 75px;
+
+    @include lg-block {
+      padding: 0 30px;
+    }
+    @include sm-block {
+      margin: 0;
+      padding: 20px;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 20;
+      background: $bg;
+      transform: translateX(-100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      @include tr;
+    }
+
+    &.active {
+      transform: translateX(0);
+    }
+
+    &-img {
+      display: none;
+      @include sm-block {
+        display: block;
+        align-self: center;
+        margin-bottom: 20px;
+      }
+    }
+
+    &-title {
+      color: #000000;
+      font-size: 20px;
+      font-weight: 500;
+      margin-bottom: 10px;
+      @include lg-block {
+        font-size: 20px;
+      }
+    }
+
+    &-desc {
+      color: #000000;
+      font-size: 14px;
+    }
+
+    &-char {
+      color: #6b6b6b;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
+    &-close {
+      display: none;
+      color: $black-main;
+      font-size: 16px;
+      font-weight: 500;
+      align-items: center;
+      margin-top: 30px;
+
+      svg {
+        margin-right: 15px;
+      }
+
+      @include sm-block {
+        display: flex;
+      }
+    }
+  }
+
+  &__right {
+    background-color: #f5f5f5;
+    border-radius: 0 20px 20px 0;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    @include sm-block {
+      border-radius: 0;
+      background: $bg;
+      flex-shrink: 1;
+      max-height: calc(400 / 670 * 100%);
+    }
+  }
+
+  &__top {
+    padding: 35px 30px 0 30px;
+    position: relative;
+    overflow-y: auto;
+    border-bottom: 1px solid $gray-line;
+    @include lg-block {
+      padding: 35px 20px 0 20px;
+    }
+    @include sm-block {
+      padding: 30px 20px;
+    }
+
+    &::-webkit-scrollbar {
+      width: 4px;
+      background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 100px;
+      background-color: $gray-line;
+    }
+  }
+
+  &__info {
+    position: absolute;
+    z-index: 100;
+    top: 20px;
+    right: 20px;
+    @include sm-block {
+      top: 28px;
+      right: 25px;
+    }
+  }
+
+  &__title {
+    color: #000000;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 7px;
+    @include lg-block {
+      font-size: 20px;
+      padding-right: 25px;
+      margin-bottom: 15px;
+    }
+    @include sm-block {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__desc {
+    color: #000000;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  &__char {
+    color: #6b6b6b;
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+
+  &__ul {
+    color: #000000;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  &__li {
+    padding-left: 17px;
+    position: relative;
+
+    &:before {
+      content: '';
+      display: inline-block;
+      vertical-align: middle;
+      width: 5px;
+      height: 5px;
+      background-color: $or;
+      border-radius: 50%;
+      line-height: inherit;
+      position: absolute;
+      top: 7px;
+      left: 0;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-gap: 10px;
+    margin-bottom: 20px;
+    @include sm-block {
+      margin-bottom: 0;
+    }
+  }
+
+  &__filling {
+    margin-bottom: 20px;
+  }
+
+  &__structure {
+    display: none;
+    color: #6b6b6b;
+    font-size: 14px;
+    @include sm-block {
+      display: block;
+    }
+  }
+
+  &__bottom {
+    padding: 20px 30px 30px 30px;
+    overflow: hidden;
+    @include lg-block {
+      padding: 15px 30px;
+    }
+  }
+
+  &__total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    @include sm-block {
+      display: none;
+    }
+
+    &-name {
+      color: #515151;
+      font-size: 18px;
+    }
+  }
+
+  &__prices {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  &__price {
+    color: $or;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  &__priceold {
+    color: $black;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: line-through;
+    margin-right: 5px;
+  }
+
+  &__add {
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid $or;
+    background-color: $or;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    color: $bg;
+    font-family: Gilroy;
+    font-size: 16px;
+    font-weight: 600;
+    fill: $bg;
+    @include tr;
+    @include sm-block {
+      font-size: 16px;
+    }
+
+    &:hover {
+      background-color: $hover;
+    }
+  }
+
+  &__slider {
+    margin-bottom: 20px;
+  }
+
+}
+
+.pcomposition {
+  color: #000000;
+  font-size: 14px;
+  cursor: pointer;
+
+  &__input {
+    display: none;
+
+    &:checked {
+      & + .pcomposition__fake {
+
+        .pcomposition {
+
+          &__title {
+            text-decoration: underline;
+          }
+
+          &__btn {
+            svg {
+              &:nth-child(1) {
+                display: block;
+              }
+
+              &:nth-child(2) {
+                display: none;
+              }
+            }
+          }
+        }
+
+
+      }
+    }
+  }
+
+  &__fake {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  &__title {
+    text-decoration: line-through;
+
+  }
+
+  &__btn {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #898989;
+    margin-left: 5px;
+
+    svg {
+      fill: #898989;
+
+      &:nth-child(1) {
+        display: none;
+      }
+    }
+  }
+
+
+}
+
+.pitem {
+  border-radius: 10px;
+  border: 1px solid $gray-line;
+  background-color: $bg;
+  overflow: hidden;
+  padding: 15px 10px 20px 25px;
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 65px 1fr;
+  grid-gap: 5px;
+  align-items: center;
+  cursor: pointer;
+  stroke: $gray-line;
+  @include tr;
+
+  &.active {
+    border-color: $or;
+    stroke: $or;
+  }
+
+  &__arr {
+    position: absolute;
+    top: 50%;
+    margin-top: -6px;
+    left: 10px;
+
+  }
+
+  &__title {
+    color: #000000;
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+
+  &__txt {
+    color: #000000;
+    font-size: 12px;
+  }
+
+  &__char {
+    display: none;
+  }
+
+}
+
+.prinfo {
+  position: relative;
+
+  &__btn {
+    width: 25px;
+    height: 25px;
+    border: 1px solid #c2c2c2;
+    background-color: #eaeaea;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+    font-size: 16px;
+    font-weight: 600;
+    @include sm-block {
+      width: 35px;
+      height: 35px;
+      font-size: 23px;
+    }
+
+    &.active {
+      background: rgba(#373535, .8);
+      color: $bg;
+    }
+  }
+
+  &__content {
+    padding: 15px;
+    position: absolute;
+    z-index: 10;
+    top: calc(100% + 15px);
+    right: -10px;
+    border-radius: 10px;
+    background-color: rgba(#373535, .8);
+    min-width: 268px;
+    pointer-events: none;
+    transform: translateY(10px);
+    opacity: 0;
+    @include tr;
+    @include sm-block {
+      right: -5px;
+    }
+
+    &.active {
+      pointer-events: all;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    &:before {
+      content: '';
+      display: inline-block;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 9px 10px 9px;
+      border-color: transparent transparent rgba(#373535, .8) transparent;
+      position: absolute;
+      bottom: 100%;
+      right: 13px;
+    }
+  }
+
+  &__title {
+    color: #b5b5b5;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 13px;
+  }
+
+  &__list {
+    display: grid;
+    grid-gap: 5px;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    color: $bg;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+}
+
+.prslider {
+  display: block;
+  width: 100%;
+  @include sm-block {
+    display: none;
+  }
+
+  &__container {
+    transition: none;
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  &__title {
+    color: #000000;
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  &__nav {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 0 20px;
+  }
+
+  &__arr {
+    fill: $gray-line;
+    padding: 10px 0;
+    outline: none;
+    @include tr;
+
+    &:hover {
+      fill: $or;
+    }
+
+    svg {
+      display: block;
+    }
+  }
+
+  .badd {
+    max-width: 100px;
+
+    &__top {
+      padding: 10px;
+      padding-bottom: 0;
+    }
+
+    &__img {
+      &:hover {
+        transform: translateY(0);
+      }
+    }
+
+    &__bottom {
+      padding: 8px;
+      padding-top: 0;
+    }
+
+    &__title {
+      font-size: 12px;
+      margin-bottom: 5px;
+
+    }
+
+    &__price {
+      font-size: 14px;
+    }
+
+    &__btn {
+
+      width: 18px;
+      height: 18px;
+
+      svg {
+
+        width: 8px;
+        height: 8px;
+
+
+      }
+
+    }
+
+
+    &__count {
+      width: 47px;
+      height: 25px;
+      font-size: 12px;
+    }
+
+  }
+
+}
+
+.prfilling {
+  &__title {
+    color: #000000;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 15px;
+  }
+
+  &__list {
+    display: grid;
+    grid-gap: 10px;
+  }
+}
+
+.prfill {
+  display: block;
+  cursor: pointer;
+
+  &__input {
+    display: none;
+
+    &:checked + .prfill__fake {
+      .prfill {
+        &__btn {
+          border-color: $or;
+
+          &:before {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+
+  &__fake {
+    display: flex;
+    align-items: center;
+  }
+
+  &__btn {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #898989;
+    border-radius: 50%;
+    margin-right: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background-color: $or;
+      border-radius: 50%;
+      display: none;
+    }
+  }
+
+  &__desc {
+    color: #000000;
+
+    b {
+      font-weight: 600;
+    }
+  }
+}

@@ -24,6 +24,7 @@ $(function () {
         }
     });
 
+
     $('.badd__plus').on('click', function (e) {
         e.preventDefault();
         let $this = $(this),
@@ -62,8 +63,6 @@ $(function () {
         }
     }
 
-    $('.select').styler();
-
     //ввод цифр в поля
     $('.ocash__input').on('keypress', function (e) {
         if (e.key.match(/[^0-9]/g) || (this.value == 0 && e.key == 0)) {
@@ -95,8 +94,30 @@ $(function () {
 
     $('.jsAccountEditContacts').on('click', function (e) {
         e.preventDefault();
-        $('.account__contacts').attr('disabled',false);
+        $('.account__contacts').attr('disabled', false);
         $('.acblock__save').addClass('active');
+    });
+
+    $('.jsDelivery').on('click', function (e) {
+        e.preventDefault();
+        openForm(getForm('.delivery'));
+        $('.select').styler();
+    });
+
+    $('body').on('click', function (e) {
+        let target = $(e.target);
+        if (target.closest('.ocinfo').length == 0) {
+            $('.ocinfo__btn').removeClass('active');
+            $('.ocinfo__content').removeClass('active');
+        }
+    });
+
+    $('body').on('click', '.ocinfo__btn', function (e) {
+        e.preventDefault();
+
+        $(this).toggleClass('active');
+        $(this).next().toggleClass('active');
+
     });
 
 });

@@ -16,8 +16,12 @@ mixin image(imagePath, imageClass, imageAlt)
 mixin items(arr)
     .items
         each i in arr
-            div(data-id=i.id).item
-                .item__img
+            div(data-id=i.id).item.jsAdd-item
+                if i.new
+                    .item__stick Новинка
+                else if i.discount
+                    .item__stick.item__stick_r -15%
+                .item__img.jsAdd
                     +image(i.src)
                 .item__desc
                     h3.item__title= i.title
@@ -25,10 +29,10 @@ mixin items(arr)
                     .item__txt= i.txt
                 .item__bottom
                     .item__prices
-                        div(class=i.priceold ? 'item__price_new':'').item__price= i.price
+                        div(class=i.priceold ? 'item__price_new':'').item__price.jsAdd= i.price
                         if i.priceold
                             .item__priceold= i.priceold
-                    button(type='button').item__btn.btn Выбрать
+                    button(type='button').item__btn.btn.jsAdd Выбрать
 
 mixin actions(arr,noslider)
     if noslider
@@ -152,3 +156,27 @@ mixin count()
         button(type='button').count__minus.count__btn -
         input(type='number' min='1' value='1' step='1' max='999').count__input
         button(type='button').count__plus.count__btn +
+
+mixin adds(cls)
+    div(class=cls).swiper-container
+        .swiper-wrapper
+            each i in basketAdds
+                .swiper-slide.badd
+                    .badd__top
+                        a(href='/').badd__img
+                            +image(i.src)
+                    .badd__bottom
+                        a(href='/').badd__title= i.title
+                        .badd__price= i.price
+                    .badd__btns
+                        a(href='#').badd__btn.badd__minus.disabled
+                            <svg width="14" height="4" viewBox="0 0 14 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13.8756 3.5797H0.458984V0.217377H13.8756V3.5797Z" fill="white"/>
+                            </svg>
+                        a(href='#').badd__btn.badd__plus
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5.42409 13.348H8.41561V8.32366H13.454V5.43009H8.41561V0.405792H5.42409V5.43009H0.385742V8.32366H5.42409V13.348Z" fill="white"/>
+                            </svg>
+                    .badd__count
+                        span.badd__count-val
+                        span.badd__count-txt &nbsp;шт.

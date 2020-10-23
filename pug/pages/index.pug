@@ -41,7 +41,7 @@ block content
         //- food
         section.index__food
             .container
-                .food
+                .food.jsSwsTabs
                     .food__wrap
                         h2.food__title Меню
                         .food__cart.food__cart_t
@@ -54,12 +54,12 @@ block content
                                 span.fcart__price 1 280 ₽
                     .food__top
                         .food__sws
-                            .sws.swiper-container
+                            .sws.jsSws.swiper-container
                                 .swiper-wrapper
                                     each i,x in ['Комбо','Сеты','Роллы','Пицца','Закуски','Десерты','Напитки',]
-                                        a(href='#' class=x == 0 ? 'active' : '').sw.swiper-slide
+                                        button(type='button' class=x == 0 ? 'active' : '').sw.jsSw.swiper-slide
                                             span.sw__txt= i
-                                    a(href='#').sw.sw_actions.swiper-slide
+                                    button(type='button').sw.sw_actions.swiper-slide.jsSw
                                         <svg width="21" height="25" viewBox="0 0 21 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M19.5144 13.6095C18.9306 12.8709 16.1534 10.083 17.3517 7.05813C17.3517 7.05813 14.516 9.25261 15.5804 12.4318C15.089 11.7246 10.4232 9.3124 10.8117 0.414917C10.8117 0.414917 10.5171 0.70279 10.066 1.20804V24.0297C12.6389 23.9585 14.576 23.1915 14.576 23.1915C14.576 23.1915 22.0518 19.4736 19.5144 13.6095Z" fill="#FF4A00"/>
                                         <path d="M5.25366 11.2541C5.25366 11.2541 5.99148 17.1436 8.4506 18.087C8.4506 18.087 3.53273 16.9086 2.54885 11.0179C2.30354 11.725 -4.40424 18.1316 4.98934 23.0731C6.72258 23.8625 8.51062 24.0729 10.066 24.0297V1.20804C8.552 2.90502 5.25366 7.0788 5.25366 11.2541Z" fill="#FF4A00"/>
@@ -74,13 +74,13 @@ block content
                                 span.fcart__count 2
                                 span.fcart__price 1 280 ₽
                     .food__bottom
-                        .tabs
+                        .tabs.jsTabs
                             each i,x in ['Комбо','Сеты','Роллы','Пицца','Закуски','Десерты','Напитки',]
-                                div(class=x == 0 ? 'active' : '').tab
+                                div(class=x == 0 ? 'active' : '').tab.jsTab
                                     h3.tab__title= i
                                     .tab__items
                                         +items(items)
-                            .tab
+                            .tab.jsTab
                                 h3.tab__title Акции
                                 .tab__items
                                     +items(items)

@@ -1,38 +1,74 @@
 .order {
   padding-top: 70px;
   padding-bottom: 140px;
+  @include sm-block {
+    padding-top: 25px;
+    padding-bottom: 70px;
+  }
 
   &__title {
     color: $black;
     margin-bottom: 45px;
+    @include lg-block {
+      text-align: center;
+    }
   }
 
   &__grid {
     display: grid;
     grid-template-columns: 9fr 4.3fr;
+    grid-template-areas: 'main aside';
     grid-gap: 0 80px;
+
+    @include lg-block {
+      grid-template-columns: 1fr;
+      grid-template-areas: 'aside' 'main';
+      justify-items: center;
+      grid-gap: 100px;
+    }
+    @include sm-block {
+      grid-gap: 40px;
+    }
   }
 
-  &__left{
+  &__left {
     padding-top: 85px;
+    grid-area: aside;
+    @include lg-block {
+      padding-top: 0;
+    }
+
   }
 
   &__contacts {
     margin-bottom: 55px;
+    @include sm-block{
+      margin-bottom: 40px;
+    }
   }
 
   &__sub {
     color: $black;
     font-size: 30px;
     font-weight: 500;
+    @include sm-block {
+      font-size: 26px;
+    }
   }
 
   &__promo {
     margin-bottom: 75px;
+    @include sm-block{
+      margin-bottom: 20px;
+    }
 
     .bpromo {
       grid-gap: 0 25px;
       padding: 35px 0;
+      @include sm-block{
+        padding: 25px 10px;
+        grid-gap: 20px;
+      }
 
       &__right {
         grid-gap: 0 25px;
@@ -42,30 +78,54 @@
 
   &__subtop {
     padding-top: 0;
+    @include sm-block{
+      padding-bottom: 20px;
+    }
   }
 
-  &__pay{
+  &__pay {
     margin-bottom: 45px;
   }
 
-  &__accept{
+  &__accept {
     padding: 0 50px;
     margin-bottom: 50px;
+    @include lg-block {
+      padding: 0;
+    }
+    @include sm-block{
+      margin-bottom: 25px;
+    }
   }
 
-  &__btns{
+  &__btns {
     padding: 0 50px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @include lg-block {
+      padding: 0;
+    }
   }
 
-  &__back{
+  &__back {
     width: 213px;
+    @include sm-block {
+      width: 168px;
+    }
   }
 
-  &__submit{
+  &__submit {
     width: 240px;
+    @include sm-block {
+      width: 166px;
+    }
+  }
+
+  &__right {
+
+    grid-area: main;
+
   }
 
 
@@ -75,6 +135,9 @@
 
   &__title {
     margin-bottom: 50px;
+    @include sm-block {
+      margin-bottom: 20px;
+    }
   }
 
 }
@@ -85,6 +148,10 @@
   grid-gap: 0 20px;
   align-items: flex-start;
   margin-bottom: 20px;
+  @include sm-block {
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+  }
 
   &:last-child {
     margin-bottom: 0;
@@ -98,17 +165,12 @@
 
     display: flex;
     align-items: center;
+    @include sm-block{
+      line-height: normal;
+    }
   }
 
   &__info {
-    width: 24px;
-    height: 24px;
-    border: 1px solid #c2c2c2;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    line-height: 50px;
     margin-left: 5px;
   }
 
@@ -120,9 +182,11 @@
     @include col;
     @include size(7);
     position: relative;
+    @include size-sm(24);
 
     &_2 {
       @include size(17);
+      @include size-sm(24);
     }
 
     &_3 {
@@ -131,6 +195,7 @@
 
     &_time {
       @include size(10);
+      @include size-sm(24);
     }
   }
 
@@ -155,9 +220,16 @@
   border-radius: 10px;
   background-color: #f4f4f4;
   padding: 60px 80px 60px 50px;
+  @include sm-block{
+    padding: 50px 15px 15px 15px;
+  }
 
   &__title {
     margin-bottom: 30px;
+    @include sm-block{
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
   }
 
   &__item {
@@ -177,8 +249,11 @@
   display: grid;
   grid-template-columns: 327fr 245fr;
   grid-gap: 0 30px;
+  @include sm-block {
+    grid-template-columns: 1fr;
+  }
 
-  .card-wrapper{
+  .card-wrapper {
     display: none;
   }
 
@@ -220,6 +295,12 @@
     margin-top: 30px;
   }
 
+  &__right {
+    @include sm-block {
+      display: none;
+    }
+  }
+
   &__txt {
     color: #000000;
     font-size: 12px;
@@ -246,6 +327,9 @@
     max-width: 135px;
     margin-right: 45px;
     color: $black;
+    @include sm-block{
+      margin-right: auto;
+    }
 
   }
 
@@ -253,6 +337,9 @@
     width: 115px;
     margin-right: 30px;
     position: relative;
+    @include sm-block{
+      margin-right: 0;
+    }
 
     &-cur {
       color: $black;
@@ -273,7 +360,14 @@
     text-align: right;
   }
 
-  &__label{
+  &__check{
+    @include sm-block{
+      margin-top: 15px;
+      margin-left: auto;
+    }
+  }
+
+  &__label {
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -284,17 +378,19 @@
     font-weight: 500;
   }
 
-  &__checkbox{
+  &__checkbox {
     display: none;
-    &:checked+.ocash__fake{
+
+    &:checked + .ocash__fake {
       border: 2px solid #27ae60;
-      svg{
+
+      svg {
         opacity: 1;
       }
     }
   }
 
-  &__fake{
+  &__fake {
     width: 26px;
     height: 26px;
     border-radius: 6px;
@@ -304,7 +400,8 @@
     align-items: center;
     justify-content: center;
     margin-right: 20px;
-    svg{
+
+    svg {
       width: 20px;
       height: 16px;
       opacity: 0;
@@ -314,74 +411,141 @@
 
 }
 
-.olist{
+.olist {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
   background-color: $bg;
   padding: 40px;
   padding-left: 30px;
   color: $black;
+  @include lg-block {
+    max-width: 360px;
+  }
+  @include sm-block {
+    max-width: 100%;
+  }
 
-  &__title{
+  &__title {
     font-size: 20px;
     font-weight: 500;
     margin-bottom: 30px;
   }
 
-  &__items{
+  &__items {
     margin-bottom: 45px;
   }
 
-  &__item{
+  &__item {
     margin-bottom: 16px;
-    &:last-child{
+
+    &:last-child {
       margin-bottom: 0;
     }
   }
 
-  &__total{
+  &__total {
     color: $black;
     display: flex;
     align-items: baseline;
     justify-content: space-between;
     margin-bottom: 10px;
-    &:last-child{
+
+    &:last-child {
       margin-bottom: 0;
     }
 
-    &-title{
+    &-title {
       margin-right: 20px;
     }
 
-    &-price{
+    &-price {
       font-size: 16px;
       font-weight: 600;
     }
   }
 }
 
-.olitem{
+.olitem {
 
-  &__top{
+  &__top {
     margin-bottom: 5px;
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
   }
 
-  &__title{
+  &__title {
     margin-right: 50px;
   }
 
-  &__price{
+  &__price {
     font-size: 16px;
     white-space: nowrap;
   }
 
-  .content ul{
+  .content ul {
     margin: 0;
     font-size: 12px;
     color: $black;
     font-weight: 300;
+  }
+}
+
+.ocinfo {
+  position: relative;
+  line-height: 1.42;
+
+  &__btn {
+    width: 24px;
+    height: 24px;
+    border: 1px solid #c2c2c2;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__content {
+    padding: 15px;
+    position: absolute;
+    z-index: 10;
+    top: calc(100% + 15px);
+    left: -10px;
+    border-radius: 10px;
+    background-color: rgba(#373535, .8);
+    min-width: 268px;
+    pointer-events: none;
+    transform: translateY(10px);
+    opacity: 0;
+    font-size: 12px;
+    color: #FFFFFF;
+
+
+    @include tr;
+    @include sm-block {
+      left: -50px;
+    }
+
+    &.active {
+      pointer-events: all;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    &:before {
+      content: '';
+      display: inline-block;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 9px 10px 9px;
+      border-color: transparent transparent rgba(#373535, .8) transparent;
+      position: absolute;
+      bottom: 100%;
+      left: 13px;
+      @include sm-block{
+        left: 53px;
+      }
+    }
   }
 }

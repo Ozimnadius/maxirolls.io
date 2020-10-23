@@ -67,7 +67,7 @@
 -
     var items = [
         {
-            id: '1',
+            id: 'simple',
             src: 'images/content/catalog/1.jpg',
             title: 'Сет "Летний"',
             chars: '1050 гр |  34 шт',
@@ -75,24 +75,26 @@
             price: '360 ₽',
         },
         {
-            id: '2',
+            id: 'set',
             src: 'images/content/catalog/2.jpg',
             title: 'Сет "Летний"',
             chars: '1050 гр |  34 шт',
             txt: 'Горячий с крабом, Бонито ролл с окунем, 1/2 Запеченный с курицей, 1/2 Запеченный крабовый микс...',
             price: '360 ₽',
+            new: true
         },
         {
-            id: '3',
+            id: 'sushi',
             src: 'images/content/catalog/3.jpg',
             title: 'Сет "Летний"',
             chars: '1050 гр |  34 шт',
             txt: 'Горячий с крабом, Бонито ролл с окунем, 1/2 Запеченный с курицей,1/2 Запеченный с курицей, 1/2 Запеченный крабовый микс...',
             price: '1 280 ₽',
             priceold: '1 800 ₽',
+            discount: true
         },
         {
-            id: '4',
+            id: 'rolls',
             src: 'images/content/catalog/4.jpg',
             title: 'Запеченная калифорния"',
             chars: '1050 гр |  34 шт',
@@ -100,7 +102,7 @@
             price: '360 ₽',
         },
         {
-            id: '5',
+            id: 'simple',
             src: 'images/content/catalog/5.jpg',
             title: 'Сет "Летний"',
             chars: '1050 гр |  34 шт',
@@ -108,7 +110,7 @@
             price: '360 ₽',
         },
         {
-            id: '6',
+            id: 'set',
             src: 'images/content/catalog/6.jpg',
             title: 'Сет "Летний"',
             chars: '1050 гр |  34 шт',
@@ -117,7 +119,7 @@
             priceold: '500 ₽',
         },
         {
-            id: '7',
+            id: 'sushi',
             src: 'images/content/catalog/7.jpg',
             title: 'Пепперони Фреш с томатами',
             chars: '1050 гр |  34 шт',
@@ -125,7 +127,7 @@
             price: '360 ₽',
         },
         {
-            id: '8',
+            id: 'rolls',
             src: 'images/content/catalog/8.jpg',
             title: 'Сет "Летний"',
             chars: '1050 гр |  34 шт',
@@ -137,7 +139,7 @@
 -
     var pizza = [
         {
-            id: '9',
+            id: 'simple',
             src: 'images/content/pizza/1.jpg',
             title: 'Сет "Летний"',
             chars: '1050 гр |  34 шт',
@@ -145,23 +147,25 @@
             price: '360 ₽',
         },
         {
-            id: '10',
+            id: 'simple',
             src: 'images/content/pizza/2.jpg',
             title: 'Сет "Летний"',
             chars: '1050 гр |  34 шт',
             txt: 'Горячий с крабом, Бонито ролл с окунем, 1/2 Запеченный с курицей, 1/2 Запеченный крабовый микс...',
             price: '360 ₽',
+
         },
         {
-            id: '11',
+            id: 'simple',
             src: 'images/content/pizza/3.jpg',
             title: 'Сет "Летний"',
             chars: '1050 гр |  34 шт',
             txt: 'Горячий с крабом, Бонито ролл с окунем, 1/2 Запеченный с курицей, 1/2 Запеченный крабовый микс...',
             price: '360 ₽',
+
         },
         {
-            id: '12',
+            id: 'simple',
             src: 'images/content/pizza/4.jpg',
             title: 'Сет "Летний"',
             chars: '1050 гр |  34 шт',
@@ -169,7 +173,7 @@
             price: '360 ₽',
         },
         {
-            id: '13',
+            id: 'set',
             src: 'images/content/pizza/5.jpg',
             title: 'Сет "Летний"',
             chars: '1050 гр |  34 шт',
@@ -177,7 +181,7 @@
             price: '360 ₽',
         },
         {
-            id: '14',
+            id: 'set',
             src: 'images/content/pizza/6.jpg',
             title: 'Сет "Летний"',
             chars: '1050 гр |  34 шт',
@@ -185,7 +189,7 @@
             price: '360 ₽',
         },
         {
-            id: '15',
+            id: 'simple',
             src: 'images/content/pizza/7.jpg',
             title: 'Сет "Летний"',
             chars: '1050 гр |  34 шт',
@@ -193,7 +197,7 @@
             price: '360 ₽',
         },
         {
-            id: '16',
+            id: 'simple',
             src: 'images/content/pizza/8.jpg',
             title: 'Сет "Летний"',
             chars: '1050 гр |  34 шт',
@@ -405,4 +409,52 @@
             price: '1 360 ₽'
         },
 
+    ];
+-
+    var productInfo = [
+        {
+            name: 'Энерг. ценность',
+            val: '301,1 ккал'
+        },
+        {
+            name: 'Энерг. ценность',
+            val: '9,4 г'
+        },
+        {
+            name: 'Жиры',
+            val: '15,5 г'
+        },
+        {
+            name: 'Углеводы',
+            val: '28,8 г'
+        },
+        {
+            name: 'Вес',
+            val: '410 г'
+        },
+        {
+            name: 'Диаметр',
+            val: '410 г'
+        },
+
+    ];
+-
+    var productFiilling = [
+        {
+            txt: 'с креветкой',
+            price: '220 ₽',
+            checked: true
+        },
+        {
+            txt: 'с крабом',
+            price: '190 ₽'
+        },
+        {
+            txt: 'с лососем',
+            price: '200 ₽'
+        },
+        {
+            txt: 'с окунем',
+            price: '200 ₽'
+        }
     ];

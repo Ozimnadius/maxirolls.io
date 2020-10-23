@@ -34,19 +34,18 @@ $(function () {
     });
 
 
-    $('.sw').on('click', function (e) {
-        e.preventDefault();
-
+    $('body').on('click','.jsSw', function (e) {
         let $this = $(this),
-            sws = $('.sw'),
-            tabs = $('.tab'),
+            parent = $this.closest('.jsSwsTabs'),
+            sws = parent.find('.jsSw'),
+            tabs = parent.find('.jsTab'),
             tab = $(tabs[sws.index($this)]);
 
         sws.removeClass('active');
         tabs.removeClass('active');
         $this.addClass('active');
         tab.addClass('active');
-
+        $('input, select').trigger('refresh');
     });
 
     if (wWidth<768){

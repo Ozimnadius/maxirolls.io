@@ -9,7 +9,7 @@ block content
         .container
             h1.order__title Заказ на доставку
             .order__grid
-                form.order__right
+                form(action='info.html' method='POST').order__right
                     .order__contacts
                         .ocontacts
                             h3.order__sub.ocontacts__title Контактные данные
@@ -21,13 +21,15 @@ block content
                             .ocontact
                                 .ocontact__title
                                     |Номер телефон
-                                    a(href='#').ocontact__info i
+                                    .ocontact__info
+                                        .ocinfo
+                                            button(type='button').ocinfo__btn i
+                                            .ocinfo__content Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, quam.
+
+
                                 .ocontact__row
                                     .ocontact__col.ocontact__col_2
                                         input(type='tel' name='otel' placeholder='+7 999 999 99 99').input
-                                        button(type='button').ocontact__send.btn3 Выслать код
-                                    .ocontact__col
-                                        button(type='button').ocontact__sms.btn Код из СМС
                             .ocontact
                                 .ocontact__title Адрес доставки
                                 .ocontact__row

@@ -3,4 +3,5 @@
 // @prepros-append ../node_modules/jquery.maskedinput/src/jquery.maskedinput.js
 // @prepros-append ../node_modules/jquery-form-styler/dist/jquery.formstyler.js
 // @prepros-append ../node_modules/card/dist/jquery.card.js
+// @prepros-append ../node_modules/is-in-viewport/lib/isInViewport.js
 

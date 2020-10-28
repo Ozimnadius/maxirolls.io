@@ -33,6 +33,7 @@
       grid-template-columns: 1fr;
       grid-template-areas: 'contacts' 'addrs' 'promos';
       margin-bottom: 20px;
+      overflow: hidden;
     }
   }
 
@@ -529,5 +530,7 @@
   }
 
 }
+
+
 
 

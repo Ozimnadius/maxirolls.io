@@ -24,7 +24,6 @@ $(function () {
         }
     });
 
-
     $('.badd__plus').on('click', function (e) {
         e.preventDefault();
         let $this = $(this),
@@ -94,8 +93,7 @@ $(function () {
 
     $('.jsAccountEditContacts').on('click', function (e) {
         e.preventDefault();
-        $('.account__contacts').attr('disabled', false);
-        $('.acblock__save').addClass('active');
+        openForm(getForm('.accontacts'));
     });
 
     $('.jsDelivery').on('click', function (e) {
@@ -106,18 +104,22 @@ $(function () {
 
     $('body').on('click', function (e) {
         let target = $(e.target);
-        if (target.closest('.ocinfo').length == 0) {
-            $('.ocinfo__btn').removeClass('active');
-            $('.ocinfo__content').removeClass('active');
+        if (target.closest('.jsInfo').length == 0) {
+           closeInfos();
         }
     });
 
-    $('body').on('click', '.ocinfo__btn', function (e) {
+    $('body').on('click', '.jsInfoBtn', function (e) {
         e.preventDefault();
-
+        closeInfos();
         $(this).toggleClass('active');
         $(this).next().toggleClass('active');
 
     });
+
+    function closeInfos() {
+        $('.jsInfoBtn').removeClass('active');
+        $('.jsInfoContent').removeClass('active');
+    }
 
 });

@@ -25,6 +25,13 @@ switch ($action) {
         ));
         exit();
         break;
+    case 'getAction':
+        echo json_encode(array(
+            'status' => true,
+            'html' => getAction()
+        ));
+        exit();
+        break;
     default:
         echo json_encode(array(
             'status' => false,
@@ -144,7 +151,7 @@ function getProduct($id)
             </div>
         </form>
     <? elseif ($id == 'set'):
-        ob_start();?>
+        ob_start(); ?>
         <form class="product">
             <button class="jsFormClose product__close" type="button">
                 <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
@@ -200,7 +207,8 @@ function getProduct($id)
                     <div class="product__wrap-char"></div>
                     <button type="button" class="product__wrap-close">
                         <svg width="31" height="8" viewBox="0 0 31 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M0.646444 3.64644C0.451183 3.84171 0.451183 4.15829 0.646444 4.35355L3.82842 7.53553C4.02369 7.73079 4.34027 7.73079 4.53553 7.53553C4.73079 7.34027 4.73079 7.02369 4.53553 6.82842L1.70711 4L4.53553 1.17157C4.7308 0.976308 4.7308 0.659726 4.53553 0.464464C4.34027 0.269202 4.02369 0.269202 3.82842 0.464464L0.646444 3.64644ZM31 3.5L0.999998 3.5L0.999998 4.5L31 4.5L31 3.5Z" fill="#333333"/>
+                            <path d="M0.646444 3.64644C0.451183 3.84171 0.451183 4.15829 0.646444 4.35355L3.82842 7.53553C4.02369 7.73079 4.34027 7.73079 4.53553 7.53553C4.73079 7.34027 4.73079 7.02369 4.53553 6.82842L1.70711 4L4.53553 1.17157C4.7308 0.976308 4.7308 0.659726 4.53553 0.464464C4.34027 0.269202 4.02369 0.269202 3.82842 0.464464L0.646444 3.64644ZM31 3.5L0.999998 3.5L0.999998 4.5L31 4.5L31 3.5Z"
+                                  fill="#333333"/>
                         </svg>
                         Вернуться назад
                     </button>
@@ -209,40 +217,58 @@ function getProduct($id)
             <div class="product__right">
                 <div class="product__top">
                     <h3 class="product__title">Комбо за 599 ₽</h3>
-                    <div class="product__desc">Быстрый заказ: наш хит «Аррива!» или другая пицца 25 см, Додстер, напиток и соус. Выбор пицц ограничен</div>
+                    <div class="product__desc">Быстрый заказ: наш хит «Аррива!» или другая пицца 25 см, Додстер, напиток
+                        и соус. Выбор пицц ограничен
+                    </div>
                     <div class="product__list">
                         <div class="product__item pitem">
-                            <div class="pitem__arr"><svg width="8" height="13" viewBox="0 0 8 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M6.5 12L1 6.5L6.5 1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <div class="pitem__arr">
+                                <svg width="8" height="13" viewBox="0 0 8 13" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6.5 12L1 6.5L6.5 1" stroke-width="2" stroke-linecap="round"
+                                          stroke-linejoin="round"/>
                                 </svg>
                             </div>
-                            <div class="pitem__img"><img class="undefined" src="images/content/pizza/1.jpg" alt="lorem"/>
+                            <div class="pitem__img"><img class="undefined" src="images/content/pizza/1.jpg"
+                                                         alt="lorem"/>
                             </div>
                             <div class="pitem__desc">
                                 <div class="pitem__title">Аррива!</div>
-                                <div class="pitem__txt">Соус бургер, цыпленок, соус ранч, чоризо, сладкий перец, красный лук, моцарелла, томаты, чеснок</div>
+                                <div class="pitem__txt">Соус бургер, цыпленок, соус ранч, чоризо, сладкий перец, красный
+                                    лук, моцарелла, томаты, чеснок
+                                </div>
                                 <div class="pitem__char">30 см, традиционное тесто, 350 г</div>
                             </div>
                         </div>
                         <div class="product__item pitem">
-                            <div class="pitem__arr"><svg width="8" height="13" viewBox="0 0 8 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M6.5 12L1 6.5L6.5 1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <div class="pitem__arr">
+                                <svg width="8" height="13" viewBox="0 0 8 13" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6.5 12L1 6.5L6.5 1" stroke-width="2" stroke-linecap="round"
+                                          stroke-linejoin="round"/>
                                 </svg>
                             </div>
-                            <div class="pitem__img"><img class="undefined" src="images/content/popup/dodster.png" alt="lorem"/>
+                            <div class="pitem__img"><img class="undefined" src="images/content/popup/dodster.png"
+                                                         alt="lorem"/>
                             </div>
                             <div class="pitem__desc">
                                 <div class="pitem__title">Додстер</div>
-                                <div class="pitem__txt">Легендарная горячая закуска с цыпленком, томатами, соусом  ранч в тонкой пшеничной лепешке, моцареллой</div>
+                                <div class="pitem__txt">Легендарная горячая закуска с цыпленком, томатами, соусом ранч в
+                                    тонкой пшеничной лепешке, моцареллой
+                                </div>
                                 <div class="pitem__char">30 см, традиционное тесто, 350 г</div>
                             </div>
                         </div>
                         <div class="product__item pitem">
-                            <div class="pitem__arr"><svg width="8" height="13" viewBox="0 0 8 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M6.5 12L1 6.5L6.5 1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <div class="pitem__arr">
+                                <svg width="8" height="13" viewBox="0 0 8 13" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6.5 12L1 6.5L6.5 1" stroke-width="2" stroke-linecap="round"
+                                          stroke-linejoin="round"/>
                                 </svg>
                             </div>
-                            <div class="pitem__img"><img class="undefined" src="images/content/popup/cola.png" alt="lorem"/>
+                            <div class="pitem__img"><img class="undefined" src="images/content/popup/cola.png"
+                                                         alt="lorem"/>
                             </div>
                             <div class="pitem__desc">
                                 <div class="pitem__title">Coca-cola</div>
@@ -261,12 +287,13 @@ function getProduct($id)
                             </div>
                         </div>
                     </div>
-                    <button class="product__add" type="button"><span class="product__add-txt">Добавить в корзину</span></button>
+                    <button class="product__add" type="button"><span class="product__add-txt">Добавить в корзину</span>
+                    </button>
                 </div>
             </div>
         </form>
     <? elseif ($id == 'sushi'):
-        ob_start();?>
+        ob_start(); ?>
         <form class="product">
             <button class="jsFormClose product__close" type="button">
                 <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
@@ -315,13 +342,15 @@ function getProduct($id)
                 <div class="product__img"><img class="undefined" src="images/content/catalog/6.jpg" alt="lorem"/>
                 </div>
                 <div class="product__wrap">
-                    <div class="product__wrap-desc">К данному сету бесплатно прилагаются: имбирь 80гр, васаби 40гр, соевый соус 4 пакетика, 4 прибора.</div>
+                    <div class="product__wrap-desc">К данному сету бесплатно прилагаются: имбирь 80гр, васаби 40гр,
+                        соевый соус 4 пакетика, 4 прибора.
+                    </div>
                 </div>
             </div>
             <div class="product__right">
                 <div class="product__top">
                     <h3 class="product__title">Сет с лососем</h3>
-                    <div class="product__char">1050 гр |  28 шт</div>
+                    <div class="product__char">1050 гр | 28 шт</div>
                     <ul class="product__ul">
                         <li class="product__li">Горячий с крабом,</li>
                         <li class="product__li">Бонито ролл с окунем,</li>
@@ -342,98 +371,170 @@ function getProduct($id)
                     <div class="product__slider prslider">
                         <div class="prslider__top">
                             <h3 class="prslider__title">Добавить к заказу</h3>
-                            <div class="prslider__nav"><a class="prslider__arr prslider__prev" href="#"><svg width="34" height="8" viewBox="0 0 34 8" xmlns="http://www.w3.org/2000/svg">
+                            <div class="prslider__nav"><a class="prslider__arr prslider__prev" href="#">
+                                    <svg width="34" height="8" viewBox="0 0 34 8" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M0.646446 3.64644C0.451183 3.84171 0.451183 4.15829 0.646446 4.35355L3.82843 7.53553C4.02369 7.73079 4.34027 7.73079 4.53553 7.53553C4.7308 7.34027 4.7308 7.02369 4.53553 6.82842L1.70711 4L4.53553 1.17157C4.7308 0.976308 4.7308 0.659726 4.53553 0.464464C4.34027 0.269201 4.02369 0.269201 3.82843 0.464463L0.646446 3.64644ZM34 3.5L1 3.5L1 4.5L34 4.5L34 3.5Z"/>
-                                    </svg></a><a class="prslider__arr prslider__next" href="#"><svg width="34" height="8" viewBox="0 0 34 8" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M33.3536 4.35355C33.5488 4.15829 33.5488 3.84171 33.3536 3.64645L30.1716 0.464466C29.9763 0.269204 29.6597 0.269204 29.4645 0.464466C29.2692 0.659728 29.2692 0.976311 29.4645 1.17157L32.2929 4L29.4645 6.82843C29.2692 7.02369 29.2692 7.34027 29.4645 7.53553C29.6597 7.7308 29.9763 7.7308 30.1716 7.53553L33.3536 4.35355ZM0 4.5H33V3.5H0V4.5Z" />
-                                    </svg></a></div>
+                                    </svg>
+                                </a><a class="prslider__arr prslider__next" href="#">
+                                    <svg width="34" height="8" viewBox="0 0 34 8" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M33.3536 4.35355C33.5488 4.15829 33.5488 3.84171 33.3536 3.64645L30.1716 0.464466C29.9763 0.269204 29.6597 0.269204 29.4645 0.464466C29.2692 0.659728 29.2692 0.976311 29.4645 1.17157L32.2929 4L29.4645 6.82843C29.2692 7.02369 29.2692 7.34027 29.4645 7.53553C29.6597 7.7308 29.9763 7.7308 30.1716 7.53553L33.3536 4.35355ZM0 4.5H33V3.5H0V4.5Z"/>
+                                    </svg>
+                                </a></div>
                         </div>
                         <div class="prslider__bottom"></div>
                         <div class="prslider__container swiper-container">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide badd">
-                                    <div class="badd__top"><a class="badd__img" href="/"><img class="undefined" src="images/content/basket/1.jpg" alt="lorem"/></a></div>
+                                    <div class="badd__top"><a class="badd__img" href="/"><img class="undefined"
+                                                                                              src="images/content/basket/1.jpg"
+                                                                                              alt="lorem"/></a></div>
                                     <div class="badd__bottom"><a class="badd__title" href="/">Палочки для суши</a>
                                         <div class="badd__price">3 ₽</div>
                                     </div>
-                                    <div class="badd__btns"><a class="badd__btn badd__minus disabled" href="#"><svg width="14" height="4" viewBox="0 0 14 4" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M13.8756 3.5797H0.458984V0.217377H13.8756V3.5797Z" fill="white"/>
-                                            </svg></a><a class="badd__btn badd__plus" href="#"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M5.42409 13.348H8.41561V8.32366H13.454V5.43009H8.41561V0.405792H5.42409V5.43009H0.385742V8.32366H5.42409V13.348Z" fill="white"/>
-                                            </svg></a></div>
-                                    <div class="badd__count"><span class="badd__count-val"></span><span class="badd__count-txt">&nbsp;шт.</span></div>
+                                    <div class="badd__btns"><a class="badd__btn badd__minus disabled" href="#">
+                                            <svg width="14" height="4" viewBox="0 0 14 4" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M13.8756 3.5797H0.458984V0.217377H13.8756V3.5797Z"
+                                                      fill="white"/>
+                                            </svg>
+                                        </a><a class="badd__btn badd__plus" href="#">
+                                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5.42409 13.348H8.41561V8.32366H13.454V5.43009H8.41561V0.405792H5.42409V5.43009H0.385742V8.32366H5.42409V13.348Z"
+                                                      fill="white"/>
+                                            </svg>
+                                        </a></div>
+                                    <div class="badd__count"><span class="badd__count-val"></span><span
+                                                class="badd__count-txt">&nbsp;шт.</span></div>
                                 </div>
                                 <div class="swiper-slide badd">
-                                    <div class="badd__top"><a class="badd__img" href="/"><img class="undefined" src="images/content/basket/2.jpg" alt="lorem"/></a></div>
+                                    <div class="badd__top"><a class="badd__img" href="/"><img class="undefined"
+                                                                                              src="images/content/basket/2.jpg"
+                                                                                              alt="lorem"/></a></div>
                                     <div class="badd__bottom"><a class="badd__title" href="/">Имбирь +васаби</a>
                                         <div class="badd__price">30 ₽</div>
                                     </div>
-                                    <div class="badd__btns"><a class="badd__btn badd__minus disabled" href="#"><svg width="14" height="4" viewBox="0 0 14 4" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M13.8756 3.5797H0.458984V0.217377H13.8756V3.5797Z" fill="white"/>
-                                            </svg></a><a class="badd__btn badd__plus" href="#"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M5.42409 13.348H8.41561V8.32366H13.454V5.43009H8.41561V0.405792H5.42409V5.43009H0.385742V8.32366H5.42409V13.348Z" fill="white"/>
-                                            </svg></a></div>
-                                    <div class="badd__count"><span class="badd__count-val"></span><span class="badd__count-txt">&nbsp;шт.</span></div>
+                                    <div class="badd__btns"><a class="badd__btn badd__minus disabled" href="#">
+                                            <svg width="14" height="4" viewBox="0 0 14 4" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M13.8756 3.5797H0.458984V0.217377H13.8756V3.5797Z"
+                                                      fill="white"/>
+                                            </svg>
+                                        </a><a class="badd__btn badd__plus" href="#">
+                                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5.42409 13.348H8.41561V8.32366H13.454V5.43009H8.41561V0.405792H5.42409V5.43009H0.385742V8.32366H5.42409V13.348Z"
+                                                      fill="white"/>
+                                            </svg>
+                                        </a></div>
+                                    <div class="badd__count"><span class="badd__count-val"></span><span
+                                                class="badd__count-txt">&nbsp;шт.</span></div>
                                 </div>
                                 <div class="swiper-slide badd">
-                                    <div class="badd__top"><a class="badd__img" href="/"><img class="undefined" src="images/content/basket/3.jpg" alt="lorem"/></a></div>
+                                    <div class="badd__top"><a class="badd__img" href="/"><img class="undefined"
+                                                                                              src="images/content/basket/3.jpg"
+                                                                                              alt="lorem"/></a></div>
                                     <div class="badd__bottom"><a class="badd__title" href="/">Имбирь</a>
                                         <div class="badd__price">20 ₽</div>
                                     </div>
-                                    <div class="badd__btns"><a class="badd__btn badd__minus disabled" href="#"><svg width="14" height="4" viewBox="0 0 14 4" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M13.8756 3.5797H0.458984V0.217377H13.8756V3.5797Z" fill="white"/>
-                                            </svg></a><a class="badd__btn badd__plus" href="#"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M5.42409 13.348H8.41561V8.32366H13.454V5.43009H8.41561V0.405792H5.42409V5.43009H0.385742V8.32366H5.42409V13.348Z" fill="white"/>
-                                            </svg></a></div>
-                                    <div class="badd__count"><span class="badd__count-val"></span><span class="badd__count-txt">&nbsp;шт.</span></div>
+                                    <div class="badd__btns"><a class="badd__btn badd__minus disabled" href="#">
+                                            <svg width="14" height="4" viewBox="0 0 14 4" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M13.8756 3.5797H0.458984V0.217377H13.8756V3.5797Z"
+                                                      fill="white"/>
+                                            </svg>
+                                        </a><a class="badd__btn badd__plus" href="#">
+                                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5.42409 13.348H8.41561V8.32366H13.454V5.43009H8.41561V0.405792H5.42409V5.43009H0.385742V8.32366H5.42409V13.348Z"
+                                                      fill="white"/>
+                                            </svg>
+                                        </a></div>
+                                    <div class="badd__count"><span class="badd__count-val"></span><span
+                                                class="badd__count-txt">&nbsp;шт.</span></div>
                                 </div>
                                 <div class="swiper-slide badd">
-                                    <div class="badd__top"><a class="badd__img" href="/"><img class="undefined" src="images/content/basket/4.jpg" alt="lorem"/></a></div>
+                                    <div class="badd__top"><a class="badd__img" href="/"><img class="undefined"
+                                                                                              src="images/content/basket/4.jpg"
+                                                                                              alt="lorem"/></a></div>
                                     <div class="badd__bottom"><a class="badd__title" href="/">Васаби</a>
                                         <div class="badd__price">20 ₽</div>
                                     </div>
-                                    <div class="badd__btns"><a class="badd__btn badd__minus disabled" href="#"><svg width="14" height="4" viewBox="0 0 14 4" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M13.8756 3.5797H0.458984V0.217377H13.8756V3.5797Z" fill="white"/>
-                                            </svg></a><a class="badd__btn badd__plus" href="#"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M5.42409 13.348H8.41561V8.32366H13.454V5.43009H8.41561V0.405792H5.42409V5.43009H0.385742V8.32366H5.42409V13.348Z" fill="white"/>
-                                            </svg></a></div>
-                                    <div class="badd__count"><span class="badd__count-val"></span><span class="badd__count-txt">&nbsp;шт.</span></div>
+                                    <div class="badd__btns"><a class="badd__btn badd__minus disabled" href="#">
+                                            <svg width="14" height="4" viewBox="0 0 14 4" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M13.8756 3.5797H0.458984V0.217377H13.8756V3.5797Z"
+                                                      fill="white"/>
+                                            </svg>
+                                        </a><a class="badd__btn badd__plus" href="#">
+                                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5.42409 13.348H8.41561V8.32366H13.454V5.43009H8.41561V0.405792H5.42409V5.43009H0.385742V8.32366H5.42409V13.348Z"
+                                                      fill="white"/>
+                                            </svg>
+                                        </a></div>
+                                    <div class="badd__count"><span class="badd__count-val"></span><span
+                                                class="badd__count-txt">&nbsp;шт.</span></div>
                                 </div>
                                 <div class="swiper-slide badd">
-                                    <div class="badd__top"><a class="badd__img" href="/"><img class="undefined" src="images/content/basket/5.jpg" alt="lorem"/></a></div>
+                                    <div class="badd__top"><a class="badd__img" href="/"><img class="undefined"
+                                                                                              src="images/content/basket/5.jpg"
+                                                                                              alt="lorem"/></a></div>
                                     <div class="badd__bottom"><a class="badd__title" href="/">Соевый соус</a>
                                         <div class="badd__price">20 ₽</div>
                                     </div>
-                                    <div class="badd__btns"><a class="badd__btn badd__minus disabled" href="#"><svg width="14" height="4" viewBox="0 0 14 4" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M13.8756 3.5797H0.458984V0.217377H13.8756V3.5797Z" fill="white"/>
-                                            </svg></a><a class="badd__btn badd__plus" href="#"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M5.42409 13.348H8.41561V8.32366H13.454V5.43009H8.41561V0.405792H5.42409V5.43009H0.385742V8.32366H5.42409V13.348Z" fill="white"/>
-                                            </svg></a></div>
-                                    <div class="badd__count"><span class="badd__count-val"></span><span class="badd__count-txt">&nbsp;шт.</span></div>
+                                    <div class="badd__btns"><a class="badd__btn badd__minus disabled" href="#">
+                                            <svg width="14" height="4" viewBox="0 0 14 4" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M13.8756 3.5797H0.458984V0.217377H13.8756V3.5797Z"
+                                                      fill="white"/>
+                                            </svg>
+                                        </a><a class="badd__btn badd__plus" href="#">
+                                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5.42409 13.348H8.41561V8.32366H13.454V5.43009H8.41561V0.405792H5.42409V5.43009H0.385742V8.32366H5.42409V13.348Z"
+                                                      fill="white"/>
+                                            </svg>
+                                        </a></div>
+                                    <div class="badd__count"><span class="badd__count-val"></span><span
+                                                class="badd__count-txt">&nbsp;шт.</span></div>
                                 </div>
                                 <div class="swiper-slide badd">
-                                    <div class="badd__top"><a class="badd__img" href="/"><img class="undefined" src="images/content/basket/6.jpg" alt="lorem"/></a></div>
+                                    <div class="badd__top"><a class="badd__img" href="/"><img class="undefined"
+                                                                                              src="images/content/basket/6.jpg"
+                                                                                              alt="lorem"/></a></div>
                                     <div class="badd__bottom"><a class="badd__title" href="/">Палочки для суши</a>
                                         <div class="badd__price">3 ₽</div>
                                     </div>
-                                    <div class="badd__btns"><a class="badd__btn badd__minus disabled" href="#"><svg width="14" height="4" viewBox="0 0 14 4" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M13.8756 3.5797H0.458984V0.217377H13.8756V3.5797Z" fill="white"/>
-                                            </svg></a><a class="badd__btn badd__plus" href="#"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M5.42409 13.348H8.41561V8.32366H13.454V5.43009H8.41561V0.405792H5.42409V5.43009H0.385742V8.32366H5.42409V13.348Z" fill="white"/>
-                                            </svg></a></div>
-                                    <div class="badd__count"><span class="badd__count-val"></span><span class="badd__count-txt">&nbsp;шт.</span></div>
+                                    <div class="badd__btns"><a class="badd__btn badd__minus disabled" href="#">
+                                            <svg width="14" height="4" viewBox="0 0 14 4" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M13.8756 3.5797H0.458984V0.217377H13.8756V3.5797Z"
+                                                      fill="white"/>
+                                            </svg>
+                                        </a><a class="badd__btn badd__plus" href="#">
+                                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5.42409 13.348H8.41561V8.32366H13.454V5.43009H8.41561V0.405792H5.42409V5.43009H0.385742V8.32366H5.42409V13.348Z"
+                                                      fill="white"/>
+                                            </svg>
+                                        </a></div>
+                                    <div class="badd__count"><span class="badd__count-val"></span><span
+                                                class="badd__count-txt">&nbsp;шт.</span></div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <button class="product__add" type="button" data-price="400"><span class="product__add-txt">Добавить в корзину за&nbsp;</span><span class="product__add-price">400 ₽</span></button>
+                    <button class="product__add" type="button" data-price="400"><span class="product__add-txt">Добавить в корзину за&nbsp;</span><span
+                                class="product__add-price">400 ₽</span></button>
                 </div>
             </div>
         </form>
     <? elseif ($id == 'rolls'):
-        ob_start();?>
+        ob_start(); ?>
         <form class="product">
-            <button class="jsFormClose product__close" type="button"><svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+            <button class="jsFormClose product__close" type="button">
+                <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
                     <path d="M17.7485 14.9999L29.4299 3.31816C30.1901 2.55831 30.1901 1.32974 29.4299 0.569888C28.67 -0.189963 27.4415 -0.189963 26.6816 0.569888L14.9998 12.2516L3.31843 0.569888C2.55822 -0.189963 1.33001 -0.189963 0.570155 0.569888C-0.190052 1.32974 -0.190052 2.55831 0.570155 3.31816L12.2516 14.9999L0.570155 26.6817C-0.190052 27.4415 -0.190052 28.6701 0.570155 29.43C0.948835 29.809 1.44674 29.9994 1.94429 29.9994C2.44184 29.9994 2.93939 29.809 3.31843 29.43L14.9998 17.7482L26.6816 29.43C27.0607 29.809 27.5582 29.9994 28.0558 29.9994C28.5533 29.9994 29.0509 29.809 29.4299 29.43C30.1901 28.6701 30.1901 27.4415 29.4299 26.6817L17.7485 14.9999Z"/>
                 </svg>
                 <svg width="25" height="14" viewBox="0 0 25 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -480,28 +581,40 @@ function getProduct($id)
                 </div>
                 <div class="product__wrap">
                     <div class="product__wrap-title">Запеченная калифорния</div>
-                    <div class="product__wrap-desc">Начинка на выбор, огурец, сыр Филадельфия, икра масага, майонезная шапочка.</div>
-                    <div class="product__wrap-char">К данному сету бесплатно прилагаются: имбирь 80гр, васаби 40гр, соевый соус 4 пакетика, 4 прибора.</div>
+                    <div class="product__wrap-desc">Начинка на выбор, огурец, сыр Филадельфия, икра масага, майонезная
+                        шапочка.
+                    </div>
+                    <div class="product__wrap-char">К данному сету бесплатно прилагаются: имбирь 80гр, васаби 40гр,
+                        соевый соус 4 пакетика, 4 прибора.
+                    </div>
                 </div>
             </div>
             <div class="product__right">
                 <div class="product__top">
                     <h3 class="product__title">Запеченная калифорния</h3>
-                    <div class="product__char">1050 гр |  28 шт</div>
+                    <div class="product__char">1050 гр | 28 шт</div>
                     <div class="product__filling prfilling">
                         <div class="prfilling__title">Выберите начинку:</div>
                         <div class="prfilling__list">
                             <label class="prfill">
-                                <input class="prfill__input" type="radio" name="productFilling" value="с креветкой" checked><span class="prfill__fake"><span class="prfill__btn"></span><span class="prfill__desc"><span>с креветкой</span>&nbsp;-&nbsp;<b>220 ₽</b></span></span>
+                                <input class="prfill__input" type="radio" name="productFilling" value="с креветкой"
+                                       checked><span class="prfill__fake"><span class="prfill__btn"></span><span
+                                            class="prfill__desc"><span>с креветкой</span>&nbsp;-&nbsp;<b>220 ₽</b></span></span>
                             </label>
                             <label class="prfill">
-                                <input class="prfill__input" type="radio" name="productFilling" value="с крабом"><span class="prfill__fake"><span class="prfill__btn"></span><span class="prfill__desc"><span>с крабом</span>&nbsp;-&nbsp;<b>190 ₽</b></span></span>
+                                <input class="prfill__input" type="radio" name="productFilling" value="с крабом"><span
+                                        class="prfill__fake"><span class="prfill__btn"></span><span
+                                            class="prfill__desc"><span>с крабом</span>&nbsp;-&nbsp;<b>190 ₽</b></span></span>
                             </label>
                             <label class="prfill">
-                                <input class="prfill__input" type="radio" name="productFilling" value="с лососем"><span class="prfill__fake"><span class="prfill__btn"></span><span class="prfill__desc"><span>с лососем</span>&nbsp;-&nbsp;<b>200 ₽</b></span></span>
+                                <input class="prfill__input" type="radio" name="productFilling" value="с лососем"><span
+                                        class="prfill__fake"><span class="prfill__btn"></span><span
+                                            class="prfill__desc"><span>с лососем</span>&nbsp;-&nbsp;<b>200 ₽</b></span></span>
                             </label>
                             <label class="prfill">
-                                <input class="prfill__input" type="radio" name="productFilling" value="с окунем"><span class="prfill__fake"><span class="prfill__btn"></span><span class="prfill__desc"><span>с окунем</span>&nbsp;-&nbsp;<b>200 ₽</b></span></span>
+                                <input class="prfill__input" type="radio" name="productFilling" value="с окунем"><span
+                                        class="prfill__fake"><span class="prfill__btn"></span><span
+                                            class="prfill__desc"><span>с окунем</span>&nbsp;-&nbsp;<b>200 ₽</b></span></span>
                             </label>
                         </div>
                     </div>
@@ -517,96 +630,198 @@ function getProduct($id)
                     <div class="product__slider prslider">
                         <div class="prslider__top">
                             <h3 class="prslider__title">Добавить к заказу</h3>
-                            <div class="prslider__nav"><a class="prslider__arr prslider__prev" href="#"><svg width="34" height="8" viewBox="0 0 34 8" xmlns="http://www.w3.org/2000/svg">
+                            <div class="prslider__nav"><a class="prslider__arr prslider__prev" href="#">
+                                    <svg width="34" height="8" viewBox="0 0 34 8" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M0.646446 3.64644C0.451183 3.84171 0.451183 4.15829 0.646446 4.35355L3.82843 7.53553C4.02369 7.73079 4.34027 7.73079 4.53553 7.53553C4.7308 7.34027 4.7308 7.02369 4.53553 6.82842L1.70711 4L4.53553 1.17157C4.7308 0.976308 4.7308 0.659726 4.53553 0.464464C4.34027 0.269201 4.02369 0.269201 3.82843 0.464463L0.646446 3.64644ZM34 3.5L1 3.5L1 4.5L34 4.5L34 3.5Z"/>
-                                    </svg></a><a class="prslider__arr prslider__next" href="#"><svg width="34" height="8" viewBox="0 0 34 8" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M33.3536 4.35355C33.5488 4.15829 33.5488 3.84171 33.3536 3.64645L30.1716 0.464466C29.9763 0.269204 29.6597 0.269204 29.4645 0.464466C29.2692 0.659728 29.2692 0.976311 29.4645 1.17157L32.2929 4L29.4645 6.82843C29.2692 7.02369 29.2692 7.34027 29.4645 7.53553C29.6597 7.7308 29.9763 7.7308 30.1716 7.53553L33.3536 4.35355ZM0 4.5H33V3.5H0V4.5Z" />
-                                    </svg></a></div>
+                                    </svg>
+                                </a><a class="prslider__arr prslider__next" href="#">
+                                    <svg width="34" height="8" viewBox="0 0 34 8" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M33.3536 4.35355C33.5488 4.15829 33.5488 3.84171 33.3536 3.64645L30.1716 0.464466C29.9763 0.269204 29.6597 0.269204 29.4645 0.464466C29.2692 0.659728 29.2692 0.976311 29.4645 1.17157L32.2929 4L29.4645 6.82843C29.2692 7.02369 29.2692 7.34027 29.4645 7.53553C29.6597 7.7308 29.9763 7.7308 30.1716 7.53553L33.3536 4.35355ZM0 4.5H33V3.5H0V4.5Z"/>
+                                    </svg>
+                                </a></div>
                         </div>
                         <div class="prslider__bottom"></div>
                         <div class="prslider__container swiper-container">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide badd">
-                                    <div class="badd__top"><a class="badd__img" href="/"><img class="undefined" src="images/content/basket/1.jpg" alt="lorem"/></a></div>
+                                    <div class="badd__top"><a class="badd__img" href="/"><img class="undefined"
+                                                                                              src="images/content/basket/1.jpg"
+                                                                                              alt="lorem"/></a></div>
                                     <div class="badd__bottom"><a class="badd__title" href="/">Палочки для суши</a>
                                         <div class="badd__price">3 ₽</div>
                                     </div>
-                                    <div class="badd__btns"><a class="badd__btn badd__minus disabled" href="#"><svg width="14" height="4" viewBox="0 0 14 4" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M13.8756 3.5797H0.458984V0.217377H13.8756V3.5797Z" fill="white"/>
-                                            </svg></a><a class="badd__btn badd__plus" href="#"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M5.42409 13.348H8.41561V8.32366H13.454V5.43009H8.41561V0.405792H5.42409V5.43009H0.385742V8.32366H5.42409V13.348Z" fill="white"/>
-                                            </svg></a></div>
-                                    <div class="badd__count"><span class="badd__count-val"></span><span class="badd__count-txt">&nbsp;шт.</span></div>
+                                    <div class="badd__btns"><a class="badd__btn badd__minus disabled" href="#">
+                                            <svg width="14" height="4" viewBox="0 0 14 4" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M13.8756 3.5797H0.458984V0.217377H13.8756V3.5797Z"
+                                                      fill="white"/>
+                                            </svg>
+                                        </a><a class="badd__btn badd__plus" href="#">
+                                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5.42409 13.348H8.41561V8.32366H13.454V5.43009H8.41561V0.405792H5.42409V5.43009H0.385742V8.32366H5.42409V13.348Z"
+                                                      fill="white"/>
+                                            </svg>
+                                        </a></div>
+                                    <div class="badd__count"><span class="badd__count-val"></span><span
+                                                class="badd__count-txt">&nbsp;шт.</span></div>
                                 </div>
                                 <div class="swiper-slide badd">
-                                    <div class="badd__top"><a class="badd__img" href="/"><img class="undefined" src="images/content/basket/2.jpg" alt="lorem"/></a></div>
+                                    <div class="badd__top"><a class="badd__img" href="/"><img class="undefined"
+                                                                                              src="images/content/basket/2.jpg"
+                                                                                              alt="lorem"/></a></div>
                                     <div class="badd__bottom"><a class="badd__title" href="/">Имбирь +васаби</a>
                                         <div class="badd__price">30 ₽</div>
                                     </div>
-                                    <div class="badd__btns"><a class="badd__btn badd__minus disabled" href="#"><svg width="14" height="4" viewBox="0 0 14 4" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M13.8756 3.5797H0.458984V0.217377H13.8756V3.5797Z" fill="white"/>
-                                            </svg></a><a class="badd__btn badd__plus" href="#"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M5.42409 13.348H8.41561V8.32366H13.454V5.43009H8.41561V0.405792H5.42409V5.43009H0.385742V8.32366H5.42409V13.348Z" fill="white"/>
-                                            </svg></a></div>
-                                    <div class="badd__count"><span class="badd__count-val"></span><span class="badd__count-txt">&nbsp;шт.</span></div>
+                                    <div class="badd__btns"><a class="badd__btn badd__minus disabled" href="#">
+                                            <svg width="14" height="4" viewBox="0 0 14 4" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M13.8756 3.5797H0.458984V0.217377H13.8756V3.5797Z"
+                                                      fill="white"/>
+                                            </svg>
+                                        </a><a class="badd__btn badd__plus" href="#">
+                                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5.42409 13.348H8.41561V8.32366H13.454V5.43009H8.41561V0.405792H5.42409V5.43009H0.385742V8.32366H5.42409V13.348Z"
+                                                      fill="white"/>
+                                            </svg>
+                                        </a></div>
+                                    <div class="badd__count"><span class="badd__count-val"></span><span
+                                                class="badd__count-txt">&nbsp;шт.</span></div>
                                 </div>
                                 <div class="swiper-slide badd">
-                                    <div class="badd__top"><a class="badd__img" href="/"><img class="undefined" src="images/content/basket/3.jpg" alt="lorem"/></a></div>
+                                    <div class="badd__top"><a class="badd__img" href="/"><img class="undefined"
+                                                                                              src="images/content/basket/3.jpg"
+                                                                                              alt="lorem"/></a></div>
                                     <div class="badd__bottom"><a class="badd__title" href="/">Имбирь</a>
                                         <div class="badd__price">20 ₽</div>
                                     </div>
-                                    <div class="badd__btns"><a class="badd__btn badd__minus disabled" href="#"><svg width="14" height="4" viewBox="0 0 14 4" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M13.8756 3.5797H0.458984V0.217377H13.8756V3.5797Z" fill="white"/>
-                                            </svg></a><a class="badd__btn badd__plus" href="#"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M5.42409 13.348H8.41561V8.32366H13.454V5.43009H8.41561V0.405792H5.42409V5.43009H0.385742V8.32366H5.42409V13.348Z" fill="white"/>
-                                            </svg></a></div>
-                                    <div class="badd__count"><span class="badd__count-val"></span><span class="badd__count-txt">&nbsp;шт.</span></div>
+                                    <div class="badd__btns"><a class="badd__btn badd__minus disabled" href="#">
+                                            <svg width="14" height="4" viewBox="0 0 14 4" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M13.8756 3.5797H0.458984V0.217377H13.8756V3.5797Z"
+                                                      fill="white"/>
+                                            </svg>
+                                        </a><a class="badd__btn badd__plus" href="#">
+                                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5.42409 13.348H8.41561V8.32366H13.454V5.43009H8.41561V0.405792H5.42409V5.43009H0.385742V8.32366H5.42409V13.348Z"
+                                                      fill="white"/>
+                                            </svg>
+                                        </a></div>
+                                    <div class="badd__count"><span class="badd__count-val"></span><span
+                                                class="badd__count-txt">&nbsp;шт.</span></div>
                                 </div>
                                 <div class="swiper-slide badd">
-                                    <div class="badd__top"><a class="badd__img" href="/"><img class="undefined" src="images/content/basket/4.jpg" alt="lorem"/></a></div>
+                                    <div class="badd__top"><a class="badd__img" href="/"><img class="undefined"
+                                                                                              src="images/content/basket/4.jpg"
+                                                                                              alt="lorem"/></a></div>
                                     <div class="badd__bottom"><a class="badd__title" href="/">Васаби</a>
                                         <div class="badd__price">20 ₽</div>
                                     </div>
-                                    <div class="badd__btns"><a class="badd__btn badd__minus disabled" href="#"><svg width="14" height="4" viewBox="0 0 14 4" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M13.8756 3.5797H0.458984V0.217377H13.8756V3.5797Z" fill="white"/>
-                                            </svg></a><a class="badd__btn badd__plus" href="#"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M5.42409 13.348H8.41561V8.32366H13.454V5.43009H8.41561V0.405792H5.42409V5.43009H0.385742V8.32366H5.42409V13.348Z" fill="white"/>
-                                            </svg></a></div>
-                                    <div class="badd__count"><span class="badd__count-val"></span><span class="badd__count-txt">&nbsp;шт.</span></div>
+                                    <div class="badd__btns"><a class="badd__btn badd__minus disabled" href="#">
+                                            <svg width="14" height="4" viewBox="0 0 14 4" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M13.8756 3.5797H0.458984V0.217377H13.8756V3.5797Z"
+                                                      fill="white"/>
+                                            </svg>
+                                        </a><a class="badd__btn badd__plus" href="#">
+                                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5.42409 13.348H8.41561V8.32366H13.454V5.43009H8.41561V0.405792H5.42409V5.43009H0.385742V8.32366H5.42409V13.348Z"
+                                                      fill="white"/>
+                                            </svg>
+                                        </a></div>
+                                    <div class="badd__count"><span class="badd__count-val"></span><span
+                                                class="badd__count-txt">&nbsp;шт.</span></div>
                                 </div>
                                 <div class="swiper-slide badd">
-                                    <div class="badd__top"><a class="badd__img" href="/"><img class="undefined" src="images/content/basket/5.jpg" alt="lorem"/></a></div>
+                                    <div class="badd__top"><a class="badd__img" href="/"><img class="undefined"
+                                                                                              src="images/content/basket/5.jpg"
+                                                                                              alt="lorem"/></a></div>
                                     <div class="badd__bottom"><a class="badd__title" href="/">Соевый соус</a>
                                         <div class="badd__price">20 ₽</div>
                                     </div>
-                                    <div class="badd__btns"><a class="badd__btn badd__minus disabled" href="#"><svg width="14" height="4" viewBox="0 0 14 4" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M13.8756 3.5797H0.458984V0.217377H13.8756V3.5797Z" fill="white"/>
-                                            </svg></a><a class="badd__btn badd__plus" href="#"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M5.42409 13.348H8.41561V8.32366H13.454V5.43009H8.41561V0.405792H5.42409V5.43009H0.385742V8.32366H5.42409V13.348Z" fill="white"/>
-                                            </svg></a></div>
-                                    <div class="badd__count"><span class="badd__count-val"></span><span class="badd__count-txt">&nbsp;шт.</span></div>
+                                    <div class="badd__btns"><a class="badd__btn badd__minus disabled" href="#">
+                                            <svg width="14" height="4" viewBox="0 0 14 4" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M13.8756 3.5797H0.458984V0.217377H13.8756V3.5797Z"
+                                                      fill="white"/>
+                                            </svg>
+                                        </a><a class="badd__btn badd__plus" href="#">
+                                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5.42409 13.348H8.41561V8.32366H13.454V5.43009H8.41561V0.405792H5.42409V5.43009H0.385742V8.32366H5.42409V13.348Z"
+                                                      fill="white"/>
+                                            </svg>
+                                        </a></div>
+                                    <div class="badd__count"><span class="badd__count-val"></span><span
+                                                class="badd__count-txt">&nbsp;шт.</span></div>
                                 </div>
                                 <div class="swiper-slide badd">
-                                    <div class="badd__top"><a class="badd__img" href="/"><img class="undefined" src="images/content/basket/6.jpg" alt="lorem"/></a></div>
+                                    <div class="badd__top"><a class="badd__img" href="/"><img class="undefined"
+                                                                                              src="images/content/basket/6.jpg"
+                                                                                              alt="lorem"/></a></div>
                                     <div class="badd__bottom"><a class="badd__title" href="/">Палочки для суши</a>
                                         <div class="badd__price">3 ₽</div>
                                     </div>
-                                    <div class="badd__btns"><a class="badd__btn badd__minus disabled" href="#"><svg width="14" height="4" viewBox="0 0 14 4" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M13.8756 3.5797H0.458984V0.217377H13.8756V3.5797Z" fill="white"/>
-                                            </svg></a><a class="badd__btn badd__plus" href="#"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M5.42409 13.348H8.41561V8.32366H13.454V5.43009H8.41561V0.405792H5.42409V5.43009H0.385742V8.32366H5.42409V13.348Z" fill="white"/>
-                                            </svg></a></div>
-                                    <div class="badd__count"><span class="badd__count-val"></span><span class="badd__count-txt">&nbsp;шт.</span></div>
+                                    <div class="badd__btns"><a class="badd__btn badd__minus disabled" href="#">
+                                            <svg width="14" height="4" viewBox="0 0 14 4" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M13.8756 3.5797H0.458984V0.217377H13.8756V3.5797Z"
+                                                      fill="white"/>
+                                            </svg>
+                                        </a><a class="badd__btn badd__plus" href="#">
+                                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5.42409 13.348H8.41561V8.32366H13.454V5.43009H8.41561V0.405792H5.42409V5.43009H0.385742V8.32366H5.42409V13.348Z"
+                                                      fill="white"/>
+                                            </svg>
+                                        </a></div>
+                                    <div class="badd__count"><span class="badd__count-val"></span><span
+                                                class="badd__count-txt">&nbsp;шт.</span></div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <button class="product__add" type="button" data-price="400"><span class="product__add-txt">Добавить в корзину за&nbsp;</span><span class="product__add-price">400 ₽</span></button>
+                    <button class="product__add" type="button" data-price="400"><span class="product__add-txt">Добавить в корзину за&nbsp;</span><span
+                                class="product__add-price">400 ₽</span></button>
                 </div>
             </div>
         </form>
     <?endif;
     $html = ob_get_contents();
+    ob_end_clean();
+    return $html;
+}
+
+function getAction()
+{
+
+    ob_start(); ?>
+    <div class="acpopup">
+        <button class="jsFormClose acpopup__close" type="button"><svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.7485 14.9999L29.4299 3.31816C30.1901 2.55831 30.1901 1.32974 29.4299 0.569888C28.67 -0.189963 27.4415 -0.189963 26.6816 0.569888L14.9998 12.2516L3.31843 0.569888C2.55822 -0.189963 1.33001 -0.189963 0.570155 0.569888C-0.190052 1.32974 -0.190052 2.55831 0.570155 3.31816L12.2516 14.9999L0.570155 26.6817C-0.190052 27.4415 -0.190052 28.6701 0.570155 29.43C0.948835 29.809 1.44674 29.9994 1.94429 29.9994C2.44184 29.9994 2.93939 29.809 3.31843 29.43L14.9998 17.7482L26.6816 29.43C27.0607 29.809 27.5582 29.9994 28.0558 29.9994C28.5533 29.9994 29.0509 29.809 29.4299 29.43C30.1901 28.6701 30.1901 27.4415 29.4299 26.6817L17.7485 14.9999Z"/>
+            </svg>
+        </button>
+        <div class="acpopup__stick">Акция</div>
+        <h3 class="acpopup__title">Именинник</h3>
+        <div class="acpopup__note"><i>*</i>&nbsp;подарок зависит от суммы заказа</div>
+        <div class="acpopup__content content">
+            <p>В честь вашего дня рождения добавляется подарок к заказу:</p>
+            <ul>
+                <li>от 399р - запечённый/ горячий ролл с курочкой или крабом;</li>
+                <li>от 699р - запечённый/ горячий ролл с лососем;</li>
+                <li>от 999р - пиццу "Копчёную" или "Пан-Чикен"!</li>
+            </ul>
+            <p>Для участия нужно&nbsp;<a href="/account.html">зарегистрироваться&nbsp;</a>и в личном кабинете ввести дату рождения.</p>
+        </div>
+        <div class="acpopup__smalls">
+            <div class="acpopup__small"><i>*&nbsp;</i>Акции, скидки и промокоды НЕ СУММИРУЮТСЯ! В одном заказе может быть только один акционный товар.</div>
+            <div class="acpopup__small"><i>*&nbsp;</i>Акции, скидки и промокоды НЕ СУММИРУЮТСЯ! В одном заказе может быть только один акционный товар.</div>
+        </div>
+    </div>
+    <? $html = ob_get_contents();
     ob_end_clean();
     return $html;
 }

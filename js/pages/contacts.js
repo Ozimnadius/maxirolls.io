@@ -1,11 +1,13 @@
 /*YANDEX*/
+
+var myMap = {
+    map: '',
+    placemarks: []
+};
 $(function () {
     ymaps.ready(init);
 
-    var myMap = {
-        map: '',
-        placemarks: []
-    };
+
 
     function init() {
 

@@ -1,9 +1,4 @@
 .index {
-  padding-bottom: 50px;
-  @include sm-block{
-    padding-bottom: 0;
-  }
-
   &__food {
     @include lg-block {
       max-width: 100%;

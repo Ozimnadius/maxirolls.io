@@ -1,13 +1,11 @@
 .food {
   padding: 100px 0;
-  border-bottom: 1px solid $gray-line;
   @include lg-block {
     padding-top: 45px;
     padding-bottom: 65px;
   }
   @include sm-block {
     padding: 25px 0;
-    border-bottom: none;
     padding-bottom: 0;
   }
 
@@ -43,13 +41,12 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 75px;
+    position: sticky;
+    z-index: 100;
+    top: 0;
+    background: $bg;
 
-    @include lg-block {
-      margin-bottom: 45px;
-    }
     @include sm-block {
-      display: block;
       max-width: calc(100% + 20px);
       margin: 0 -10px;
       padding: 0 10px;
@@ -59,19 +56,29 @@
   &__sws {
     margin-right: 40px;
     flex-grow: 1;
+    overflow: hidden;
 
     @include lg-block {
       margin-right: 0;
     }
     @include sm-block {
-      display: block;
+      width: 100%;
       max-width: 100%;
+      overflow: hidden;
     }
   }
 
   &__cart {
     @include lg-block {
       display: none;
+    }
+    @include sm-block {
+      display: block;
+      position: fixed;
+      z-index: 110;
+      bottom: 0;
+      left: 0;
+      right: 0;
     }
 
     &_t {
@@ -89,13 +96,11 @@
 
 .sws {
   width: 100%;
-  @include sm-block {
-    display: block;
-    max-width: 100%;
-  }
+  overflow: hidden;
 }
 
 .sw {
+  //margin-right: 50px;
   width: auto;
   display: flex;
   align-items: center;
@@ -107,9 +112,16 @@
   border-bottom: 6px solid transparent;
   box-sizing: border-box;
   @include tr;
-
   @include lg-block {
     font-size: 16px;
+    //margin-right: 40px;
+  }
+  @include sm-block{
+    //margin-right: 25px;
+  }
+
+  &:last-child{
+    margin-right: 0;
   }
 
   svg {
@@ -125,13 +137,16 @@
     color: $or;
   }
 
+  &:hover {
+    color: $or;
+    @include sm-block{
+      color: #242323;
+    }
+  }
+
   &.active {
     color: $or;
     border-color: $or;
-  }
-
-  &:hover {
-    color: $or;
   }
 
 }
@@ -141,13 +156,104 @@
   align-items: center;
   color: #000000;
   font-weight: 600;
+  position: relative;
   @include tr;
 
-  svg {
-    stroke: #000;
-    margin-right: 12px;
+  @include sm-block {
     display: flex;
-    @include tr;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 -4px 4px rgba(0, 0, 0, 0.1);
+    background-color: $bg;
+    width: 100%;
+    margin: 0;
+    padding: 10px 20px;
+  }
+
+  &:hover {
+
+    .fcart {
+
+      &__icon {
+        stroke: $or;
+      }
+
+      &__price {
+        color: #ff4a00;
+        @include sm-block {
+          color: #000000;
+        }
+      }
+
+      &__dropdown {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: all;
+      }
+    }
+
+  }
+
+  &:before {
+    @include sm-block {
+      content: '';
+      display: block;
+      width: 72px;
+      height: 36px;
+      background-color: #e0e0e0;
+      border-radius: 0 0 50% 50% / 0 0 100% 100%;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      margin-left: -36px;
+    }
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    bottom: 100%;
+    height: 100vh;
+    left: 0;
+    right: 0;
+    background-color: #000000;
+    opacity: 0.5;
+    display: none;
+  }
+
+  &.active {
+
+    &:after {
+      display: block;
+    }
+
+    .fcart {
+      &__arr {
+        background-color: $or;
+        transform: rotate(-180deg);
+
+        svg {
+          stroke: $bg;
+        }
+      }
+
+      &__dropdown {
+        height: calc(83vh);
+      }
+    }
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    stroke: #000;
+
+    & > svg {
+      margin-right: 12px;
+      display: flex;
+    }
   }
 
   &__count {
@@ -168,10 +274,66 @@
       font-size: 20px;
     }
   }
+
+  &__arr {
+    display: none;
+    width: 50px;
+    height: 50px;
+    background-color: $bg;
+    border-radius: 50%;
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    margin-left: -25px;
+    align-items: center;
+    justify-content: center;
+    @include tr;
+
+    svg {
+      stroke: $or;
+      display: block;
+    }
+
+    @include sm-block {
+      display: flex;
+    }
+  }
+
+  &__dropdown {
+    position: absolute;
+    z-index: 110;
+    right: -15px;
+    top: calc(100%);
+    transform: translateY(10px);
+    opacity: 0;
+    pointer-events: none;
+    @include tr;
+    @include sm-block {
+      position: static;
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+      height: 0;
+    }
+  }
 }
 
 .tab {
+  padding: 80px 0;
+  border-bottom: 1px solid $gray-line;
+  @include lg-block {
+    padding-top: 45px;
+    padding-bottom: 65px;
+  }
+  @include sm-block {
+    padding: 25px 0;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
 
+  &:last-child {
+    border-bottom: none;
+  }
 
   &__title {
     color: #242323;
@@ -218,7 +380,7 @@
     align-items: center;
   }
 
-  &__stick{
+  &__stick {
     position: absolute;
     z-index: 10;
     top: 0;
@@ -230,18 +392,18 @@
     font-weight: 700;
     text-align: center;
     padding: 6px 24px;
-    @include sm-block{
+    @include sm-block {
       top: 10px;
       left: 10px;
     }
 
-    &_r{
+    &_r {
       background-color: $or;
       left: initial;
       right: 0;
       font-size: 16px;
       padding: 6px 14px;
-      @include sm-block{
+      @include sm-block {
         right: initial;
         left: 10px;
       }
@@ -300,7 +462,7 @@
     @include lg-block {
       font-size: 16px;
     }
-    @include sm-block{
+    @include sm-block {
       font-size: 14px;
       margin-bottom: 5px;
     }
@@ -350,7 +512,7 @@
     @include lg-block {
       font-size: 16px;
     }
-    @include sm-block{
+    @include sm-block {
       width: 91px;
       height: 30px;
       border-radius: 10px;
@@ -373,7 +535,7 @@
     @include lg-block {
       font-size: 12px;
     }
-    @include sm-block{
+    @include sm-block {
       font-size: 16px;
     }
 
@@ -406,16 +568,221 @@
 
 .pizza {
   border-bottom: none;
-  @include sm-block{
+  @include sm-block {
     padding-top: 0;
   }
 }
 
-
-.jsTab{
+.jsTab {
   display: none;
 
   &.active {
     display: block;
   }
+}
+
+.cart {
+  width: 379px;
+  max-height: 721px;
+  border-radius: 10px;
+  background-color: $bg;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  @include lg-block {
+    max-height: 85vh;
+  }
+  @include sm-block {
+    width: calc(100% + 40px);
+    max-height: 100%;
+    margin: 0 -20px;
+    margin-bottom: -10px;
+    border-radius: 0;
+    box-shadow: none;
+    border-top: 1px solid $gray-line;
+    margin-top: 12px;
+  }
+
+  &:before {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 12px 12px 12px;
+    border-color: transparent transparent $bg transparent;
+    position: absolute;
+    bottom: 100%;
+    right: 65px;
+    @include sm-block {
+      display: none;
+    }
+  }
+
+  &__list {
+    overflow-Y: auto;
+    margin-top: 10px;
+    margin-right: 5px;
+    padding-right: 15px;
+    padding-left: 20px;
+
+    &::-webkit-scrollbar {
+      width: 8px;
+      background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 100px;
+      background-color: $gray-line;
+    }
+
+  }
+
+  &__bottom {
+    padding: 30px;
+    padding-top: 20px;
+    @include sm-block {
+      border-top: 1px solid $gray-line;
+      background-color: #f9f9f9;
+      padding: 25px 30px 15px;
+    }
+  }
+
+  &__totals {
+    margin-bottom: 35px;
+    @include sm-block {
+      margin-bottom: 25px;
+    }
+  }
+
+  &__total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    @include sm-block {
+      margin-bottom: 5px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &-name {
+      color: #000000;
+      font-size: 18px;
+      @include sm-block {
+        font-size: 16px;
+      }
+    }
+
+    &-val {
+      color: #242323;
+      font-size: 18px;
+      font-weight: 600;
+    }
+  }
+
+  &__link {
+    width: 196px;
+    height: 50px;
+    margin: 0 auto;
+  }
+
+}
+
+.crtitem {
+  position: relative;
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  grid-gap: 0 10px;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid $gray-line;
+  @include sm-block {
+    padding: 10px 0;
+  }
+
+  &__delete {
+    position: absolute;
+    top: 15px;
+    right: -10px;
+    stroke: transparent;
+    fill: $gray-line;
+    padding: 10px;
+    @include tr;
+    @include sm-block {
+      top: 0px;
+    }
+
+    svg {
+      display: block;
+    }
+
+    &:hover {
+      stroke: $or;
+      fill: $or;
+    }
+  }
+
+  &__title {
+    padding-right: 35px;
+    color: #242323;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    @include sm-block {
+      font-size: 14px;
+    }
+  }
+
+  &__sub {
+    color: #6b6b6b;
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+
+  &__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .count {
+    width: 96px;
+    height: 32px;
+    border-radius: 8px;
+    border: 1px solid $border;
+  }
+
+  &__prices {
+    display: flex;
+    align-items: center;
+    color: #242323;
+  }
+
+  &__price {
+    color: #242323;
+    font-size: 18px;
+    font-weight: 600;
+
+    &_n {
+      color: $or;
+    }
+  }
+
+  &__priceold {
+    position: relative;
+    font-weight: 500;
+    font-size: 14px;
+    margin-right: 7px;
+    @include priceLine;
+  }
+
+
 }

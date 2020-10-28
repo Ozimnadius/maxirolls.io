@@ -1,25 +1,13 @@
 .header {
-  padding-top: 62px;
-  @include sm-block {
-    padding-top: 0;
-  }
-
   &_basket {
-    padding-top: 0;
     border-bottom: 1px solid $gray-line;
   }
 
   &__top {
     background-color: #f4f4f4;
-    position: fixed;
-    z-index: 100;
-    left: 0;
-    right: 0;
-    top: 0;
+
     @include sm-block {
-      background-color: transparent;
-      top: auto;
-      bottom: 0;
+      display: none;
     }
 
     .container {
@@ -337,6 +325,7 @@
 
   &__dropdown {
     position: absolute;
+    z-index: 100;
     right: -15px;
     top: calc(100% - 5px);
     transform: translateY(10px);
@@ -450,208 +439,4 @@
       color: $or;
     }
   }
-}
-
-.cart {
-  width: 379px;
-  max-height: 721px;
-  border-radius: 10px;
-  background-color: $bg;
-  display: grid;
-  grid-template-rows: 1fr auto;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-  @include lg-block {
-    max-height: 85vh;
-  }
-  @include sm-block {
-    width: calc(100% + 40px);
-    margin: 0 -20px;
-    border-radius: 0;
-    box-shadow: none;
-    border-top: 1px solid $gray-line;
-    margin-top: 12px;
-  }
-
-  &:before {
-    content: '';
-    display: block;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 0 12px 12px 12px;
-    border-color: transparent transparent $bg transparent;
-    position: absolute;
-    bottom: 100%;
-    right: 65px;
-    @include sm-block {
-      display: none;
-    }
-  }
-
-  &__list {
-    overflow-Y: auto;
-    margin-top: 10px;
-    margin-right: 5px;
-    padding-right: 15px;
-    padding-left: 20px;
-
-    &::-webkit-scrollbar {
-      width: 8px;
-      background-color: transparent;
-    }
-
-    &::-webkit-scrollbar-track {
-      background-color: transparent;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      border-radius: 100px;
-      background-color: $gray-line;
-    }
-
-  }
-
-  &__bottom {
-    padding: 30px;
-    padding-top: 20px;
-    @include sm-block {
-      border-top: 1px solid $gray-line;
-      background-color: #f9f9f9;
-      padding: 25px 30px 15px;
-    }
-  }
-
-  &__totals {
-    margin-bottom: 35px;
-    @include sm-block {
-      margin-bottom: 25px;
-    }
-  }
-
-  &__total {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    @include sm-block {
-      margin-bottom: 5px;
-    }
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-
-    &-name {
-      color: #000000;
-      font-size: 18px;
-      @include sm-block {
-        font-size: 16px;
-      }
-    }
-
-    &-val {
-      color: #242323;
-      font-size: 18px;
-      font-weight: 600;
-    }
-  }
-
-  &__link {
-    width: 196px;
-    height: 50px;
-    margin: 0 auto;
-  }
-
-}
-
-.crtitem {
-  position: relative;
-  display: grid;
-  grid-template-columns: 70px 1fr;
-  grid-gap: 0 10px;
-  align-items: center;
-  padding: 20px 0;
-  border-bottom: 1px solid $gray-line;
-  @include sm-block {
-    padding: 10px 0;
-  }
-
-  &__delete {
-    position: absolute;
-    top: 15px;
-    right: -10px;
-    stroke: transparent;
-    fill: $gray-line;
-    padding: 10px;
-    @include tr;
-    @include sm-block {
-      top: 0px;
-    }
-
-    svg {
-      display: block;
-    }
-
-    &:hover {
-      stroke: $or;
-      fill: $or;
-    }
-  }
-
-  &__title {
-    padding-right: 35px;
-    color: #242323;
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 5px;
-    @include sm-block {
-      font-size: 14px;
-    }
-  }
-
-  &__sub {
-    color: #6b6b6b;
-    font-size: 12px;
-    font-weight: 500;
-    margin-bottom: 12px;
-  }
-
-  &__bottom {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .count {
-    width: 96px;
-    height: 32px;
-    border-radius: 8px;
-    border: 1px solid $border;
-  }
-
-  &__prices {
-    display: flex;
-    align-items: center;
-    color: #242323;
-  }
-
-  &__price {
-    color: #242323;
-    font-size: 18px;
-    font-weight: 600;
-
-    &_n {
-      color: $or;
-    }
-  }
-
-  &__priceold {
-    position: relative;
-    font-weight: 500;
-    font-size: 14px;
-    margin-right: 7px;
-    @include priceLine;
-  }
-
-
 }

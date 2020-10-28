@@ -32,25 +32,16 @@ body {
 
 .wrapper {
   min-height: 100vh;
-  overflow: hidden;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto 1fr auto;
-  grid-template-areas: "header" "content" "footer";
-}
-
-.header {
-  grid-area: header;
+  display: flex;
+  flex-direction: column;
 }
 
 .page {
-  grid-area: content;
-  overflow: hidden;
+  flex-grow: 1;
 }
 
-
-.footer {
-  grid-area: footer;
+.footer{
+  overflow: hidden;
 }
 
 .container {

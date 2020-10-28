@@ -147,9 +147,83 @@ $(function () {
                     alert('Что-то пошло не так, попробуйте еще раз!!!');
                 }
             });
-        } else{
+        } else {
 
         }
+
+    });
+
+    $('.jsAction').on('click', function (e) {
+        e.preventDefault();
+        let url = '/ajax.php',
+            data = {
+                action: 'getAction',
+            };
+
+        $.ajax({
+            dataType: "json",
+            type: "POST",
+            url: url,
+            data: data,
+            success: function (result) {
+                if (result.status) {
+                    openForm($(result.html));
+                } else {
+                    alert('Что-то пошло не так, попробуйте еще раз!!!');
+                }
+            },
+            error: function (result) {
+                alert('Что-то пошло не так, попробуйте еще раз!!!');
+            }
+        });
+    });
+
+    $('body').on('click', '.jsRegSms2', function (e) {
+        e.preventDefault();
+        let form = $(this).closest('form'),
+            url = '/ajax.php',
+            data = {
+                action: 'sms',
+            };
+
+        $.ajax({
+            dataType: "json",
+            type: "POST",
+            url: url,
+            data: data,
+            success: function (result) {
+                if (result.status) {
+                    $('.accontacts__send').removeClass('active');
+                    $('.accontacts__code').addClass('active');
+
+                    let field = form.find('.reg__timer-val'),
+                        count = 60;
+
+                    form.find('.reg__timer').removeClass('refresh');
+                    form.find('.reg__timer').addClass('active');
+
+                    let timer = setInterval(() => {
+                        count = count - 1;
+                        if (String(count).length < 2) {
+                            field.text('0:0' + count);
+                        } else {
+                            field.text('0:' + count);
+                        }
+
+
+                        if (count <= 0) {
+                            clearInterval(timer);
+                            form.find('.reg__timer').addClass('refresh jsRegSms2');
+                        }
+                    }, 1000);
+                } else {
+                    alert('Что-то пошло не так, попробуйте еще раз!!!');
+                }
+            },
+            error: function (result) {
+                alert('Что-то пошло не так, попробуйте еще раз!!!');
+            }
+        });
 
     });
 

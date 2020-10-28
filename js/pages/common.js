@@ -29,6 +29,7 @@ function number_format(number, decimals, dec_point, thousands_sep) {
 function imageResize(src) {
     $('img').not('.logo__img').attr('src', src);
 }
+
 // imageResize('https://loremflickr.com/320/440');
 
 const wWidth = $(window).width();
@@ -58,17 +59,17 @@ function getTable($tr, $th) {
 
     $tr.each(function (x, i) {
         let cls = '';
-        if ((x+1)%2 == 1){
+        if ((x + 1) % 2 == 1) {
             cls = 'grey';
         }
-        tbody.append(getTrs($(i), $th,cls));
+        tbody.append(getTrs($(i), $th, cls));
     });
 
 
     return tbody;
 }
 
-function getTrs(tr, $th,cls) {
+function getTrs(tr, $th, cls) {
     let trArr = [],
         tds = tr.find('td'),
         leng = tds.length;
@@ -78,7 +79,7 @@ function getTrs(tr, $th,cls) {
         let newTr = $('<tr>').addClass(cls),
             td = $(i);
 
-        if (x == 0){
+        if (x == 0) {
             newTr.addClass('first');
         }
         newTr.append($('<td>').html($($th[x]).html()));
@@ -114,6 +115,40 @@ function closePopup() {
 $('input[type=tel]').mask('+7 (999) 999-99-99');
 
 $('.select').styler();
+
+let swNoMove = false,
+    swsSwiper = {};
+
+
+$(window).scroll(function () {
+
+    $('.tab:in-viewport(100)').is(function () {
+        let id = $(this).attr('id'),
+            sw = $('.sw[data-id="' + id + '"]'),
+            sws = $('.sw');
+
+        if (!swNoMove) {
+            if (!sw.hasClass('active')) {
+                sws.removeClass('active');
+                sw.addClass('active');
+
+                swsSwiper.slideTo($(swsSwiper.slides).index(sw));
+            }
+        }
+    });
+
+});
+
+$(document).ready(function () {
+    $('.tab:in-viewport(100)').is(function (){
+        let id = $(this).attr('id'),
+            sw = $('.sw[href="#' + id + '"]'),
+            sws = $('.sw');
+
+        sws.removeClass('active');
+        sw.addClass('active');
+    });
+});
 
 
 

@@ -11,3 +11,118 @@
     }
   }
 }
+
+.acpopup{
+  max-width: 700px;
+  border-radius: 20px;
+  background-color: $bg;
+  padding: 45px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  @include sm-block{
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    padding: 20px;
+  }
+
+  &__close{
+    fill: $bg;
+    position: absolute;
+    top: 15px;
+    right: -40px;
+    @include tr;
+    @include sm-block{
+      top: 20px;
+      right: 20px;
+      fill: $gray-line;
+    }
+
+    &:hover{
+      fill: $or;
+    }
+
+    svg{
+      @include sm-block{
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+  }
+
+  &__stick{
+    color: $bg;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 4px 18px;
+    border-radius: 6px;
+    background-color: $or;
+    margin-bottom: 20px;
+  }
+
+  &__title{
+    color: #000000;
+    font-size: 34px;
+    font-weight: 600;
+    @include sm-block{
+      font-size: 30px;
+    }
+  }
+
+  &__note{
+    color: #000000;
+    font-size: 18px;
+    margin-bottom: 15px;
+    @include sm-block{
+      font-size: 16px;
+    }
+    i{
+      color: $or;
+    }
+
+  }
+
+  &__content{
+    margin-bottom: 40px;
+    @include sm-block{
+      margin-bottom: 25px;
+    }
+    p{
+      color: #000000;
+      font-size: 14px;
+      margin: 0 0 15px 0;
+      &:last-child{
+        margin-bottom: 0;
+      }
+    }
+
+    ul{
+      margin: 0 0 15px 0;
+      font-size: 14px;
+
+      li:before{
+        width: 5px;
+        height: 5px;
+      }
+    }
+
+  }
+
+  &__small{
+    color: #616161;
+    font-size: 12px;
+    margin-bottom: 5px;
+
+    &:last-child{
+      margin-bottom: 0;
+    }
+
+    i {
+      color: $or;
+    }
+  }
+
+}

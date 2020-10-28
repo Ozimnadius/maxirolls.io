@@ -41,56 +41,124 @@ block content
         //- food
         section.index__food
             .container
-                .food.jsSwsTabs
+                .food
                     .food__wrap
                         h2.food__title Меню
                         .food__cart.food__cart_t
-                            a(href='#').fcart
+                            .fcart
                                 <svg width="24" height="23" viewBox="0 0 24 23" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M4.08008 20.1685L2.19974 9.1685C2.09533 8.55773 2.56582 8 3.18544 8H20.8146C21.4342 8 21.9047 8.55773 21.8003 9.1685L19.9199 20.1685C19.8378 20.6488 19.4215 21 18.9342 21H5.06578C4.57851 21 4.16218 20.6488 4.08008 20.1685Z"  stroke-width="2.5"/>
                                 <path d="M18.664 7.75H5.33605C5.8644 3.96506 8.75384 1.25 12 1.25C15.2462 1.25 18.1356 3.96506 18.664 7.75Z"  stroke-width="2.5"/>
                                 </svg>
-                                span.fcart__count 2
-                                span.fcart__price 1 280 ₽
+                                .fcart__count 2
+                                .fcart__price 1 280 ₽
+                                .fcart__dropdown
+                                    .cart
+                                        .cart__list
+                                            each i in cartList
+                                                .crtitem
+                                                    button(type='button').crtitem__delete
+                                                        <svg width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M8.28261 7.0001L13.7339 1.54851C14.0887 1.1939 14.0887 0.620557 13.7339 0.265953C13.3793 -0.088651 12.806 -0.088651 12.4514 0.265953L6.99992 5.71755L1.5486 0.265953C1.19384 -0.088651 0.620668 -0.088651 0.266072 0.265953C-0.0886906 0.620557 -0.0886906 1.1939 0.266072 1.54851L5.71739 7.0001L0.266072 12.4517C-0.0886906 12.8063 -0.0886906 13.3797 0.266072 13.7343C0.442789 13.9111 0.675145 14 0.907335 14C1.13953 14 1.37172 13.9111 1.5486 13.7343L6.99992 8.28266L12.4514 13.7343C12.6283 13.9111 12.8605 14 13.0927 14C13.3249 14 13.557 13.9111 13.7339 13.7343C14.0887 13.3797 14.0887 12.8063 13.7339 12.4517L8.28261 7.0001Z"/>
+                                                        </svg>
+                                                    .crtitem__left
+                                                        .crtitem__img
+                                                            +image(i.src)
+                                                    .crtitem__right
+                                                        .crtitem__title= i.title
+                                                        .crtitem__sub= i.sub
+                                                        .crtitem__bottom
+                                                            .crtitem__bottom-left
+                                                                +count()
+                                                            .crtitem__bottom-right
+                                                                .crtitem__prices
+                                                                    if i.priceold
+                                                                        .crtitem__priceold= i.priceold
+                                                                        .crtitem__price.crtitem__price_n= i.price
+                                                                    else
+                                                                        .crtitem__price= i.price
+                                        .cart__bottom
+                                            .cart__totals
+                                                .cart__total
+                                                    .cart__total-name Сумма заказа
+                                                    .cart__total-val 1 280 ₽
+                                                .cart__total
+                                                    .cart__total-name Количество товаров
+                                                    .cart__total-val 5 шт.
+                                            a(href='basket.html').cart__link.btn3 Перейти в корзину
+
+
+
+
                     .food__top
                         .food__sws
-                            .sws.jsSws.swiper-container
+                            .sws.swiper-container
                                 .swiper-wrapper
-                                    each i,x in ['Комбо','Сеты','Роллы','Пицца','Закуски','Десерты','Напитки',]
-                                        button(type='button' class=x == 0 ? 'active' : '').sw.jsSw.swiper-slide
-                                            span.sw__txt= i
-                                    button(type='button').sw.sw_actions.swiper-slide.jsSw
+                                    each i,x in tabs
+                                        button(type='button' data-id=i.id).sw.swiper-slide
+                                            span.sw__txt= i.title
+                                    a(href='/actions.html').sw.sw_actions.swiper-slide
                                         <svg width="21" height="25" viewBox="0 0 21 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M19.5144 13.6095C18.9306 12.8709 16.1534 10.083 17.3517 7.05813C17.3517 7.05813 14.516 9.25261 15.5804 12.4318C15.089 11.7246 10.4232 9.3124 10.8117 0.414917C10.8117 0.414917 10.5171 0.70279 10.066 1.20804V24.0297C12.6389 23.9585 14.576 23.1915 14.576 23.1915C14.576 23.1915 22.0518 19.4736 19.5144 13.6095Z" fill="#FF4A00"/>
                                         <path d="M5.25366 11.2541C5.25366 11.2541 5.99148 17.1436 8.4506 18.087C8.4506 18.087 3.53273 16.9086 2.54885 11.0179C2.30354 11.725 -4.40424 18.1316 4.98934 23.0731C6.72258 23.8625 8.51062 24.0729 10.066 24.0297V1.20804C8.552 2.90502 5.25366 7.0788 5.25366 11.2541Z" fill="#FF4A00"/>
                                         </svg>
                                         span.sw__txt Акции
+
                         .food__cart
-                            a(href='#').fcart
-                                <svg width="24" height="23" viewBox="0 0 24 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4.08008 20.1685L2.19974 9.1685C2.09533 8.55773 2.56582 8 3.18544 8H20.8146C21.4342 8 21.9047 8.55773 21.8003 9.1685L19.9199 20.1685C19.8378 20.6488 19.4215 21 18.9342 21H5.06578C4.57851 21 4.16218 20.6488 4.08008 20.1685Z"  stroke-width="2.5"/>
-                                <path d="M18.664 7.75H5.33605C5.8644 3.96506 8.75384 1.25 12 1.25C15.2462 1.25 18.1356 3.96506 18.664 7.75Z"  stroke-width="2.5"/>
-                                </svg>
-                                span.fcart__count 2
-                                span.fcart__price 1 280 ₽
+                            .fcart
+                                .fcart__arr.jsCartOpen
+                                    <svg width="25" height="14" viewBox="0 0 25 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2 12L12.5 3L23 12" stroke-width="4"/>
+                                    </svg>
+                                .fcart__icon
+                                    <svg width="24" height="23" viewBox="0 0 24 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4.08008 20.1685L2.19974 9.1685C2.09533 8.55773 2.56582 8 3.18544 8H20.8146C21.4342 8 21.9047 8.55773 21.8003 9.1685L19.9199 20.1685C19.8378 20.6488 19.4215 21 18.9342 21H5.06578C4.57851 21 4.16218 20.6488 4.08008 20.1685Z"  stroke-width="2.5"/>
+                                    <path d="M18.664 7.75H5.33605C5.8644 3.96506 8.75384 1.25 12 1.25C15.2462 1.25 18.1356 3.96506 18.664 7.75Z"  stroke-width="2.5"/>
+                                    </svg>
+                                    .fcart__count 2
+                                .fcart__price 1 280 ₽
+                                .fcart__dropdown
+                                    .cart
+                                        .cart__list
+                                            each i in cartList
+                                                .crtitem
+                                                    button(type='button').crtitem__delete
+                                                        <svg width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M8.28261 7.0001L13.7339 1.54851C14.0887 1.1939 14.0887 0.620557 13.7339 0.265953C13.3793 -0.088651 12.806 -0.088651 12.4514 0.265953L6.99992 5.71755L1.5486 0.265953C1.19384 -0.088651 0.620668 -0.088651 0.266072 0.265953C-0.0886906 0.620557 -0.0886906 1.1939 0.266072 1.54851L5.71739 7.0001L0.266072 12.4517C-0.0886906 12.8063 -0.0886906 13.3797 0.266072 13.7343C0.442789 13.9111 0.675145 14 0.907335 14C1.13953 14 1.37172 13.9111 1.5486 13.7343L6.99992 8.28266L12.4514 13.7343C12.6283 13.9111 12.8605 14 13.0927 14C13.3249 14 13.557 13.9111 13.7339 13.7343C14.0887 13.3797 14.0887 12.8063 13.7339 12.4517L8.28261 7.0001Z"/>
+                                                        </svg>
+                                                    .crtitem__left
+                                                        .crtitem__img
+                                                            +image(i.src)
+                                                    .crtitem__right
+                                                        .crtitem__title= i.title
+                                                        .crtitem__sub= i.sub
+                                                        .crtitem__bottom
+                                                            .crtitem__bottom-left
+                                                                +count()
+                                                            .crtitem__bottom-right
+                                                                .crtitem__prices
+                                                                    if i.priceold
+                                                                        .crtitem__priceold= i.priceold
+                                                                        .crtitem__price.crtitem__price_n= i.price
+                                                                    else
+                                                                        .crtitem__price= i.price
+                                        .cart__bottom
+                                            .cart__totals
+                                                .cart__total
+                                                    .cart__total-name Сумма заказа
+                                                    .cart__total-val 1 280 ₽
+                                                .cart__total
+                                                    .cart__total-name Количество товаров
+                                                    .cart__total-val 5 шт.
+                                            a(href='basket.html').cart__link.btn3 Перейти в корзину
+
                     .food__bottom
-                        .tabs.jsTabs
-                            each i,x in ['Комбо','Сеты','Роллы','Пицца','Закуски','Десерты','Напитки',]
-                                div(class=x == 0 ? 'active' : '').tab.jsTab
-                                    h3.tab__title= i
+                        .tabs
+                            each i,x in tabs
+                                div(id=i.id).tab
+                                    h3.tab__title= i.title
                                     .tab__items
                                         +items(items)
-                            .tab.jsTab
-                                h3.tab__title Акции
-                                .tab__items
-                                    +items(items)
-        //- pizza
-        section.index__pizza
-            .container
-                .food.pizza
-                    h3.tab__title Пицца
-                    .tab__items
-                        +items(pizza)
 
 
 

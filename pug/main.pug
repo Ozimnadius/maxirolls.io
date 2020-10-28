@@ -70,12 +70,7 @@ html(lang="ru")
                                             each i in nav
                                                 a(href=i.link).swiper-slide.hnav__item= i.title
                             .header__links
-                                .header__link.hlink
-                                    .hlink__arr.jsCartOpen
-                                        <svg width="25" height="14" viewBox="0 0 25 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M2 12L12.5 3L23 12" stroke-width="4"/>
-                                        </svg>
-
+                                a(href='/basket.html').header__link.hlink
                                     .hlink__icon
                                         span.hlink__count 2
                                         <svg width="23" height="21" viewBox="0 0 23 21" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -83,40 +78,6 @@ html(lang="ru")
                                         <path d="M17.5532 7H5.67287C6.09501 3.51351 8.69301 1 11.613 1C14.5331 1 17.1311 3.51351 17.5532 7Z"  stroke-width="2"/>
                                         </svg>
                                     .hlink__txt 1 280 ₽
-                                    .hlink__dropdown.cart
-                                        .cart__list
-                                            each i in cartList
-                                                .crtitem
-                                                    button(type='button').crtitem__delete
-                                                        <svg width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M8.28261 7.0001L13.7339 1.54851C14.0887 1.1939 14.0887 0.620557 13.7339 0.265953C13.3793 -0.088651 12.806 -0.088651 12.4514 0.265953L6.99992 5.71755L1.5486 0.265953C1.19384 -0.088651 0.620668 -0.088651 0.266072 0.265953C-0.0886906 0.620557 -0.0886906 1.1939 0.266072 1.54851L5.71739 7.0001L0.266072 12.4517C-0.0886906 12.8063 -0.0886906 13.3797 0.266072 13.7343C0.442789 13.9111 0.675145 14 0.907335 14C1.13953 14 1.37172 13.9111 1.5486 13.7343L6.99992 8.28266L12.4514 13.7343C12.6283 13.9111 12.8605 14 13.0927 14C13.3249 14 13.557 13.9111 13.7339 13.7343C14.0887 13.3797 14.0887 12.8063 13.7339 12.4517L8.28261 7.0001Z"/>
-                                                        </svg>
-                                                    .crtitem__left
-                                                        .crtitem__img
-                                                            +image(i.src)
-                                                    .crtitem__right
-                                                        .crtitem__title= i.title
-                                                        .crtitem__sub= i.sub
-                                                        .crtitem__bottom
-                                                            .crtitem__bottom-left
-                                                                +count()
-                                                            .crtitem__bottom-right
-                                                                .crtitem__prices
-                                                                    if i.priceold
-                                                                        .crtitem__priceold= i.priceold
-                                                                        .crtitem__price.crtitem__price_n= i.price
-                                                                    else
-                                                                        .crtitem__price= i.price
-
-                                        .cart__bottom
-                                            .cart__totals
-                                                .cart__total
-                                                    .cart__total-name Сумма заказа
-                                                    .cart__total-val 1 280 ₽
-                                                .cart__total
-                                                    .cart__total-name Количество товаров
-                                                    .cart__total-val 5 шт.
-                                            a(href='basket.html').cart__link.btn3 Перейти в корзину
 
 
                                 a(href='account.html').header__link.hlink.jsReg
@@ -304,7 +265,7 @@ html(lang="ru")
                                 <path d="M16.9402 7H5.05983C5.48197 3.51351 8.07998 1 11 1C13.92 1 16.518 3.51351 16.9402 7Z" stroke="white" stroke-width="2"/>
                                 </svg>
                             span.mmlink__val 1 280 ₽
-                        a(href='basket.html').mmlink.mmenu__link
+                        a(href='account.html').mmlink.mmenu__link
                             span.mmlink__icon
                                 <svg width="21" height="22" viewBox="0 0 21 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M19.5888 21.3772C19.5888 16.244 15.4276 12.0828 10.2944 12.0828C5.16125 12.0828 1 16.244 1 21.3772" stroke="white" stroke-width="2"/>
@@ -539,7 +500,7 @@ html(lang="ru")
                         button(type='button' data-price=400).product__add
                             span.product__add-txt Добавить в корзину за&nbsp;
                             span.product__add-price 400 ₽
-            //-reg
+            // -reg
             form(action='/' method='POST').reg
                 button(type='button').reg__close.jsFormClose
                     <svg width="21" height="20" viewBox="0 0 21 20" xmlns="http://www.w3.org/2000/svg">
@@ -703,6 +664,74 @@ html(lang="ru")
                         | Заполняя данную форму вы соглашаетсь
                         br
                         a(href='/') с политикой конфиденциальности
+            //- accontacts
+            form(action='/ajax.php' method='POST').accontacts
+                button(type='button').jsFormClose.accontacts__close
+                    <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.7485 14.9999L29.4299 3.31816C30.1901 2.55831 30.1901 1.32974 29.4299 0.569888C28.67 -0.189963 27.4415 -0.189963 26.6816 0.569888L14.9998 12.2516L3.31843 0.569888C2.55822 -0.189963 1.33001 -0.189963 0.570155 0.569888C-0.190052 1.32974 -0.190052 2.55831 0.570155 3.31816L12.2516 14.9999L0.570155 26.6817C-0.190052 27.4415 -0.190052 28.6701 0.570155 29.43C0.948835 29.809 1.44674 29.9994 1.94429 29.9994C2.44184 29.9994 2.93939 29.809 3.31843 29.43L14.9998 17.7482L26.6816 29.43C27.0607 29.809 27.5582 29.9994 28.0558 29.9994C28.5533 29.9994 29.0509 29.809 29.4299 29.43C30.1901 28.6701 30.1901 27.4415 29.4299 26.6817L17.7485 14.9999Z"/>
+                    </svg>
+                h3.accontacts__title Контактные данные
+                .accontacts__fields
+                    .accontacts__field
+                        .accontacts__left
+                            .accontacts__name Имя:
+                        .accontacts__right
+                            input(type='text' name='name' value='Александр').input.accontacts__input
+                    .accontacts__field
+                        .accontacts__left
+                            .accontacts__name
+                                | Дата рождения:
+                                .accontacts__info.jsInfo
+                                    button(type='button').accontacts__info-btn.jsInfoBtn i
+                                    .accontacts__info-popup.jsInfoContent Мы дарим скидки и подарки в день рождения. К сожалению, день рождения нельзя изменить
+                        .accontacts__right
+                            input(type='date' name='date').input.accontacts__input
+                    .accontacts__field
+                        .accontacts__left
+                            .accontacts__name
+                                | Телефон:
+                                .accontacts__info.jsInfo
+                                    button(type='button').accontacts__info-btn.jsInfoBtn i
+                                    .accontacts__info-popup.jsInfoContent Мы дарим скидки и подарки в день рождения. К сожалению, день рождения нельзя изменить
+                        .accontacts__right
+                            .accontacts__wrap
+                                input(type='tel' name='tel' value='+7 999 999 99 99').input.accontacts__input
+                                button(type='button').accontacts__send.btn3.active.jsRegSms2 Выслать код
+                                button(type='button').reg__timer.accontacts__timer
+                                    span.reg__timer-refresh
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                        <path d="M493.815,70.629c-11.001-1.003-20.73,7.102-21.733,18.102l-2.65,29.069C424.473,47.194,346.429,0,256,0 C158.719,0,72.988,55.522,30.43,138.854c-5.024,9.837-1.122,21.884,8.715,26.908c9.839,5.024,21.884,1.123,26.908-8.715 C102.07,86.523,174.397,40,256,40c74.377,0,141.499,38.731,179.953,99.408l-28.517-20.367c-8.989-6.419-21.48-4.337-27.899,4.651 c-6.419,8.989-4.337,21.479,4.651,27.899l86.475,61.761c12.674,9.035,30.155,0.764,31.541-14.459l9.711-106.53 C512.919,81.362,504.815,71.632,493.815,70.629z"/>
+                                        <path d="M472.855,346.238c-9.838-5.023-21.884-1.122-26.908,8.715C409.93,425.477,337.603,472,256,472c-74.377,0-141.499-38.731-179.953-99.408l28.517,20.367c8.989,6.419,21.479,4.337,27.899-4.651 c6.419-8.989,4.337-21.479-4.651-27.899l-86.475-61.761c-12.519-8.944-30.141-0.921-31.541,14.459l-9.711,106.53 c-1.003,11,7.102,20.73,18.101,21.733c11.014,1.001,20.731-7.112,21.733-18.102l2.65-29.069C87.527,464.806,165.571,512,256,512 c97.281,0,183.012-55.522,225.57-138.854C486.594,363.309,482.692,351.262,472.855,346.238z"/>
+                                        </svg>
+                                    span.reg__timer-svg
+                                        <svg width="16" height="11" viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M15.8581 1.63403L6.59575 10.8964C6.51416 10.9779 6.38206 10.9779 6.30067 10.8964L1.04151 5.63701C0.96012 5.55581 0.96012 5.42371 1.04151 5.34212L2.31942 4.06422C2.401 3.98282 2.5331 3.98282 2.6145 4.06422L6.4484 7.89793L14.2853 0.0610455C14.3671 -0.0203485 14.4988 -0.0203485 14.5804 0.0610455L15.8581 1.33895C15.9397 1.42034 15.9397 1.55225 15.8581 1.63403Z" fill="#27AE60"/>
+                                        </svg>
+                                    span.reg__timer-val 0:59
+                            input(type='text' name='code' placeholder='Код из СМС').accontacts__code.input
+                    .accontacts__field
+                        .accontacts__left
+                            .accontacts__name
+                                | Эл. почта:
+                                .accontacts__info.jsInfo
+                                    button(type='button').accontacts__info-btn.jsInfoBtn i
+                                    .accontacts__info-popup.jsInfoContent Мы дарим скидки и подарки в день рождения. К сожалению, день рождения нельзя изменить
+                        .accontacts__right
+                            input(type='email' name='email' value='alex@gmail.com').input.accontacts__input
+                .accontacts__accept
+                    label.accept.accept_big
+                        input(type='checkbox' name='checked' value='Получать промокоды и другие предложения' checked=true).accept__input
+                        span.accept__fake
+                            <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11.135 1.61896L4.255 8.49901C4.1944 8.55961 4.09628 8.55961 4.03582 8.49901L0.129329 4.59237C0.0688695 4.53206 0.0688695 4.43393 0.129329 4.37333L1.07855 3.42411C1.13916 3.36365 1.23728 3.36365 1.29774 3.42411L4.14555 6.27178L9.96678 0.450557C10.0275 0.390098 10.1254 0.390098 10.186 0.450557L11.135 1.39978C11.1956 1.46024 11.1956 1.55822 11.135 1.61896Z" fill="#27AE60"/>
+                            </svg>
+                        span.accept__txt Получать промокоды и другие предложения
+                button(type='submit').accontacts__submit.btn3 Сохранить
+
+
+
+
+
         script(src="https://api-maps.yandex.ru/2.1/?lang=ru_RU")
         script(src='js/vendor.min.js')
         script(src='js/main.min.js')

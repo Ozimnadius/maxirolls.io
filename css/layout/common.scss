@@ -355,6 +355,26 @@
   font-weight: 500;
   cursor: pointer;
 
+  &_big{
+    .accept{
+      &__fake{
+        min-width: 24px;
+        width: 24px;
+        height: 24px;
+        border-radius: 4px;
+        border: 2px solid #27ae60;
+        @include sm-block{
+
+        }
+
+        svg{
+          width: 16px;
+          height: 12px;
+        }
+      }
+    }
+  }
+
   &__input {
     display: none;
 

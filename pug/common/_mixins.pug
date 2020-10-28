@@ -38,7 +38,7 @@ mixin actions(arr,noslider)
     if noslider
         .iactions__list
             each i,x in arr
-                a(href='action.html').iaction
+                a(href='action.html').iaction.jsAction
                     +image('images/content/index/actions/' + (x + 1) + '.jpg','iaction__img')
                     span.iaction__desc
                         span.iaction__left
@@ -54,7 +54,7 @@ mixin actions(arr,noslider)
         .swiper-container.iactions__container
             .iactions__list.swiper-wrapper
                 each i,x in arr
-                    a(href='action.html').iaction.swiper-slide
+                    a(href='action.html').iaction.swiper-slide.jsAction
                         +image('images/content/index/actions/' + (x + 1) + '.jpg','iaction__img')
                         span.iaction__desc
                             span.iaction__left

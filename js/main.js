@@ -4,3 +4,4 @@
 //@prepros-append pages/basket.js
 //@prepros-append pages/mmenu.js
 //@prepros-append pages/popup.js
+//@prepros-append pages/addrs.js

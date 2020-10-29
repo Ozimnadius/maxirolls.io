@@ -105,7 +105,7 @@ $(function () {
     $('body').on('click', function (e) {
         let target = $(e.target);
         if (target.closest('.jsInfo').length == 0) {
-           closeInfos();
+            closeInfos();
         }
     });
 

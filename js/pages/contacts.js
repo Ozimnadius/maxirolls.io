@@ -11,15 +11,15 @@ $(function () {
 
     function init() {
 
-        var map = document.querySelector('#map');
+        var cmap = document.querySelector('#map');
 
-        if (map) {
-            var data = map.dataset,
+        if (cmap) {
+            var data = cmap.dataset,
                 center = data.center;
 
             myMap.map = new ymaps.Map("map", {
                 center: [data.centerX,data.centerY],
-                zoom: data.zoom
+                zoom: data.zoom,
             });
 
 

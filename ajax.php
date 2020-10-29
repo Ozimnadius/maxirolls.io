@@ -17,6 +17,40 @@ switch ($action) {
         ));
         exit();
         break;
+    case 'editAddrs':
+        echo json_encode(array(
+            'status' => true,
+            'html' => getEditAddrs()
+        ));
+        exit();
+        break;
+    case 'delAddr':
+        echo json_encode(array(
+            'status' => true
+        ));
+        exit();
+        break;
+    case 'addAddr':
+        echo json_encode(array(
+            'status' => true,
+            'html' => getEditAddrs()
+        ));
+        exit();
+        break;
+    case 'searchAddr':
+        echo json_encode(array(
+            'status' => true,
+            'html' => getSearchAddrs()
+        ));
+        exit();
+        break;
+    case 'editAddr':
+        echo json_encode(array(
+            'status' => true,
+            'html' => getEditAddr()
+        ));
+        exit();
+        break;
 
     case 'getProduct':
         echo json_encode(array(
@@ -800,7 +834,8 @@ function getAction()
 
     ob_start(); ?>
     <div class="acpopup">
-        <button class="jsFormClose acpopup__close" type="button"><svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+        <button class="jsFormClose acpopup__close" type="button">
+            <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
                 <path d="M17.7485 14.9999L29.4299 3.31816C30.1901 2.55831 30.1901 1.32974 29.4299 0.569888C28.67 -0.189963 27.4415 -0.189963 26.6816 0.569888L14.9998 12.2516L3.31843 0.569888C2.55822 -0.189963 1.33001 -0.189963 0.570155 0.569888C-0.190052 1.32974 -0.190052 2.55831 0.570155 3.31816L12.2516 14.9999L0.570155 26.6817C-0.190052 27.4415 -0.190052 28.6701 0.570155 29.43C0.948835 29.809 1.44674 29.9994 1.94429 29.9994C2.44184 29.9994 2.93939 29.809 3.31843 29.43L14.9998 17.7482L26.6816 29.43C27.0607 29.809 27.5582 29.9994 28.0558 29.9994C28.5533 29.9994 29.0509 29.809 29.4299 29.43C30.1901 28.6701 30.1901 27.4415 29.4299 26.6817L17.7485 14.9999Z"/>
             </svg>
         </button>
@@ -814,11 +849,130 @@ function getAction()
                 <li>от 699р - запечённый/ горячий ролл с лососем;</li>
                 <li>от 999р - пиццу "Копчёную" или "Пан-Чикен"!</li>
             </ul>
-            <p>Для участия нужно&nbsp;<a href="/account.html">зарегистрироваться&nbsp;</a>и в личном кабинете ввести дату рождения.</p>
+            <p>Для участия нужно&nbsp;<a href="/account.html">зарегистрироваться&nbsp;</a>и в личном кабинете ввести
+                дату рождения.</p>
         </div>
         <div class="acpopup__smalls">
-            <div class="acpopup__small"><i>*&nbsp;</i>Акции, скидки и промокоды НЕ СУММИРУЮТСЯ! В одном заказе может быть только один акционный товар.</div>
-            <div class="acpopup__small"><i>*&nbsp;</i>Акции, скидки и промокоды НЕ СУММИРУЮТСЯ! В одном заказе может быть только один акционный товар.</div>
+            <div class="acpopup__small"><i>*&nbsp;</i>Акции, скидки и промокоды НЕ СУММИРУЮТСЯ! В одном заказе может
+                быть только один акционный товар.
+            </div>
+            <div class="acpopup__small"><i>*&nbsp;</i>Акции, скидки и промокоды НЕ СУММИРУЮТСЯ! В одном заказе может
+                быть только один акционный товар.
+            </div>
+        </div>
+    </div>
+    <? $html = ob_get_contents();
+    ob_end_clean();
+    return $html;
+}
+
+function getEditAddrs()
+{
+    ob_start(); ?>
+    <form class="pmaddrs">
+        <h3 class="pmap__title pmaddrs__title">Мои адреса</h3>
+        <div class="pmaddrs__list">
+            <div class="pmaddrs__addr pmaddr">
+                <label class="pmaddr__label"><span class="pmaddr__edit"><svg width="21" height="20"
+                                                                             viewBox="0 0 21 20" fill="none"
+                                                                             xmlns="http://www.w3.org/2000/svg">
+<path d="M17.4088 9.9999C17.0143 9.9999 16.6945 10.3197 16.6945 10.7142V17.8569C16.6945 18.2514 16.3747 18.5712 15.9802 18.5712H3.1233C2.7288 18.5712 2.40901 18.2514 2.40901 17.8569V3.57142C2.40901 3.17692 2.7288 2.85713 3.1233 2.85713H11.6946C12.0891 2.85713 12.4089 2.53734 12.4089 2.14284C12.4089 1.74834 12.0891 1.42859 11.6946 1.42859H3.1233C1.93985 1.42859 0.980469 2.38797 0.980469 3.57142V17.8569C0.980469 19.0404 1.93985 19.9998 3.1233 19.9998H15.9803C17.1637 19.9998 18.1231 19.0404 18.1231 17.8569V10.7142C18.1231 10.3197 17.8033 9.9999 17.4088 9.9999Z"
+      fill="#FF4A00"/>
+<path d="M20.1799 0.800977C19.6671 0.288038 18.9714 -7.24037e-05 18.2461 1.13005e-05C17.5203 -0.00208131 16.824 0.286531 16.3126 0.801438L6.90408 10.2091C6.82603 10.2878 6.76714 10.3834 6.73195 10.4884L5.30341 14.7741C5.17873 15.1483 5.38108 15.5528 5.75537 15.6774C5.82798 15.7016 5.90403 15.714 5.98053 15.7141C6.0572 15.7139 6.13342 15.7016 6.20624 15.6777L10.4919 14.2491C10.5972 14.214 10.6928 14.1548 10.7712 14.0763L20.1796 4.66782C21.2475 3.60009 21.2476 1.86883 20.1799 0.800977ZM19.1697 3.65851L9.88404 12.9441L7.10979 13.8705L8.03334 11.0998L17.3225 1.81426C17.8332 1.30458 18.6604 1.30542 19.1701 1.8161C19.4135 2.06006 19.5507 2.39031 19.5518 2.73496C19.5526 3.08146 19.4151 3.41393 19.1697 3.65851Z"
+      fill="#FF4A00"/>
+</svg></span>
+                    <input class="pmaddr__input" type="radio" name="pmaddr" checked value="1"><span
+                            class="pmaddr__fake"><span class="pmaddr__round"></span><span
+                                class="pmaddr__title">г. Нефтекамск, ул. Петровско-Разумовская</span></span>
+                </label>
+                <button class="pmaddr__del" type="button">
+                    <svg width="20" height="19" viewBox="0 0 20 19" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.2212 9.50014L19.6194 2.10154C20.1008 1.6203 20.1008 0.842184 19.6194 0.360936C19.1381 -0.120312 18.36 -0.120312 17.8788 0.360936L10.4804 7.75953L3.08214 0.360936C2.60067 -0.120312 1.8228 -0.120312 1.34157 0.360936C0.860103 0.842184 0.860103 1.6203 1.34157 2.10154L8.73978 9.50014L1.34157 16.8987C0.860103 17.38 0.860103 18.1581 1.34157 18.6393C1.5814 18.8794 1.89674 19 2.21185 19C2.52697 19 2.84208 18.8794 3.08214 18.6393L10.4804 11.2407L17.8788 18.6393C18.1189 18.8794 18.434 19 18.7491 19C19.0642 19 19.3793 18.8794 19.6194 18.6393C20.1008 18.1581 20.1008 17.38 19.6194 16.8987L12.2212 9.50014Z"/>
+                    </svg>
+                    Удалить
+                </button>
+            </div>
+            <div class="pmaddrs__addr pmaddr">
+                <label class="pmaddr__label"><span class="pmaddr__edit"><svg width="21" height="20"
+                                                                             viewBox="0 0 21 20" fill="none"
+                                                                             xmlns="http://www.w3.org/2000/svg">
+<path d="M17.4088 9.9999C17.0143 9.9999 16.6945 10.3197 16.6945 10.7142V17.8569C16.6945 18.2514 16.3747 18.5712 15.9802 18.5712H3.1233C2.7288 18.5712 2.40901 18.2514 2.40901 17.8569V3.57142C2.40901 3.17692 2.7288 2.85713 3.1233 2.85713H11.6946C12.0891 2.85713 12.4089 2.53734 12.4089 2.14284C12.4089 1.74834 12.0891 1.42859 11.6946 1.42859H3.1233C1.93985 1.42859 0.980469 2.38797 0.980469 3.57142V17.8569C0.980469 19.0404 1.93985 19.9998 3.1233 19.9998H15.9803C17.1637 19.9998 18.1231 19.0404 18.1231 17.8569V10.7142C18.1231 10.3197 17.8033 9.9999 17.4088 9.9999Z"
+      fill="#FF4A00"/>
+<path d="M20.1799 0.800977C19.6671 0.288038 18.9714 -7.24037e-05 18.2461 1.13005e-05C17.5203 -0.00208131 16.824 0.286531 16.3126 0.801438L6.90408 10.2091C6.82603 10.2878 6.76714 10.3834 6.73195 10.4884L5.30341 14.7741C5.17873 15.1483 5.38108 15.5528 5.75537 15.6774C5.82798 15.7016 5.90403 15.714 5.98053 15.7141C6.0572 15.7139 6.13342 15.7016 6.20624 15.6777L10.4919 14.2491C10.5972 14.214 10.6928 14.1548 10.7712 14.0763L20.1796 4.66782C21.2475 3.60009 21.2476 1.86883 20.1799 0.800977ZM19.1697 3.65851L9.88404 12.9441L7.10979 13.8705L8.03334 11.0998L17.3225 1.81426C17.8332 1.30458 18.6604 1.30542 19.1701 1.8161C19.4135 2.06006 19.5507 2.39031 19.5518 2.73496C19.5526 3.08146 19.4151 3.41393 19.1697 3.65851Z"
+      fill="#FF4A00"/>
+</svg></span>
+                    <input class="pmaddr__input" type="radio" name="pmaddr" value="2"><span
+                            class="pmaddr__fake"><span class="pmaddr__round"></span><span
+                                class="pmaddr__title">г. Москва, ул. 1</span></span>
+                </label>
+                <button class="pmaddr__del" type="button">
+                    <svg width="20" height="19" viewBox="0 0 20 19" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.2212 9.50014L19.6194 2.10154C20.1008 1.6203 20.1008 0.842184 19.6194 0.360936C19.1381 -0.120312 18.36 -0.120312 17.8788 0.360936L10.4804 7.75953L3.08214 0.360936C2.60067 -0.120312 1.8228 -0.120312 1.34157 0.360936C0.860103 0.842184 0.860103 1.6203 1.34157 2.10154L8.73978 9.50014L1.34157 16.8987C0.860103 17.38 0.860103 18.1581 1.34157 18.6393C1.5814 18.8794 1.89674 19 2.21185 19C2.52697 19 2.84208 18.8794 3.08214 18.6393L10.4804 11.2407L17.8788 18.6393C18.1189 18.8794 18.434 19 18.7491 19C19.0642 19 19.3793 18.8794 19.6194 18.6393C20.1008 18.1581 20.1008 17.38 19.6194 16.8987L12.2212 9.50014Z"/>
+                    </svg>
+                    Удалить
+                </button>
+            </div>
+        </div>
+        <div class="pmaddrs__btns">
+            <button class="pmaddrs__add btn" type="button">
+                <svg width="12" height="11" viewBox="0 0 12 11" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5.20479 10.8749H7.72457V6.65312H11.9684V4.22175H7.72457V0H5.20479V4.22175H0.960938V6.65312H5.20479V10.8749Z"/>
+                </svg>
+                Добавить еще
+            </button>
+            <button class="pmaddrs__submit btn3" type="submit">Сохранить</button>
+        </div>
+    </form>
+    <? $html = ob_get_contents();
+    ob_end_clean();
+    return $html;
+}
+
+function getSearchAddrs()
+{
+    ob_start(); ?>
+    <div class="pmsearch">
+        <h3 class="pmap__title pmsearch__title">Укажите адрес доставки</h3>
+        <div class="pmsearch__controls">
+            <div class="pmsearch__addr">
+                <input class="input input" type="text" placeholder="Введите адрес" id="suggest">
+                <input type="hidden" name="searchAddr" value="">
+                <button class="pmsearch__clear" type="button"><svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12.2212 9.50014L19.6194 2.10154C20.1008 1.6203 20.1008 0.842184 19.6194 0.360936C19.1381 -0.120312 18.36 -0.120312 17.8788 0.360936L10.4804 7.75953L3.08214 0.360936C2.60067 -0.120312 1.8228 -0.120312 1.34157 0.360936C0.860103 0.842184 0.860103 1.6203 1.34157 2.10154L8.73978 9.50014L1.34157 16.8987C0.860103 17.38 0.860103 18.1581 1.34157 18.6393C1.5814 18.8794 1.89674 19 2.21185 19C2.52697 19 2.84208 18.8794 3.08214 18.6393L10.4804 11.2407L17.8788 18.6393C18.1189 18.8794 18.434 19 18.7491 19C19.0642 19 19.3793 18.8794 19.6194 18.6393C20.1008 18.1581 20.1008 17.38 19.6194 16.8987L12.2212 9.50014Z" fill="white"/>
+                    </svg>
+                </button>
+                <div class="pmsearch__error" id="notice">Адрес не найден</div>
+            </div>
+            <button class="pmsearch__submit btn3" type="button">ОК</button>
+        </div>
+        <div class="pmsearch__map"><img src="https://api-maps.yandex.ru/services/constructor/1.0/static/?um=constructor%3Aca411b09bd444fa6c669b434370daa167d15e40c80e93b3fc498740d3439a9f3&amp;width=600&amp;height=290&amp;lang=ru_RU" alt="" style="border: 0;" />
+            <div id="pmap"></div>
+        </div>
+    </div>
+    <? $html = ob_get_contents();
+    ob_end_clean();
+    return $html;
+}
+
+function getEditAddr()
+{
+    ob_start(); ?>
+    <div class="pmsearch">
+        <h3 class="pmap__title pmsearch__title">Укажите адрес доставки</h3>
+        <div class="pmsearch__controls">
+            <div class="pmsearch__addr active">
+                <input class="input input" type="text" placeholder="Введите адрес" id="suggest" value="Россия, Москва, улица Нижние Поля, 31">
+                <input type="hidden" name="searchAddr" value="Россия, Москва, улица Нижние Поля, 31">
+                <button class="pmsearch__clear" type="button"><svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12.2212 9.50014L19.6194 2.10154C20.1008 1.6203 20.1008 0.842184 19.6194 0.360936C19.1381 -0.120312 18.36 -0.120312 17.8788 0.360936L10.4804 7.75953L3.08214 0.360936C2.60067 -0.120312 1.8228 -0.120312 1.34157 0.360936C0.860103 0.842184 0.860103 1.6203 1.34157 2.10154L8.73978 9.50014L1.34157 16.8987C0.860103 17.38 0.860103 18.1581 1.34157 18.6393C1.5814 18.8794 1.89674 19 2.21185 19C2.52697 19 2.84208 18.8794 3.08214 18.6393L10.4804 11.2407L17.8788 18.6393C18.1189 18.8794 18.434 19 18.7491 19C19.0642 19 19.3793 18.8794 19.6194 18.6393C20.1008 18.1581 20.1008 17.38 19.6194 16.8987L12.2212 9.50014Z" fill="white"/>
+                    </svg>
+                </button>
+                <div class="pmsearch__error" id="notice">Адрес не найден</div>
+            </div>
+            <button class="pmsearch__submit btn3" type="button">ОК</button>
+        </div>
+        <div class="pmsearch__map"><img src="https://api-maps.yandex.ru/services/constructor/1.0/static/?um=constructor%3Aca411b09bd444fa6c669b434370daa167d15e40c80e93b3fc498740d3439a9f3&amp;width=600&amp;height=290&amp;lang=ru_RU" alt="" style="border: 0;" />
+            <div id="pmap"></div>
         </div>
     </div>
     <? $html = ob_get_contents();

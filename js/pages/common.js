@@ -285,6 +285,30 @@ function deleteMap() {
     }
 }
 
+function initTimer(form) {
+
+    let field = form.find('.reg__timer-val'),
+        count = 60;
+
+    form.find('.reg__timer').removeClass('refresh jsRegSms');
+    form.find('.reg__timer').addClass('active');
+
+    let timer = setInterval(() => {
+        count = count - 1;
+        if (String(count).length < 2) {
+            field.text('0:0' + count);
+        } else {
+            field.text('0:' + count);
+        }
+
+
+        if (count <= 0) {
+            clearInterval(timer);
+            form.find('.reg__timer').attr('type', 'submit').addClass('refresh jsRegSms');
+        }
+    }, 1000);
+}
+
 
 
 

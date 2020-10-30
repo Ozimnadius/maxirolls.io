@@ -36,26 +36,6 @@ $(function () {
         }
     });
 
-    // Выбор города
-    $('.jsMmenuSelect').on('click', function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-
-        let $this = $(this),
-            svg = $this.find('.mmitem__svg').html(),
-            title = $this.find('.mmitem__title').html(),
-            sub = $this.find('.mmitem__sub').html(),
-            item = $this.closest('.jsOpenWrap'),
-            itemDesc = item.children('.mmitem__desc'),
-            wrapper = $this.closest('.mmenu__wrap');
-
-        item.children('.mmitem__svg').html(svg);
-        itemDesc.find('.mmitem__title').html(title);
-        itemDesc.find('.mmitem__sub').html(sub);
-        wrapper.removeClass('active');
-
-    });
-
 
     // FUNCTIONS
     // Функция отрытия меню

@@ -1,6 +1,26 @@
 $(function () {
 
-    $('.badd__plus').on('click', function (e) {
+    // Выбор города
+    $('.jsMmenuSelect').on('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        let $this = $(this),
+            svg = $this.find('.mmitem__svg').html(),
+            title = $this.find('.mmitem__title').html(),
+            sub = $this.find('.mmitem__sub').html(),
+            item = $this.closest('.jsOpenWrap'),
+            itemDesc = item.children('.mmitem__desc'),
+            wrapper = $this.closest('.mmenu__wrap');
+
+        item.children('.mmitem__svg').html(svg);
+        itemDesc.find('.mmitem__title').html(title);
+        itemDesc.find('.mmitem__sub').html(sub);
+        wrapper.removeClass('active');
+
+    });
+
+    $('body').on('click','.badd__plus', function (e) {
         e.preventDefault();
         let $this = $(this),
             item = $this.closest('.badd'),
@@ -11,7 +31,7 @@ $(function () {
         checkBadd(item);
     });
 
-    $('.badd__minus').on('click', function (e) {
+    $('body').on('click','.badd__minus', function (e) {
         e.preventDefault();
 
         let $this = $(this),

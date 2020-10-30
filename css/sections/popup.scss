@@ -284,8 +284,13 @@
   }
 
   @include sm-block {
+    height: 100%;
     max-width: 100%;
+    width: 100vw;
     padding: 40px 20px 40px 20px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-bottom: 40px;
   }
 
   &__close {
@@ -971,12 +976,12 @@
   padding: 55px;
   position: relative;
 
-  @include lg-block{
+  @include lg-block {
     width: 700px;
     min-height: 538px;
     padding: 40px;
   }
-  @include sm-block{
+  @include sm-block {
     min-height: 100%;
     height: 100%;
     width: 100vw;
@@ -986,13 +991,19 @@
     overflow-x: hidden;
   }
 
+  &__main{
+    @include sm-block{
+      height: 100%;
+    }
+  }
+
   &__close {
     position: absolute;
     top: 17px;
     right: -40px;
     fill: $bg;
     @include tr;
-    @include sm-block{
+    @include sm-block {
       top: 20px;
       right: 20px;
       fill: #DBDBDB;
@@ -1004,7 +1015,7 @@
 
     svg {
       display: block;
-      @include sm-block{
+      @include sm-block {
         width: 20px;
         height: 20px;
       }
@@ -1015,7 +1026,7 @@
     color: #000000;
     font-size: 30px;
     font-weight: 500;
-    @include lg-block{
+    @include lg-block {
       font-size: 26px;
     }
   }
@@ -1046,7 +1057,7 @@
     justify-content: space-between;
     max-width: 540px;
     width: 100%;
-    @include sm-block{
+    @include sm-block {
       display: grid;
       grid-template-columns: 1fr;
       grid-gap: 15px;
@@ -1059,7 +1070,7 @@
     fill: $or;
     font-size: 16px;
     font-weight: 600;
-    @include sm-block{
+    @include sm-block {
       width: 100%;
     }
 
@@ -1074,7 +1085,7 @@
 
   &__submit {
     width: 181px;
-    @include sm-block{
+    @include sm-block {
       width: 100%;
       font-size: 16px;
     }
@@ -1086,7 +1097,7 @@
 .pmaddr {
   display: flex;
   align-items: center;
-  @include sm-block{
+  @include sm-block {
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 5px;
@@ -1100,7 +1111,7 @@
     z-index: 100;
     display: block;
     cursor: pointer;
-    @include sm-block{
+    @include sm-block {
       margin-right: 0;
     }
   }
@@ -1132,7 +1143,7 @@
     width: 100%;
     display: flex;
     align-items: center;
-    @include sm-block{
+    @include sm-block {
       border-radius: 6px;
       padding: 10px;
       padding-right: 40px;
@@ -1148,7 +1159,7 @@
     display: block;
     padding: 4px;
     margin-right: 20px;
-    @include sm-block{
+    @include sm-block {
       margin-right: 15px;
     }
 
@@ -1167,7 +1178,7 @@
     color: #242323;
     font-size: 16px;
     font-weight: 500;
-    @include sm-block{
+    @include sm-block {
       font-size: 14px;
     }
   }
@@ -1185,7 +1196,7 @@
     color: $border;
     @include tr;
 
-    @include sm-block{
+    @include sm-block {
       font-size: 14px;
       justify-self: flex-end;
     }
@@ -1196,7 +1207,7 @@
 
     svg {
       display: block;
-      @include sm-block{
+      @include sm-block {
         display: none;
       }
     }
@@ -1205,6 +1216,12 @@
 }
 
 .pmsearch {
+
+  @include sm-block {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
 
   &__title {
     margin-bottom: 20px;
@@ -1215,8 +1232,8 @@
     grid-template-columns: 1fr 100px;
     grid-gap: 10px;
     margin-bottom: 20px;
-    @include sm-block{
-        grid-template-columns: 1fr;
+    @include sm-block {
+      grid-template-columns: 1fr;
       grid-gap: 20px;
     }
   }
@@ -1224,10 +1241,10 @@
   &__addr {
     position: relative;
 
-    input{
+    input {
       font-weight: 600;
       padding-right: 40px;
-      @include sm-block{
+      @include sm-block {
         font-size: 14px;
       }
     }
@@ -1239,12 +1256,13 @@
         border-color: $or;
         color: $bg;
         pointer-events: none;
-        &::placeholder{
-          color: rgba($bg,.7);
+
+        &::placeholder {
+          color: rgba($bg, .7);
         }
       }
 
-      .pmsearch__clear{
+      .pmsearch__clear {
         display: block;
       }
 
@@ -1258,7 +1276,7 @@
     right: 15px;
     display: none;
 
-    svg{
+    svg {
       display: block;
     }
   }
@@ -1280,9 +1298,13 @@
     height: 50px;
   }
 
-  &__map{
+  &__map {
     position: relative;
-    img{
+    @include sm-block{
+      flex-grow: 1;
+    }
+
+    img {
       position: absolute;
       top: 0;
       left: 0;
@@ -1297,7 +1319,10 @@
 #pmap {
   width: 100%;
   height: 376px;
-  @include lg-block{
+  @include lg-block {
     height: 295px;
+  }
+  @include sm-block{
+    height: 100%;
   }
 }
